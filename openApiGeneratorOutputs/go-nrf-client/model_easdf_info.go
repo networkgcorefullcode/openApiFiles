@@ -1,7 +1,7 @@
 /*
 NRF NFManagement Service
 
-NRF NFManagement Service.   © 2024, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).   All rights reserved. 
+NRF NFManagement Service.   © 2024, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).   All rights reserved.
 
 API version: 1.4.0-alpha.2
 */
@@ -19,12 +19,12 @@ var _ MappedNullable = &EasdfInfo{}
 
 // EasdfInfo Information of an EASDF NF Instance
 type EasdfInfo struct {
-	SNssaiEasdfInfoList []SnssaiEasdfInfoItem `json:"sNssaiEasdfInfoList,omitempty"`
-	EasdfN6IpAddressList []IpAddr `json:"easdfN6IpAddressList,omitempty"`
-	UpfN6IpAddressList []IpAddr `json:"upfN6IpAddressList,omitempty"`
-	// A map of InterfaceUpfInfoItems containing the N6 tunnelling information for establishing  a N6 tunnel between the V-UPF and the V-EASDF, where a valid JSON string serves as key. 
-	N6TunnelInfoList *map[string]InterfaceUpfInfoItem `json:"n6TunnelInfoList,omitempty"`
-	DnsSecurityProtocols []DnsSecurityProtocol `json:"dnsSecurityProtocols,omitempty"`
+	SNssaiEasdfInfoList  []SnssaiEasdfInfoItem `json:"sNssaiEasdfInfoList,omitempty"`
+	EasdfN6IpAddressList []IpAddr              `json:"easdfN6IpAddressList,omitempty"`
+	UpfN6IpAddressList   []IpAddr              `json:"upfN6IpAddressList,omitempty"`
+	// A map of InterfaceUpfInfoItems containing the N6 tunnelling information for establishing  a N6 tunnel between the V-UPF and the V-EASDF, where a valid JSON string serves as key.
+	N6TunnelInfoList     *map[string]InterfaceUpfInfoItem `json:"n6TunnelInfoList,omitempty"`
+	DnsSecurityProtocols []DnsSecurityProtocol            `json:"dnsSecurityProtocols,omitempty"`
 }
 
 // NewEasdfInfo instantiates a new EasdfInfo object
@@ -205,7 +205,7 @@ func (o *EasdfInfo) SetDnsSecurityProtocols(v []DnsSecurityProtocol) {
 }
 
 func (o EasdfInfo) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -267,5 +267,3 @@ func (v *NullableEasdfInfo) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-
