@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Op** | [**ChangeType**](ChangeType.md) |  | 
-**Path** | **string** |  | 
-**From** | Pointer to **string** |  | [optional] 
+**Path** | **string** | contains a JSON pointer value (as defined in IETF RFC 6901) that references a target  location within the resource on which the change has been applied.  | 
+**From** | Pointer to **string** | indicates the path of the source JSON element (according to JSON Pointer syntax)  being moved or copied to the location indicated by the \&quot;path\&quot; attribute. It shall  be present if the \&quot;op\&quot; attribute is of value \&quot;MOVE\&quot;.  | [optional] 
 **OrigValue** | Pointer to **interface{}** |  | [optional] 
 **NewValue** | Pointer to **interface{}** |  | [optional] 
 

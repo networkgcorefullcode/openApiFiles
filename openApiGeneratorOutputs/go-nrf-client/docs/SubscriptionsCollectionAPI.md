@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## CreateSubscription
 
-> SubscriptionData CreateSubscription(ctx).SubscriptionData(subscriptionData).Execute()
+> SubscriptionData CreateSubscription(ctx).SubscriptionData(subscriptionData).ContentEncoding(contentEncoding).AcceptEncoding(acceptEncoding).Execute()
 
 Create a new subscription
 
@@ -27,11 +27,13 @@ import (
 )
 
 func main() {
-	subscriptionData := *openapiclient.NewSubscriptionData("NfStatusNotificationUri_example", "SubscriptionId_example") // SubscriptionData | 
+	subscriptionData := *openapiclient.NewSubscriptionData("NfStatusNotificationUri_example") // SubscriptionData | 
+	contentEncoding := "contentEncoding_example" // string | Content-Encoding, described in IETF RFC 9110 (optional)
+	acceptEncoding := "acceptEncoding_example" // string | Accept-Encoding, described in IETF RFC 9110 (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SubscriptionsCollectionAPI.CreateSubscription(context.Background()).SubscriptionData(subscriptionData).Execute()
+	resp, r, err := apiClient.SubscriptionsCollectionAPI.CreateSubscription(context.Background()).SubscriptionData(subscriptionData).ContentEncoding(contentEncoding).AcceptEncoding(acceptEncoding).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SubscriptionsCollectionAPI.CreateSubscription``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -53,6 +55,8 @@ Other parameters are passed through a pointer to a apiCreateSubscriptionRequest 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **subscriptionData** | [**SubscriptionData**](SubscriptionData.md) |  | 
+ **contentEncoding** | **string** | Content-Encoding, described in IETF RFC 9110 | 
+ **acceptEncoding** | **string** | Accept-Encoding, described in IETF RFC 9110 | 
 
 ### Return type
 

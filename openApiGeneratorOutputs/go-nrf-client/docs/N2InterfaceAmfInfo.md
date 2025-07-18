@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Ipv4EndpointAddress** | Pointer to **[]string** |  | [optional] 
 **Ipv6EndpointAddress** | Pointer to [**[]Ipv6Addr**](Ipv6Addr.md) |  | [optional] 
-**AmfName** | Pointer to **string** |  | [optional] 
+**AmfName** | Pointer to **string** | Fully Qualified Domain Name | [optional] 
 
 ## Methods
 

@@ -9,21 +9,40 @@ Name | Type | Description | Notes
 **Versions** | [**[]NFServiceVersion**](NFServiceVersion.md) |  | 
 **Scheme** | [**UriScheme**](UriScheme.md) |  | 
 **NfServiceStatus** | [**NFServiceStatus**](NFServiceStatus.md) |  | 
-**Fqdn** | Pointer to **string** |  | [optional] 
-**InterPlmnFqdn** | Pointer to **string** |  | [optional] 
+**Fqdn** | Pointer to **string** | Fully Qualified Domain Name | [optional] 
+**InterPlmnFqdn** | Pointer to **string** | Fully Qualified Domain Name | [optional] 
 **IpEndPoints** | Pointer to [**[]IpEndPoint**](IpEndPoint.md) |  | [optional] 
 **ApiPrefix** | Pointer to **string** |  | [optional] 
+**CallbackUriPrefixList** | Pointer to [**[]CallbackUriPrefixItem**](CallbackUriPrefixItem.md) |  | [optional] 
 **DefaultNotificationSubscriptions** | Pointer to [**[]DefaultNotificationSubscription**](DefaultNotificationSubscription.md) |  | [optional] 
 **AllowedPlmns** | Pointer to [**[]PlmnId**](PlmnId.md) |  | [optional] 
+**AllowedSnpns** | Pointer to [**[]PlmnIdNid**](PlmnIdNid.md) |  | [optional] 
 **AllowedNfTypes** | Pointer to [**[]NFType**](NFType.md) |  | [optional] 
 **AllowedNfDomains** | Pointer to **[]string** |  | [optional] 
-**AllowedNssais** | Pointer to [**[]Snssai**](Snssai.md) |  | [optional] 
+**AllowedNssais** | Pointer to [**[]ExtSnssai**](ExtSnssai.md) |  | [optional] 
+**AllowedOperationsPerNfType** | Pointer to **map[string][]string** | A map (list of key-value pairs) where NF Type serves as key | [optional] 
+**AllowedOperationsPerNfInstance** | Pointer to **map[string][]string** | A map (list of key-value pairs) where NF Instance Id serves as key | [optional] 
+**AllowedOperationsPerNfInstanceOverrides** | Pointer to **bool** |  | [optional] [default to false]
+**AllowedScopesRuleSet** | Pointer to [**map[string]RuleSet**](RuleSet.md) | A map (list of key-value pairs) where a valid JSON pointer Id serves as key | [optional] 
 **Priority** | Pointer to **int32** |  | [optional] 
 **Capacity** | Pointer to **int32** |  | [optional] 
 **Load** | Pointer to **int32** |  | [optional] 
-**RecoveryTime** | Pointer to **time.Time** |  | [optional] 
-**ChfServiceInfo** | Pointer to [**ChfServiceInfo**](ChfServiceInfo.md) |  | [optional] 
-**SupportedFeatures** | Pointer to **string** |  | [optional] 
+**LoadTimeStamp** | Pointer to **time.Time** | string with format &#39;date-time&#39; as defined in OpenAPI. | [optional] 
+**RecoveryTime** | Pointer to **time.Time** | string with format &#39;date-time&#39; as defined in OpenAPI. | [optional] 
+**SupportedFeatures** | Pointer to **string** | A string used to indicate the features supported by an API that is used as defined in clause  6.6 in 3GPP TS 29.500. The string shall contain a bitmask indicating supported features in  hexadecimal representation Each character in the string shall take a value of \&quot;0\&quot; to \&quot;9\&quot;,  \&quot;a\&quot; to \&quot;f\&quot; or \&quot;A\&quot; to \&quot;F\&quot; and shall represent the support of 4 features as described in  table 5.2.2-3. The most significant character representing the highest-numbered features shall  appear first in the string, and the character representing features 1 to 4 shall appear last  in the string. The list of features and their numbering (starting with 1) are defined  separately for each API. If the string contains a lower number of characters than there are  defined features for an API, all features that would be represented by characters that are not  present in the string are not supported.  | [optional] 
+**NfServiceSetIdList** | Pointer to **[]string** |  | [optional] 
+**SNssais** | Pointer to [**[]ExtSnssai**](ExtSnssai.md) |  | [optional] 
+**PerPlmnSnssaiList** | Pointer to [**[]PlmnSnssai**](PlmnSnssai.md) |  | [optional] 
+**VendorId** | Pointer to **string** | Vendor ID of the NF Service instance (Private Enterprise Number assigned by IANA) | [optional] 
+**SupportedVendorSpecificFeatures** | Pointer to [**map[string][]VendorSpecificFeature**](array.md) | A map (list of key-value pairs) where IANA-assigned SMI Network Management Private Enterprise Codes serves as key  | [optional] 
+**Oauth2Required** | Pointer to **bool** |  | [optional] 
+**PerPlmnOauth2ReqList** | Pointer to [**PlmnOauth2**](PlmnOauth2.md) |  | [optional] 
+**SelectionConditions** | Pointer to [**SelectionConditions**](SelectionConditions.md) |  | [optional] 
+**CanaryRelease** | Pointer to **bool** |  | [optional] [default to false]
+**ExclusiveCanaryReleaseSelection** | Pointer to **bool** |  | [optional] [default to false]
+**SharedServiceDataId** | Pointer to **string** |  | [optional] 
+**ShutdownTime** | Pointer to **time.Time** | string with format &#39;date-time&#39; as defined in OpenAPI. | [optional] 
+**CanaryPrecedenceOverPreferred** | Pointer to **bool** |  | [optional] [default to false]
 
 ## Methods
 
@@ -244,6 +263,31 @@ SetApiPrefix sets ApiPrefix field to given value.
 
 HasApiPrefix returns a boolean if a field has been set.
 
+### GetCallbackUriPrefixList
+
+`func (o *NFService) GetCallbackUriPrefixList() []CallbackUriPrefixItem`
+
+GetCallbackUriPrefixList returns the CallbackUriPrefixList field if non-nil, zero value otherwise.
+
+### GetCallbackUriPrefixListOk
+
+`func (o *NFService) GetCallbackUriPrefixListOk() (*[]CallbackUriPrefixItem, bool)`
+
+GetCallbackUriPrefixListOk returns a tuple with the CallbackUriPrefixList field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCallbackUriPrefixList
+
+`func (o *NFService) SetCallbackUriPrefixList(v []CallbackUriPrefixItem)`
+
+SetCallbackUriPrefixList sets CallbackUriPrefixList field to given value.
+
+### HasCallbackUriPrefixList
+
+`func (o *NFService) HasCallbackUriPrefixList() bool`
+
+HasCallbackUriPrefixList returns a boolean if a field has been set.
+
 ### GetDefaultNotificationSubscriptions
 
 `func (o *NFService) GetDefaultNotificationSubscriptions() []DefaultNotificationSubscription`
@@ -293,6 +337,31 @@ SetAllowedPlmns sets AllowedPlmns field to given value.
 `func (o *NFService) HasAllowedPlmns() bool`
 
 HasAllowedPlmns returns a boolean if a field has been set.
+
+### GetAllowedSnpns
+
+`func (o *NFService) GetAllowedSnpns() []PlmnIdNid`
+
+GetAllowedSnpns returns the AllowedSnpns field if non-nil, zero value otherwise.
+
+### GetAllowedSnpnsOk
+
+`func (o *NFService) GetAllowedSnpnsOk() (*[]PlmnIdNid, bool)`
+
+GetAllowedSnpnsOk returns a tuple with the AllowedSnpns field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAllowedSnpns
+
+`func (o *NFService) SetAllowedSnpns(v []PlmnIdNid)`
+
+SetAllowedSnpns sets AllowedSnpns field to given value.
+
+### HasAllowedSnpns
+
+`func (o *NFService) HasAllowedSnpns() bool`
+
+HasAllowedSnpns returns a boolean if a field has been set.
 
 ### GetAllowedNfTypes
 
@@ -346,20 +415,20 @@ HasAllowedNfDomains returns a boolean if a field has been set.
 
 ### GetAllowedNssais
 
-`func (o *NFService) GetAllowedNssais() []Snssai`
+`func (o *NFService) GetAllowedNssais() []ExtSnssai`
 
 GetAllowedNssais returns the AllowedNssais field if non-nil, zero value otherwise.
 
 ### GetAllowedNssaisOk
 
-`func (o *NFService) GetAllowedNssaisOk() (*[]Snssai, bool)`
+`func (o *NFService) GetAllowedNssaisOk() (*[]ExtSnssai, bool)`
 
 GetAllowedNssaisOk returns a tuple with the AllowedNssais field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAllowedNssais
 
-`func (o *NFService) SetAllowedNssais(v []Snssai)`
+`func (o *NFService) SetAllowedNssais(v []ExtSnssai)`
 
 SetAllowedNssais sets AllowedNssais field to given value.
 
@@ -368,6 +437,106 @@ SetAllowedNssais sets AllowedNssais field to given value.
 `func (o *NFService) HasAllowedNssais() bool`
 
 HasAllowedNssais returns a boolean if a field has been set.
+
+### GetAllowedOperationsPerNfType
+
+`func (o *NFService) GetAllowedOperationsPerNfType() map[string][]string`
+
+GetAllowedOperationsPerNfType returns the AllowedOperationsPerNfType field if non-nil, zero value otherwise.
+
+### GetAllowedOperationsPerNfTypeOk
+
+`func (o *NFService) GetAllowedOperationsPerNfTypeOk() (*map[string][]string, bool)`
+
+GetAllowedOperationsPerNfTypeOk returns a tuple with the AllowedOperationsPerNfType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAllowedOperationsPerNfType
+
+`func (o *NFService) SetAllowedOperationsPerNfType(v map[string][]string)`
+
+SetAllowedOperationsPerNfType sets AllowedOperationsPerNfType field to given value.
+
+### HasAllowedOperationsPerNfType
+
+`func (o *NFService) HasAllowedOperationsPerNfType() bool`
+
+HasAllowedOperationsPerNfType returns a boolean if a field has been set.
+
+### GetAllowedOperationsPerNfInstance
+
+`func (o *NFService) GetAllowedOperationsPerNfInstance() map[string][]string`
+
+GetAllowedOperationsPerNfInstance returns the AllowedOperationsPerNfInstance field if non-nil, zero value otherwise.
+
+### GetAllowedOperationsPerNfInstanceOk
+
+`func (o *NFService) GetAllowedOperationsPerNfInstanceOk() (*map[string][]string, bool)`
+
+GetAllowedOperationsPerNfInstanceOk returns a tuple with the AllowedOperationsPerNfInstance field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAllowedOperationsPerNfInstance
+
+`func (o *NFService) SetAllowedOperationsPerNfInstance(v map[string][]string)`
+
+SetAllowedOperationsPerNfInstance sets AllowedOperationsPerNfInstance field to given value.
+
+### HasAllowedOperationsPerNfInstance
+
+`func (o *NFService) HasAllowedOperationsPerNfInstance() bool`
+
+HasAllowedOperationsPerNfInstance returns a boolean if a field has been set.
+
+### GetAllowedOperationsPerNfInstanceOverrides
+
+`func (o *NFService) GetAllowedOperationsPerNfInstanceOverrides() bool`
+
+GetAllowedOperationsPerNfInstanceOverrides returns the AllowedOperationsPerNfInstanceOverrides field if non-nil, zero value otherwise.
+
+### GetAllowedOperationsPerNfInstanceOverridesOk
+
+`func (o *NFService) GetAllowedOperationsPerNfInstanceOverridesOk() (*bool, bool)`
+
+GetAllowedOperationsPerNfInstanceOverridesOk returns a tuple with the AllowedOperationsPerNfInstanceOverrides field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAllowedOperationsPerNfInstanceOverrides
+
+`func (o *NFService) SetAllowedOperationsPerNfInstanceOverrides(v bool)`
+
+SetAllowedOperationsPerNfInstanceOverrides sets AllowedOperationsPerNfInstanceOverrides field to given value.
+
+### HasAllowedOperationsPerNfInstanceOverrides
+
+`func (o *NFService) HasAllowedOperationsPerNfInstanceOverrides() bool`
+
+HasAllowedOperationsPerNfInstanceOverrides returns a boolean if a field has been set.
+
+### GetAllowedScopesRuleSet
+
+`func (o *NFService) GetAllowedScopesRuleSet() map[string]RuleSet`
+
+GetAllowedScopesRuleSet returns the AllowedScopesRuleSet field if non-nil, zero value otherwise.
+
+### GetAllowedScopesRuleSetOk
+
+`func (o *NFService) GetAllowedScopesRuleSetOk() (*map[string]RuleSet, bool)`
+
+GetAllowedScopesRuleSetOk returns a tuple with the AllowedScopesRuleSet field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAllowedScopesRuleSet
+
+`func (o *NFService) SetAllowedScopesRuleSet(v map[string]RuleSet)`
+
+SetAllowedScopesRuleSet sets AllowedScopesRuleSet field to given value.
+
+### HasAllowedScopesRuleSet
+
+`func (o *NFService) HasAllowedScopesRuleSet() bool`
+
+HasAllowedScopesRuleSet returns a boolean if a field has been set.
 
 ### GetPriority
 
@@ -444,6 +613,31 @@ SetLoad sets Load field to given value.
 
 HasLoad returns a boolean if a field has been set.
 
+### GetLoadTimeStamp
+
+`func (o *NFService) GetLoadTimeStamp() time.Time`
+
+GetLoadTimeStamp returns the LoadTimeStamp field if non-nil, zero value otherwise.
+
+### GetLoadTimeStampOk
+
+`func (o *NFService) GetLoadTimeStampOk() (*time.Time, bool)`
+
+GetLoadTimeStampOk returns a tuple with the LoadTimeStamp field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLoadTimeStamp
+
+`func (o *NFService) SetLoadTimeStamp(v time.Time)`
+
+SetLoadTimeStamp sets LoadTimeStamp field to given value.
+
+### HasLoadTimeStamp
+
+`func (o *NFService) HasLoadTimeStamp() bool`
+
+HasLoadTimeStamp returns a boolean if a field has been set.
+
 ### GetRecoveryTime
 
 `func (o *NFService) GetRecoveryTime() time.Time`
@@ -469,31 +663,6 @@ SetRecoveryTime sets RecoveryTime field to given value.
 
 HasRecoveryTime returns a boolean if a field has been set.
 
-### GetChfServiceInfo
-
-`func (o *NFService) GetChfServiceInfo() ChfServiceInfo`
-
-GetChfServiceInfo returns the ChfServiceInfo field if non-nil, zero value otherwise.
-
-### GetChfServiceInfoOk
-
-`func (o *NFService) GetChfServiceInfoOk() (*ChfServiceInfo, bool)`
-
-GetChfServiceInfoOk returns a tuple with the ChfServiceInfo field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetChfServiceInfo
-
-`func (o *NFService) SetChfServiceInfo(v ChfServiceInfo)`
-
-SetChfServiceInfo sets ChfServiceInfo field to given value.
-
-### HasChfServiceInfo
-
-`func (o *NFService) HasChfServiceInfo() bool`
-
-HasChfServiceInfo returns a boolean if a field has been set.
-
 ### GetSupportedFeatures
 
 `func (o *NFService) GetSupportedFeatures() string`
@@ -518,6 +687,331 @@ SetSupportedFeatures sets SupportedFeatures field to given value.
 `func (o *NFService) HasSupportedFeatures() bool`
 
 HasSupportedFeatures returns a boolean if a field has been set.
+
+### GetNfServiceSetIdList
+
+`func (o *NFService) GetNfServiceSetIdList() []string`
+
+GetNfServiceSetIdList returns the NfServiceSetIdList field if non-nil, zero value otherwise.
+
+### GetNfServiceSetIdListOk
+
+`func (o *NFService) GetNfServiceSetIdListOk() (*[]string, bool)`
+
+GetNfServiceSetIdListOk returns a tuple with the NfServiceSetIdList field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNfServiceSetIdList
+
+`func (o *NFService) SetNfServiceSetIdList(v []string)`
+
+SetNfServiceSetIdList sets NfServiceSetIdList field to given value.
+
+### HasNfServiceSetIdList
+
+`func (o *NFService) HasNfServiceSetIdList() bool`
+
+HasNfServiceSetIdList returns a boolean if a field has been set.
+
+### GetSNssais
+
+`func (o *NFService) GetSNssais() []ExtSnssai`
+
+GetSNssais returns the SNssais field if non-nil, zero value otherwise.
+
+### GetSNssaisOk
+
+`func (o *NFService) GetSNssaisOk() (*[]ExtSnssai, bool)`
+
+GetSNssaisOk returns a tuple with the SNssais field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSNssais
+
+`func (o *NFService) SetSNssais(v []ExtSnssai)`
+
+SetSNssais sets SNssais field to given value.
+
+### HasSNssais
+
+`func (o *NFService) HasSNssais() bool`
+
+HasSNssais returns a boolean if a field has been set.
+
+### GetPerPlmnSnssaiList
+
+`func (o *NFService) GetPerPlmnSnssaiList() []PlmnSnssai`
+
+GetPerPlmnSnssaiList returns the PerPlmnSnssaiList field if non-nil, zero value otherwise.
+
+### GetPerPlmnSnssaiListOk
+
+`func (o *NFService) GetPerPlmnSnssaiListOk() (*[]PlmnSnssai, bool)`
+
+GetPerPlmnSnssaiListOk returns a tuple with the PerPlmnSnssaiList field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPerPlmnSnssaiList
+
+`func (o *NFService) SetPerPlmnSnssaiList(v []PlmnSnssai)`
+
+SetPerPlmnSnssaiList sets PerPlmnSnssaiList field to given value.
+
+### HasPerPlmnSnssaiList
+
+`func (o *NFService) HasPerPlmnSnssaiList() bool`
+
+HasPerPlmnSnssaiList returns a boolean if a field has been set.
+
+### GetVendorId
+
+`func (o *NFService) GetVendorId() string`
+
+GetVendorId returns the VendorId field if non-nil, zero value otherwise.
+
+### GetVendorIdOk
+
+`func (o *NFService) GetVendorIdOk() (*string, bool)`
+
+GetVendorIdOk returns a tuple with the VendorId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetVendorId
+
+`func (o *NFService) SetVendorId(v string)`
+
+SetVendorId sets VendorId field to given value.
+
+### HasVendorId
+
+`func (o *NFService) HasVendorId() bool`
+
+HasVendorId returns a boolean if a field has been set.
+
+### GetSupportedVendorSpecificFeatures
+
+`func (o *NFService) GetSupportedVendorSpecificFeatures() map[string][]VendorSpecificFeature`
+
+GetSupportedVendorSpecificFeatures returns the SupportedVendorSpecificFeatures field if non-nil, zero value otherwise.
+
+### GetSupportedVendorSpecificFeaturesOk
+
+`func (o *NFService) GetSupportedVendorSpecificFeaturesOk() (*map[string][]VendorSpecificFeature, bool)`
+
+GetSupportedVendorSpecificFeaturesOk returns a tuple with the SupportedVendorSpecificFeatures field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSupportedVendorSpecificFeatures
+
+`func (o *NFService) SetSupportedVendorSpecificFeatures(v map[string][]VendorSpecificFeature)`
+
+SetSupportedVendorSpecificFeatures sets SupportedVendorSpecificFeatures field to given value.
+
+### HasSupportedVendorSpecificFeatures
+
+`func (o *NFService) HasSupportedVendorSpecificFeatures() bool`
+
+HasSupportedVendorSpecificFeatures returns a boolean if a field has been set.
+
+### GetOauth2Required
+
+`func (o *NFService) GetOauth2Required() bool`
+
+GetOauth2Required returns the Oauth2Required field if non-nil, zero value otherwise.
+
+### GetOauth2RequiredOk
+
+`func (o *NFService) GetOauth2RequiredOk() (*bool, bool)`
+
+GetOauth2RequiredOk returns a tuple with the Oauth2Required field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOauth2Required
+
+`func (o *NFService) SetOauth2Required(v bool)`
+
+SetOauth2Required sets Oauth2Required field to given value.
+
+### HasOauth2Required
+
+`func (o *NFService) HasOauth2Required() bool`
+
+HasOauth2Required returns a boolean if a field has been set.
+
+### GetPerPlmnOauth2ReqList
+
+`func (o *NFService) GetPerPlmnOauth2ReqList() PlmnOauth2`
+
+GetPerPlmnOauth2ReqList returns the PerPlmnOauth2ReqList field if non-nil, zero value otherwise.
+
+### GetPerPlmnOauth2ReqListOk
+
+`func (o *NFService) GetPerPlmnOauth2ReqListOk() (*PlmnOauth2, bool)`
+
+GetPerPlmnOauth2ReqListOk returns a tuple with the PerPlmnOauth2ReqList field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPerPlmnOauth2ReqList
+
+`func (o *NFService) SetPerPlmnOauth2ReqList(v PlmnOauth2)`
+
+SetPerPlmnOauth2ReqList sets PerPlmnOauth2ReqList field to given value.
+
+### HasPerPlmnOauth2ReqList
+
+`func (o *NFService) HasPerPlmnOauth2ReqList() bool`
+
+HasPerPlmnOauth2ReqList returns a boolean if a field has been set.
+
+### GetSelectionConditions
+
+`func (o *NFService) GetSelectionConditions() SelectionConditions`
+
+GetSelectionConditions returns the SelectionConditions field if non-nil, zero value otherwise.
+
+### GetSelectionConditionsOk
+
+`func (o *NFService) GetSelectionConditionsOk() (*SelectionConditions, bool)`
+
+GetSelectionConditionsOk returns a tuple with the SelectionConditions field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSelectionConditions
+
+`func (o *NFService) SetSelectionConditions(v SelectionConditions)`
+
+SetSelectionConditions sets SelectionConditions field to given value.
+
+### HasSelectionConditions
+
+`func (o *NFService) HasSelectionConditions() bool`
+
+HasSelectionConditions returns a boolean if a field has been set.
+
+### GetCanaryRelease
+
+`func (o *NFService) GetCanaryRelease() bool`
+
+GetCanaryRelease returns the CanaryRelease field if non-nil, zero value otherwise.
+
+### GetCanaryReleaseOk
+
+`func (o *NFService) GetCanaryReleaseOk() (*bool, bool)`
+
+GetCanaryReleaseOk returns a tuple with the CanaryRelease field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCanaryRelease
+
+`func (o *NFService) SetCanaryRelease(v bool)`
+
+SetCanaryRelease sets CanaryRelease field to given value.
+
+### HasCanaryRelease
+
+`func (o *NFService) HasCanaryRelease() bool`
+
+HasCanaryRelease returns a boolean if a field has been set.
+
+### GetExclusiveCanaryReleaseSelection
+
+`func (o *NFService) GetExclusiveCanaryReleaseSelection() bool`
+
+GetExclusiveCanaryReleaseSelection returns the ExclusiveCanaryReleaseSelection field if non-nil, zero value otherwise.
+
+### GetExclusiveCanaryReleaseSelectionOk
+
+`func (o *NFService) GetExclusiveCanaryReleaseSelectionOk() (*bool, bool)`
+
+GetExclusiveCanaryReleaseSelectionOk returns a tuple with the ExclusiveCanaryReleaseSelection field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExclusiveCanaryReleaseSelection
+
+`func (o *NFService) SetExclusiveCanaryReleaseSelection(v bool)`
+
+SetExclusiveCanaryReleaseSelection sets ExclusiveCanaryReleaseSelection field to given value.
+
+### HasExclusiveCanaryReleaseSelection
+
+`func (o *NFService) HasExclusiveCanaryReleaseSelection() bool`
+
+HasExclusiveCanaryReleaseSelection returns a boolean if a field has been set.
+
+### GetSharedServiceDataId
+
+`func (o *NFService) GetSharedServiceDataId() string`
+
+GetSharedServiceDataId returns the SharedServiceDataId field if non-nil, zero value otherwise.
+
+### GetSharedServiceDataIdOk
+
+`func (o *NFService) GetSharedServiceDataIdOk() (*string, bool)`
+
+GetSharedServiceDataIdOk returns a tuple with the SharedServiceDataId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSharedServiceDataId
+
+`func (o *NFService) SetSharedServiceDataId(v string)`
+
+SetSharedServiceDataId sets SharedServiceDataId field to given value.
+
+### HasSharedServiceDataId
+
+`func (o *NFService) HasSharedServiceDataId() bool`
+
+HasSharedServiceDataId returns a boolean if a field has been set.
+
+### GetShutdownTime
+
+`func (o *NFService) GetShutdownTime() time.Time`
+
+GetShutdownTime returns the ShutdownTime field if non-nil, zero value otherwise.
+
+### GetShutdownTimeOk
+
+`func (o *NFService) GetShutdownTimeOk() (*time.Time, bool)`
+
+GetShutdownTimeOk returns a tuple with the ShutdownTime field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetShutdownTime
+
+`func (o *NFService) SetShutdownTime(v time.Time)`
+
+SetShutdownTime sets ShutdownTime field to given value.
+
+### HasShutdownTime
+
+`func (o *NFService) HasShutdownTime() bool`
+
+HasShutdownTime returns a boolean if a field has been set.
+
+### GetCanaryPrecedenceOverPreferred
+
+`func (o *NFService) GetCanaryPrecedenceOverPreferred() bool`
+
+GetCanaryPrecedenceOverPreferred returns the CanaryPrecedenceOverPreferred field if non-nil, zero value otherwise.
+
+### GetCanaryPrecedenceOverPreferredOk
+
+`func (o *NFService) GetCanaryPrecedenceOverPreferredOk() (*bool, bool)`
+
+GetCanaryPrecedenceOverPreferredOk returns a tuple with the CanaryPrecedenceOverPreferred field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCanaryPrecedenceOverPreferred
+
+`func (o *NFService) SetCanaryPrecedenceOverPreferred(v bool)`
+
+SetCanaryPrecedenceOverPreferred sets CanaryPrecedenceOverPreferred field to given value.
+
+### HasCanaryPrecedenceOverPreferred
+
+`func (o *NFService) HasCanaryPrecedenceOverPreferred() bool`
+
+HasCanaryPrecedenceOverPreferred returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

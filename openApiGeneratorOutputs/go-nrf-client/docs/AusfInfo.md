@@ -4,9 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**GroupId** | Pointer to **string** |  | [optional] 
+**GroupId** | Pointer to **string** | Identifier of a group of NFs. | [optional] 
 **SupiRanges** | Pointer to [**[]SupiRange**](SupiRange.md) |  | [optional] 
 **RoutingIndicators** | Pointer to **[]string** |  | [optional] 
+**SuciInfos** | Pointer to [**[]SuciInfo**](SuciInfo.md) |  | [optional] 
 
 ## Methods
 
@@ -101,6 +102,31 @@ SetRoutingIndicators sets RoutingIndicators field to given value.
 `func (o *AusfInfo) HasRoutingIndicators() bool`
 
 HasRoutingIndicators returns a boolean if a field has been set.
+
+### GetSuciInfos
+
+`func (o *AusfInfo) GetSuciInfos() []SuciInfo`
+
+GetSuciInfos returns the SuciInfos field if non-nil, zero value otherwise.
+
+### GetSuciInfosOk
+
+`func (o *AusfInfo) GetSuciInfosOk() (*[]SuciInfo, bool)`
+
+GetSuciInfosOk returns a tuple with the SuciInfos field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSuciInfos
+
+`func (o *AusfInfo) SetSuciInfos(v []SuciInfo)`
+
+SetSuciInfos sets SuciInfos field to given value.
+
+### HasSuciInfos
+
+`func (o *AusfInfo) HasSuciInfos() bool`
+
+HasSuciInfos returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

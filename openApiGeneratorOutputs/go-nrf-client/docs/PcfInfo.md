@@ -4,12 +4,20 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**GroupId** | Pointer to **string** |  | [optional] 
+**GroupId** | Pointer to **string** | Identifier of a group of NFs. | [optional] 
 **DnnList** | Pointer to **[]string** |  | [optional] 
 **SupiRanges** | Pointer to [**[]SupiRange**](SupiRange.md) |  | [optional] 
 **GpsiRanges** | Pointer to [**[]IdentityRange**](IdentityRange.md) |  | [optional] 
-**RxDiamHost** | Pointer to **string** |  | [optional] 
-**RxDiamRealm** | Pointer to **string** |  | [optional] 
+**RxDiamHost** | Pointer to **string** | Fully Qualified Domain Name | [optional] 
+**RxDiamRealm** | Pointer to **string** | Fully Qualified Domain Name | [optional] 
+**V2xSupportInd** | Pointer to **bool** |  | [optional] [default to false]
+**ProseSupportInd** | Pointer to **bool** |  | [optional] [default to false]
+**ProseCapability** | Pointer to [**ProSeCapability**](ProSeCapability.md) |  | [optional] 
+**V2xCapability** | Pointer to [**V2xCapability**](V2xCapability.md) |  | [optional] 
+**A2xSupportInd** | Pointer to **bool** |  | [optional] [default to false]
+**A2xCapability** | Pointer to [**A2xCapability**](A2xCapability.md) |  | [optional] 
+**RangingSlPosSupportInd** | Pointer to **bool** |  | [optional] [default to false]
+**UrspEpsSupport** | Pointer to **bool** | URSP delivery in EPS is supported by the PCF | [optional] [default to false]
 
 ## Methods
 
@@ -179,6 +187,206 @@ SetRxDiamRealm sets RxDiamRealm field to given value.
 `func (o *PcfInfo) HasRxDiamRealm() bool`
 
 HasRxDiamRealm returns a boolean if a field has been set.
+
+### GetV2xSupportInd
+
+`func (o *PcfInfo) GetV2xSupportInd() bool`
+
+GetV2xSupportInd returns the V2xSupportInd field if non-nil, zero value otherwise.
+
+### GetV2xSupportIndOk
+
+`func (o *PcfInfo) GetV2xSupportIndOk() (*bool, bool)`
+
+GetV2xSupportIndOk returns a tuple with the V2xSupportInd field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetV2xSupportInd
+
+`func (o *PcfInfo) SetV2xSupportInd(v bool)`
+
+SetV2xSupportInd sets V2xSupportInd field to given value.
+
+### HasV2xSupportInd
+
+`func (o *PcfInfo) HasV2xSupportInd() bool`
+
+HasV2xSupportInd returns a boolean if a field has been set.
+
+### GetProseSupportInd
+
+`func (o *PcfInfo) GetProseSupportInd() bool`
+
+GetProseSupportInd returns the ProseSupportInd field if non-nil, zero value otherwise.
+
+### GetProseSupportIndOk
+
+`func (o *PcfInfo) GetProseSupportIndOk() (*bool, bool)`
+
+GetProseSupportIndOk returns a tuple with the ProseSupportInd field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetProseSupportInd
+
+`func (o *PcfInfo) SetProseSupportInd(v bool)`
+
+SetProseSupportInd sets ProseSupportInd field to given value.
+
+### HasProseSupportInd
+
+`func (o *PcfInfo) HasProseSupportInd() bool`
+
+HasProseSupportInd returns a boolean if a field has been set.
+
+### GetProseCapability
+
+`func (o *PcfInfo) GetProseCapability() ProSeCapability`
+
+GetProseCapability returns the ProseCapability field if non-nil, zero value otherwise.
+
+### GetProseCapabilityOk
+
+`func (o *PcfInfo) GetProseCapabilityOk() (*ProSeCapability, bool)`
+
+GetProseCapabilityOk returns a tuple with the ProseCapability field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetProseCapability
+
+`func (o *PcfInfo) SetProseCapability(v ProSeCapability)`
+
+SetProseCapability sets ProseCapability field to given value.
+
+### HasProseCapability
+
+`func (o *PcfInfo) HasProseCapability() bool`
+
+HasProseCapability returns a boolean if a field has been set.
+
+### GetV2xCapability
+
+`func (o *PcfInfo) GetV2xCapability() V2xCapability`
+
+GetV2xCapability returns the V2xCapability field if non-nil, zero value otherwise.
+
+### GetV2xCapabilityOk
+
+`func (o *PcfInfo) GetV2xCapabilityOk() (*V2xCapability, bool)`
+
+GetV2xCapabilityOk returns a tuple with the V2xCapability field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetV2xCapability
+
+`func (o *PcfInfo) SetV2xCapability(v V2xCapability)`
+
+SetV2xCapability sets V2xCapability field to given value.
+
+### HasV2xCapability
+
+`func (o *PcfInfo) HasV2xCapability() bool`
+
+HasV2xCapability returns a boolean if a field has been set.
+
+### GetA2xSupportInd
+
+`func (o *PcfInfo) GetA2xSupportInd() bool`
+
+GetA2xSupportInd returns the A2xSupportInd field if non-nil, zero value otherwise.
+
+### GetA2xSupportIndOk
+
+`func (o *PcfInfo) GetA2xSupportIndOk() (*bool, bool)`
+
+GetA2xSupportIndOk returns a tuple with the A2xSupportInd field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetA2xSupportInd
+
+`func (o *PcfInfo) SetA2xSupportInd(v bool)`
+
+SetA2xSupportInd sets A2xSupportInd field to given value.
+
+### HasA2xSupportInd
+
+`func (o *PcfInfo) HasA2xSupportInd() bool`
+
+HasA2xSupportInd returns a boolean if a field has been set.
+
+### GetA2xCapability
+
+`func (o *PcfInfo) GetA2xCapability() A2xCapability`
+
+GetA2xCapability returns the A2xCapability field if non-nil, zero value otherwise.
+
+### GetA2xCapabilityOk
+
+`func (o *PcfInfo) GetA2xCapabilityOk() (*A2xCapability, bool)`
+
+GetA2xCapabilityOk returns a tuple with the A2xCapability field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetA2xCapability
+
+`func (o *PcfInfo) SetA2xCapability(v A2xCapability)`
+
+SetA2xCapability sets A2xCapability field to given value.
+
+### HasA2xCapability
+
+`func (o *PcfInfo) HasA2xCapability() bool`
+
+HasA2xCapability returns a boolean if a field has been set.
+
+### GetRangingSlPosSupportInd
+
+`func (o *PcfInfo) GetRangingSlPosSupportInd() bool`
+
+GetRangingSlPosSupportInd returns the RangingSlPosSupportInd field if non-nil, zero value otherwise.
+
+### GetRangingSlPosSupportIndOk
+
+`func (o *PcfInfo) GetRangingSlPosSupportIndOk() (*bool, bool)`
+
+GetRangingSlPosSupportIndOk returns a tuple with the RangingSlPosSupportInd field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRangingSlPosSupportInd
+
+`func (o *PcfInfo) SetRangingSlPosSupportInd(v bool)`
+
+SetRangingSlPosSupportInd sets RangingSlPosSupportInd field to given value.
+
+### HasRangingSlPosSupportInd
+
+`func (o *PcfInfo) HasRangingSlPosSupportInd() bool`
+
+HasRangingSlPosSupportInd returns a boolean if a field has been set.
+
+### GetUrspEpsSupport
+
+`func (o *PcfInfo) GetUrspEpsSupport() bool`
+
+GetUrspEpsSupport returns the UrspEpsSupport field if non-nil, zero value otherwise.
+
+### GetUrspEpsSupportOk
+
+`func (o *PcfInfo) GetUrspEpsSupportOk() (*bool, bool)`
+
+GetUrspEpsSupportOk returns a tuple with the UrspEpsSupport field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUrspEpsSupport
+
+`func (o *PcfInfo) SetUrspEpsSupport(v bool)`
+
+SetUrspEpsSupport sets UrspEpsSupport field to given value.
+
+### HasUrspEpsSupport
+
+`func (o *PcfInfo) HasUrspEpsSupport() bool`
+
+HasUrspEpsSupport returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

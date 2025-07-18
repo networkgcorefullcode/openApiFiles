@@ -4,8 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AtsssLL** | Pointer to **bool** |  | [optional] [default to false]
-**Mptcp** | Pointer to **bool** |  | [optional] [default to false]
+**AtsssLL** | Pointer to **bool** | Indicates the support of Access Traffic Steering, Switching and Splitting procedures  using the ATSSS-LL steering functionality (see clauses 4.2.10, 5.32 of 3GPP TS 23.501). true: Supported false (default): Not Supported  | [optional] [default to false]
+**Mptcp** | Pointer to **bool** | Indicates the support of Access Traffic Steering, Switching and Splitting procedures using the MPTCP steering functionality (see clauses 4.2.10, 5.32 of 3GPP TS 23.501 true: Supported false (default): Not Supported  | [optional] [default to false]
+**Mpquic** | Pointer to **bool** | Indicates the support of Access Traffic Steering, Switching and Splitting procedures  using the MPQUIC-UDP steering functionality (see clauses 4.2.10, 5.32 of 3GPP TS 23.501) true: Supported false (default): Not Supported  | [optional] [default to false]
+**RttWithoutPmf** | Pointer to **bool** | This IE is only used by the UPF to indicate whether the UPF supports RTT measurement without PMF (see clauses 5.32.2, 6.3.3.3 of 3GPP TS 23.501 true: Supported false (default): Not Supported  | [optional] [default to false]
+**MpquicIp** | Pointer to **bool** | Indicates the support of Access Traffic Steering, Switching and Splitting procedures  using the MPQUIC-IP steering functionality (see clauses 4.2.10, 5.32 of 3GPP TS 23.501) true: Supported false (default): Not Supported  | [optional] [default to false]
+**MpquicE** | Pointer to **bool** | Indicates the support of Access Traffic Steering, Switching and Splitting procedures  using the MPQUIC-E steering functionality (see clauses 4.2.10, 5.32 of 3GPP TS 23.501) true: Supported false (default): Not Supported  | [optional] [default to false]
 
 ## Methods
 
@@ -75,6 +79,106 @@ SetMptcp sets Mptcp field to given value.
 `func (o *AtsssCapability) HasMptcp() bool`
 
 HasMptcp returns a boolean if a field has been set.
+
+### GetMpquic
+
+`func (o *AtsssCapability) GetMpquic() bool`
+
+GetMpquic returns the Mpquic field if non-nil, zero value otherwise.
+
+### GetMpquicOk
+
+`func (o *AtsssCapability) GetMpquicOk() (*bool, bool)`
+
+GetMpquicOk returns a tuple with the Mpquic field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMpquic
+
+`func (o *AtsssCapability) SetMpquic(v bool)`
+
+SetMpquic sets Mpquic field to given value.
+
+### HasMpquic
+
+`func (o *AtsssCapability) HasMpquic() bool`
+
+HasMpquic returns a boolean if a field has been set.
+
+### GetRttWithoutPmf
+
+`func (o *AtsssCapability) GetRttWithoutPmf() bool`
+
+GetRttWithoutPmf returns the RttWithoutPmf field if non-nil, zero value otherwise.
+
+### GetRttWithoutPmfOk
+
+`func (o *AtsssCapability) GetRttWithoutPmfOk() (*bool, bool)`
+
+GetRttWithoutPmfOk returns a tuple with the RttWithoutPmf field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRttWithoutPmf
+
+`func (o *AtsssCapability) SetRttWithoutPmf(v bool)`
+
+SetRttWithoutPmf sets RttWithoutPmf field to given value.
+
+### HasRttWithoutPmf
+
+`func (o *AtsssCapability) HasRttWithoutPmf() bool`
+
+HasRttWithoutPmf returns a boolean if a field has been set.
+
+### GetMpquicIp
+
+`func (o *AtsssCapability) GetMpquicIp() bool`
+
+GetMpquicIp returns the MpquicIp field if non-nil, zero value otherwise.
+
+### GetMpquicIpOk
+
+`func (o *AtsssCapability) GetMpquicIpOk() (*bool, bool)`
+
+GetMpquicIpOk returns a tuple with the MpquicIp field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMpquicIp
+
+`func (o *AtsssCapability) SetMpquicIp(v bool)`
+
+SetMpquicIp sets MpquicIp field to given value.
+
+### HasMpquicIp
+
+`func (o *AtsssCapability) HasMpquicIp() bool`
+
+HasMpquicIp returns a boolean if a field has been set.
+
+### GetMpquicE
+
+`func (o *AtsssCapability) GetMpquicE() bool`
+
+GetMpquicE returns the MpquicE field if non-nil, zero value otherwise.
+
+### GetMpquicEOk
+
+`func (o *AtsssCapability) GetMpquicEOk() (*bool, bool)`
+
+GetMpquicEOk returns a tuple with the MpquicE field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMpquicE
+
+`func (o *AtsssCapability) SetMpquicE(v bool)`
+
+SetMpquicE sets MpquicE field to given value.
+
+### HasMpquicE
+
+`func (o *AtsssCapability) HasMpquicE() bool`
+
+HasMpquicE returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

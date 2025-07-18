@@ -68,7 +68,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/problem+json
+- **Accept**: application/json, application/problem+json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -77,7 +77,7 @@ Name | Type | Description  | Notes
 
 ## UpdateSubscription
 
-> SubscriptionData UpdateSubscription(ctx, subscriptionID).PatchItem(patchItem).Execute()
+> SubscriptionData UpdateSubscription(ctx, subscriptionID).PatchItem(patchItem).ContentEncoding(contentEncoding).AcceptEncoding(acceptEncoding).Execute()
 
 Updates a subscription
 
@@ -96,10 +96,12 @@ import (
 func main() {
 	subscriptionID := "subscriptionID_example" // string | Unique ID of the subscription to update
 	patchItem := []openapiclient.PatchItem{*openapiclient.NewPatchItem(*openapiclient.NewPatchOperation(), "Path_example")} // []PatchItem | 
+	contentEncoding := "contentEncoding_example" // string | Content-Encoding, described in IETF RFC 9110 (optional)
+	acceptEncoding := "acceptEncoding_example" // string | Accept-Encoding, described in IETF RFC 9110 (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SubscriptionIDDocumentAPI.UpdateSubscription(context.Background(), subscriptionID).PatchItem(patchItem).Execute()
+	resp, r, err := apiClient.SubscriptionIDDocumentAPI.UpdateSubscription(context.Background(), subscriptionID).PatchItem(patchItem).ContentEncoding(contentEncoding).AcceptEncoding(acceptEncoding).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SubscriptionIDDocumentAPI.UpdateSubscription``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -126,6 +128,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
  **patchItem** | [**[]PatchItem**](PatchItem.md) |  | 
+ **contentEncoding** | **string** | Content-Encoding, described in IETF RFC 9110 | 
+ **acceptEncoding** | **string** | Accept-Encoding, described in IETF RFC 9110 | 
 
 ### Return type
 

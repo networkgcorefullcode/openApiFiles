@@ -4,11 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**GroupId** | Pointer to **string** |  | [optional] 
+**GroupId** | Pointer to **string** | Identifier of a group of NFs. | [optional] 
 **SupiRanges** | Pointer to [**[]SupiRange**](SupiRange.md) |  | [optional] 
 **GpsiRanges** | Pointer to [**[]IdentityRange**](IdentityRange.md) |  | [optional] 
 **ExternalGroupIdentifiersRanges** | Pointer to [**[]IdentityRange**](IdentityRange.md) |  | [optional] 
 **SupportedDataSets** | Pointer to [**[]DataSetId**](DataSetId.md) |  | [optional] 
+**SharedDataIdRanges** | Pointer to [**[]SharedDataIdRange**](SharedDataIdRange.md) |  | [optional] 
 
 ## Methods
 
@@ -153,6 +154,31 @@ SetSupportedDataSets sets SupportedDataSets field to given value.
 `func (o *UdrInfo) HasSupportedDataSets() bool`
 
 HasSupportedDataSets returns a boolean if a field has been set.
+
+### GetSharedDataIdRanges
+
+`func (o *UdrInfo) GetSharedDataIdRanges() []SharedDataIdRange`
+
+GetSharedDataIdRanges returns the SharedDataIdRanges field if non-nil, zero value otherwise.
+
+### GetSharedDataIdRangesOk
+
+`func (o *UdrInfo) GetSharedDataIdRangesOk() (*[]SharedDataIdRange, bool)`
+
+GetSharedDataIdRangesOk returns a tuple with the SharedDataIdRanges field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSharedDataIdRanges
+
+`func (o *UdrInfo) SetSharedDataIdRanges(v []SharedDataIdRange)`
+
+SetSharedDataIdRanges sets SharedDataIdRanges field to given value.
+
+### HasSharedDataIdRanges
+
+`func (o *UdrInfo) HasSharedDataIdRanges() bool`
+
+HasSharedDataIdRanges returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

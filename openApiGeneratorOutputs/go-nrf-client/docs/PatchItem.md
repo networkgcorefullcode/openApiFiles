@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Op** | [**PatchOperation**](PatchOperation.md) |  | 
-**Path** | **string** |  | 
-**From** | Pointer to **string** |  | [optional] 
+**Path** | **string** | contains a JSON pointer value (as defined in IETF RFC 6901) that references a location of a resource on which the patch operation shall be performed.  | 
+**From** | Pointer to **string** | indicates the path of the source JSON element (according to JSON Pointer syntax) being moved or copied to the location indicated by the \&quot;path\&quot; attribute.  | [optional] 
 **Value** | Pointer to **interface{}** |  | [optional] 
 
 ## Methods

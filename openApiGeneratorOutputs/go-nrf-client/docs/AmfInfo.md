@@ -4,14 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AmfSetId** | **string** |  | 
-**AmfRegionId** | **string** |  | 
+**AmfSetId** | **string** | String identifying the AMF Set ID (10 bits) as specified in clause 2.10.1 of 3GPP TS 23.003.  It is encoded as a string of 3 hexadecimal characters where the first character is limited to  values 0 to 3 (i.e. 10 bits).  | 
+**AmfRegionId** | **string** | String identifying the AMF Set ID (10 bits) as specified in clause 2.10.1 of 3GPP TS 23.003.  It is encoded as a string of 3 hexadecimal characters where the first character is limited to  values 0 to 3 (i.e. 10 bits)  | 
 **GuamiList** | [**[]Guami**](Guami.md) |  | 
 **TaiList** | Pointer to [**[]Tai**](Tai.md) |  | [optional] 
 **TaiRangeList** | Pointer to [**[]TaiRange**](TaiRange.md) |  | [optional] 
 **BackupInfoAmfFailure** | Pointer to [**[]Guami**](Guami.md) |  | [optional] 
 **BackupInfoAmfRemoval** | Pointer to [**[]Guami**](Guami.md) |  | [optional] 
-**N2InterfaceAmfInfo** | Pointer to [**N2InterfaceAmfInfo**](N2InterfaceAmfInfo.md) |  | [optional] 
+**N2InterfaceAmfInfo** | Pointer to [**NullableN2InterfaceAmfInfo**](N2InterfaceAmfInfo.md) |  | [optional] 
+**AmfOnboardingCapability** | Pointer to **bool** |  | [optional] [default to false]
+**HighLatencyCom** | Pointer to **bool** |  | [optional] 
 
 ## Methods
 
@@ -216,6 +218,66 @@ SetN2InterfaceAmfInfo sets N2InterfaceAmfInfo field to given value.
 `func (o *AmfInfo) HasN2InterfaceAmfInfo() bool`
 
 HasN2InterfaceAmfInfo returns a boolean if a field has been set.
+
+### SetN2InterfaceAmfInfoNil
+
+`func (o *AmfInfo) SetN2InterfaceAmfInfoNil(b bool)`
+
+ SetN2InterfaceAmfInfoNil sets the value for N2InterfaceAmfInfo to be an explicit nil
+
+### UnsetN2InterfaceAmfInfo
+`func (o *AmfInfo) UnsetN2InterfaceAmfInfo()`
+
+UnsetN2InterfaceAmfInfo ensures that no value is present for N2InterfaceAmfInfo, not even an explicit nil
+### GetAmfOnboardingCapability
+
+`func (o *AmfInfo) GetAmfOnboardingCapability() bool`
+
+GetAmfOnboardingCapability returns the AmfOnboardingCapability field if non-nil, zero value otherwise.
+
+### GetAmfOnboardingCapabilityOk
+
+`func (o *AmfInfo) GetAmfOnboardingCapabilityOk() (*bool, bool)`
+
+GetAmfOnboardingCapabilityOk returns a tuple with the AmfOnboardingCapability field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAmfOnboardingCapability
+
+`func (o *AmfInfo) SetAmfOnboardingCapability(v bool)`
+
+SetAmfOnboardingCapability sets AmfOnboardingCapability field to given value.
+
+### HasAmfOnboardingCapability
+
+`func (o *AmfInfo) HasAmfOnboardingCapability() bool`
+
+HasAmfOnboardingCapability returns a boolean if a field has been set.
+
+### GetHighLatencyCom
+
+`func (o *AmfInfo) GetHighLatencyCom() bool`
+
+GetHighLatencyCom returns the HighLatencyCom field if non-nil, zero value otherwise.
+
+### GetHighLatencyComOk
+
+`func (o *AmfInfo) GetHighLatencyComOk() (*bool, bool)`
+
+GetHighLatencyComOk returns a tuple with the HighLatencyCom field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHighLatencyCom
+
+`func (o *AmfInfo) SetHighLatencyCom(v bool)`
+
+SetHighLatencyCom sets HighLatencyCom field to given value.
+
+### HasHighLatencyCom
+
+`func (o *AmfInfo) HasHighLatencyCom() bool`
+
+HasHighLatencyCom returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

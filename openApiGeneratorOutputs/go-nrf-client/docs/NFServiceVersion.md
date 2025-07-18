@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ApiVersionInUri** | **string** |  | 
 **ApiFullVersion** | **string** |  | 
-**Expiry** | Pointer to **time.Time** |  | [optional] 
+**Expiry** | Pointer to **time.Time** | string with format &#39;date-time&#39; as defined in OpenAPI. | [optional] 
 
 ## Methods
 

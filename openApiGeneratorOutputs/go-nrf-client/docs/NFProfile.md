@@ -4,54 +4,109 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**NfInstanceId** | **string** |  | 
+**NfInstanceId** | **string** | String uniquely identifying a NF instance. The format of the NF Instance ID shall be a  Universally Unique Identifier (UUID) version 4, as described in IETF RFC 4122.   | 
 **NfInstanceName** | Pointer to **string** |  | [optional] 
 **NfType** | [**NFType**](NFType.md) |  | 
 **NfStatus** | [**NFStatus**](NFStatus.md) |  | 
+**CollocatedNfInstances** | Pointer to [**[]CollocatedNfInstance**](CollocatedNfInstance.md) |  | [optional] 
 **HeartBeatTimer** | Pointer to **int32** |  | [optional] 
 **PlmnList** | Pointer to [**[]PlmnId**](PlmnId.md) |  | [optional] 
-**SNssais** | Pointer to [**[]Snssai**](Snssai.md) |  | [optional] 
+**SnpnList** | Pointer to [**[]PlmnIdNid**](PlmnIdNid.md) |  | [optional] 
+**SNssais** | Pointer to [**[]ExtSnssai**](ExtSnssai.md) |  | [optional] 
 **PerPlmnSnssaiList** | Pointer to [**[]PlmnSnssai**](PlmnSnssai.md) |  | [optional] 
 **NsiList** | Pointer to **[]string** |  | [optional] 
-**Fqdn** | Pointer to **string** |  | [optional] 
-**InterPlmnFqdn** | Pointer to **string** |  | [optional] 
+**Fqdn** | Pointer to **string** | Fully Qualified Domain Name | [optional] 
+**InterPlmnFqdn** | Pointer to **string** | Fully Qualified Domain Name | [optional] 
 **Ipv4Addresses** | Pointer to **[]string** |  | [optional] 
 **Ipv6Addresses** | Pointer to [**[]Ipv6Addr**](Ipv6Addr.md) |  | [optional] 
 **AllowedPlmns** | Pointer to [**[]PlmnId**](PlmnId.md) |  | [optional] 
+**AllowedSnpns** | Pointer to [**[]PlmnIdNid**](PlmnIdNid.md) |  | [optional] 
 **AllowedNfTypes** | Pointer to [**[]NFType**](NFType.md) |  | [optional] 
 **AllowedNfDomains** | Pointer to **[]string** |  | [optional] 
-**AllowedNssais** | Pointer to [**[]Snssai**](Snssai.md) |  | [optional] 
+**AllowedNssais** | Pointer to [**[]ExtSnssai**](ExtSnssai.md) |  | [optional] 
+**AllowedRuleSet** | Pointer to [**map[string]RuleSet**](RuleSet.md) | A map (list of key-value pairs) where a valid JSON pointer Id serves as key | [optional] 
 **Priority** | Pointer to **int32** |  | [optional] 
 **Capacity** | Pointer to **int32** |  | [optional] 
 **Load** | Pointer to **int32** |  | [optional] 
+**LoadTimeStamp** | Pointer to **time.Time** | string with format &#39;date-time&#39; as defined in OpenAPI. | [optional] 
 **Locality** | Pointer to **string** |  | [optional] 
+**ExtLocality** | Pointer to **map[string]string** | A map (list of key-value pairs) where a (unique) valid JSON string serves as key representing a type of locality  | [optional] 
 **UdrInfo** | Pointer to [**UdrInfo**](UdrInfo.md) |  | [optional] 
-**UdrInfoExt** | Pointer to [**[]UdrInfo**](UdrInfo.md) |  | [optional] 
+**UdrInfoList** | Pointer to [**map[string]UdrInfo**](UdrInfo.md) | A map (list of key-value pairs) where a (unique) valid JSON string serves as key of UdrInfo  | [optional] 
 **UdmInfo** | Pointer to [**UdmInfo**](UdmInfo.md) |  | [optional] 
-**UdmInfoExt** | Pointer to [**[]UdmInfo**](UdmInfo.md) |  | [optional] 
+**UdmInfoList** | Pointer to [**map[string]UdmInfo**](UdmInfo.md) | A map (list of key-value pairs) where a (unique) valid JSON string serves as key of UdmInfo  | [optional] 
 **AusfInfo** | Pointer to [**AusfInfo**](AusfInfo.md) |  | [optional] 
-**AusfInfoExt** | Pointer to [**[]AusfInfo**](AusfInfo.md) |  | [optional] 
+**AusfInfoList** | Pointer to [**map[string]AusfInfo**](AusfInfo.md) | A map (list of key-value pairs) where a (unique) valid JSON string serves as key of AusfInfo  | [optional] 
 **AmfInfo** | Pointer to [**AmfInfo**](AmfInfo.md) |  | [optional] 
-**AmfInfoExt** | Pointer to [**[]AmfInfo**](AmfInfo.md) |  | [optional] 
+**AmfInfoList** | Pointer to [**map[string]AmfInfo**](AmfInfo.md) | A map (list of key-value pairs) where a (unique) valid JSON string serves as key of AmfInfo  | [optional] 
 **SmfInfo** | Pointer to [**SmfInfo**](SmfInfo.md) |  | [optional] 
-**SmfInfoExt** | Pointer to [**[]SmfInfo**](SmfInfo.md) |  | [optional] 
+**SmfInfoList** | Pointer to [**map[string]SmfInfo**](SmfInfo.md) | A map (list of key-value pairs) where a (unique) valid JSON string serves as key of SmfInfo  | [optional] 
 **UpfInfo** | Pointer to [**UpfInfo**](UpfInfo.md) |  | [optional] 
-**UpfInfoExt** | Pointer to [**[]UpfInfo**](UpfInfo.md) |  | [optional] 
+**UpfInfoList** | Pointer to [**map[string]UpfInfo**](UpfInfo.md) | A map (list of key-value pairs) where a (unique) valid JSON string serves as key of UpfInfo  | [optional] 
 **PcfInfo** | Pointer to [**PcfInfo**](PcfInfo.md) |  | [optional] 
-**PcfInfoExt** | Pointer to [**[]PcfInfo**](PcfInfo.md) |  | [optional] 
+**PcfInfoList** | Pointer to [**map[string]PcfInfo**](PcfInfo.md) | A map (list of key-value pairs) where a (unique) valid JSON string serves as key of PcfInfo  | [optional] 
 **BsfInfo** | Pointer to [**BsfInfo**](BsfInfo.md) |  | [optional] 
-**BsfInfoExt** | Pointer to [**[]BsfInfo**](BsfInfo.md) |  | [optional] 
+**BsfInfoList** | Pointer to [**map[string]BsfInfo**](BsfInfo.md) | A map (list of key-value pairs) where a (unique) valid JSON string serves as key of BsfInfo  | [optional] 
 **ChfInfo** | Pointer to [**ChfInfo**](ChfInfo.md) |  | [optional] 
-**ChfInfoExt** | Pointer to [**[]ChfInfo**](ChfInfo.md) |  | [optional] 
+**ChfInfoList** | Pointer to [**map[string]ChfInfo**](ChfInfo.md) | A map (list of key-value pairs) where a (unique) valid JSON string serves as key of ChfInfo  | [optional] 
+**NefInfo** | Pointer to [**NefInfo**](NefInfo.md) |  | [optional] 
 **NrfInfo** | Pointer to [**NrfInfo**](NrfInfo.md) |  | [optional] 
+**UdsfInfo** | Pointer to [**UdsfInfo**](UdsfInfo.md) |  | [optional] 
+**UdsfInfoList** | Pointer to [**map[string]UdsfInfo**](UdsfInfo.md) | A map (list of key-value pairs) where a (unique) valid JSON string serves as key of UdsfInfo  | [optional] 
 **NwdafInfo** | Pointer to [**NwdafInfo**](NwdafInfo.md) |  | [optional] 
+**NwdafInfoList** | Pointer to [**map[string]NwdafInfo**](NwdafInfo.md) | A map (list of key-value pairs) where a (unique) valid JSON string serves as key of NwdafInfo  | [optional] 
+**PcscfInfoList** | Pointer to [**map[string]PcscfInfo**](PcscfInfo.md) | A map (list of key-value pairs) where a (unique) valid JSON string serves as key of PcscfInfo  | [optional] 
+**HssInfoList** | Pointer to [**map[string]HssInfo**](HssInfo.md) | A map (list of key-value pairs) where a (unique) valid JSON string serves as key of HssInfo  | [optional] 
 **CustomInfo** | Pointer to **map[string]interface{}** |  | [optional] 
-**RecoveryTime** | Pointer to **time.Time** |  | [optional] 
+**RecoveryTime** | Pointer to **time.Time** | string with format &#39;date-time&#39; as defined in OpenAPI. | [optional] 
 **NfServicePersistence** | Pointer to **bool** |  | [optional] [default to false]
 **NfServices** | Pointer to [**[]NFService**](NFService.md) |  | [optional] 
+**NfServiceList** | Pointer to [**map[string]NFService**](NFService.md) | A map (list of key-value pairs) where serviceInstanceId serves as key of NFService  | [optional] 
 **NfProfileChangesSupportInd** | Pointer to **bool** |  | [optional] [default to false]
+**NfProfilePartialUpdateChangesSupportInd** | Pointer to **bool** |  | [optional] [default to false]
 **NfProfileChangesInd** | Pointer to **bool** |  | [optional] [readonly] [default to false]
 **DefaultNotificationSubscriptions** | Pointer to [**[]DefaultNotificationSubscription**](DefaultNotificationSubscription.md) |  | [optional] 
+**LmfInfo** | Pointer to [**LmfInfo**](LmfInfo.md) |  | [optional] 
+**GmlcInfo** | Pointer to [**GmlcInfo**](GmlcInfo.md) |  | [optional] 
+**NfSetIdList** | Pointer to **[]string** |  | [optional] 
+**ServingScope** | Pointer to **[]string** |  | [optional] 
+**LcHSupportInd** | Pointer to **bool** |  | [optional] [default to false]
+**OlcHSupportInd** | Pointer to **bool** |  | [optional] [default to false]
+**NfSetRecoveryTimeList** | Pointer to [**map[string]time.Time**](time.Time.md) | A map (list of key-value pairs) where NfSetId serves as key of DateTime | [optional] 
+**ServiceSetRecoveryTimeList** | Pointer to [**map[string]time.Time**](time.Time.md) | A map (list of key-value pairs) where NfServiceSetId serves as key of DateTime  | [optional] 
+**ScpDomains** | Pointer to **[]string** |  | [optional] 
+**ScpInfo** | Pointer to [**ScpInfo**](ScpInfo.md) |  | [optional] 
+**SeppInfo** | Pointer to [**SeppInfo**](SeppInfo.md) |  | [optional] 
+**VendorId** | Pointer to **string** | Vendor ID of the NF Service instance (Private Enterprise Number assigned by IANA) | [optional] 
+**SupportedVendorSpecificFeatures** | Pointer to [**map[string][]VendorSpecificFeature**](array.md) | The key of the map is the IANA-assigned SMI Network Management Private Enterprise Codes  | [optional] 
+**AanfInfoList** | Pointer to [**map[string]AanfInfo**](AanfInfo.md) | A map (list of key-value pairs) where a (unique) valid JSON string serves as key of AanfInfo  | [optional] 
+**Var5gDdnmfInfo** | Pointer to [**Model5GDdnmfInfo**](Model5GDdnmfInfo.md) |  | [optional] 
+**MfafInfo** | Pointer to [**MfafInfo**](MfafInfo.md) |  | [optional] 
+**EasdfInfoList** | Pointer to [**map[string]EasdfInfo**](EasdfInfo.md) | A map (list of key-value pairs) where a (unique) valid JSON string serves as key of EasdfInfo  | [optional] 
+**DccfInfo** | Pointer to [**DccfInfo**](DccfInfo.md) |  | [optional] 
+**NsacfInfoList** | Pointer to [**map[string]NsacfInfo**](NsacfInfo.md) | A map (list of key-value pairs) where a (unique) valid JSON string serves as key of NsacfInfo  | [optional] 
+**MbSmfInfoList** | Pointer to [**map[string]MbSmfInfo**](MbSmfInfo.md) | A map (list of key-value pairs) where a (unique) valid JSON string serves as key of MbSmfInfo  | [optional] 
+**TsctsfInfoList** | Pointer to [**map[string]TsctsfInfo**](TsctsfInfo.md) | A map (list of key-value pairs) where a (unique) valid JSON string serves as key of TsctsfInfo  | [optional] 
+**MbUpfInfoList** | Pointer to [**map[string]MbUpfInfo**](MbUpfInfo.md) | A map (list of key-value pairs) where a (unique) valid JSON string serves as key of MbUpfInfo  | [optional] 
+**TrustAfInfo** | Pointer to [**TrustAfInfo**](TrustAfInfo.md) |  | [optional] 
+**NssaafInfo** | Pointer to [**NssaafInfo**](NssaafInfo.md) |  | [optional] 
+**HniList** | Pointer to **[]string** |  | [optional] 
+**IwmscInfo** | Pointer to [**IwmscInfo**](IwmscInfo.md) |  | [optional] 
+**MnpfInfo** | Pointer to [**MnpfInfo**](MnpfInfo.md) |  | [optional] 
+**SmsfInfo** | Pointer to [**SmsfInfo**](SmsfInfo.md) |  | [optional] 
+**DcsfInfoList** | Pointer to [**map[string]DcsfInfo**](DcsfInfo.md) | A map (list of key-value pairs) where a (unique) valid JSON string serves as key of DcsfInfo  | [optional] 
+**MrfInfoList** | Pointer to [**map[string]MrfInfo**](MrfInfo.md) | A map (list of key-value pairs) where a (unique) valid JSON string serves as key of MrfInfo  | [optional] 
+**MrfpInfoList** | Pointer to [**map[string]MrfpInfo**](MrfpInfo.md) | A map (list of key-value pairs) where a (unique) valid JSON string serves as key of MrfpInfo  | [optional] 
+**MfInfoList** | Pointer to [**map[string]MfInfo**](MfInfo.md) | A map (list of key-value pairs) where a (unique) valid JSON string serves as key of MfInfo  | [optional] 
+**AdrfInfoList** | Pointer to [**map[string]AdrfInfo**](AdrfInfo.md) | A map (list of key-value pairs) where a (unique) valid JSON string serves as key of AdrfInfo  | [optional] 
+**SelectionConditions** | Pointer to [**SelectionConditions**](SelectionConditions.md) |  | [optional] 
+**CanaryRelease** | Pointer to **bool** |  | [optional] [default to false]
+**ExclusiveCanaryReleaseSelection** | Pointer to **bool** |  | [optional] [default to false]
+**SharedProfileDataId** | Pointer to **string** |  | [optional] 
+**ShutdownTime** | Pointer to **time.Time** | string with format &#39;date-time&#39; as defined in OpenAPI. | [optional] 
+**SupportedRcfs** | Pointer to **[]string** |  | [optional] 
+**CanaryPrecedenceOverPreferred** | Pointer to **bool** |  | [optional] [default to false]
+**ImsasInfoList** | Pointer to [**map[string]ImsasInfo**](ImsasInfo.md) | A map (list of key-value pairs) where a (unique) valid JSON string serves as key of ImsasInfo  | [optional] 
 
 ## Methods
 
@@ -157,6 +212,31 @@ and a boolean to check if the value has been set.
 SetNfStatus sets NfStatus field to given value.
 
 
+### GetCollocatedNfInstances
+
+`func (o *NFProfile) GetCollocatedNfInstances() []CollocatedNfInstance`
+
+GetCollocatedNfInstances returns the CollocatedNfInstances field if non-nil, zero value otherwise.
+
+### GetCollocatedNfInstancesOk
+
+`func (o *NFProfile) GetCollocatedNfInstancesOk() (*[]CollocatedNfInstance, bool)`
+
+GetCollocatedNfInstancesOk returns a tuple with the CollocatedNfInstances field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCollocatedNfInstances
+
+`func (o *NFProfile) SetCollocatedNfInstances(v []CollocatedNfInstance)`
+
+SetCollocatedNfInstances sets CollocatedNfInstances field to given value.
+
+### HasCollocatedNfInstances
+
+`func (o *NFProfile) HasCollocatedNfInstances() bool`
+
+HasCollocatedNfInstances returns a boolean if a field has been set.
+
 ### GetHeartBeatTimer
 
 `func (o *NFProfile) GetHeartBeatTimer() int32`
@@ -207,22 +287,47 @@ SetPlmnList sets PlmnList field to given value.
 
 HasPlmnList returns a boolean if a field has been set.
 
+### GetSnpnList
+
+`func (o *NFProfile) GetSnpnList() []PlmnIdNid`
+
+GetSnpnList returns the SnpnList field if non-nil, zero value otherwise.
+
+### GetSnpnListOk
+
+`func (o *NFProfile) GetSnpnListOk() (*[]PlmnIdNid, bool)`
+
+GetSnpnListOk returns a tuple with the SnpnList field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSnpnList
+
+`func (o *NFProfile) SetSnpnList(v []PlmnIdNid)`
+
+SetSnpnList sets SnpnList field to given value.
+
+### HasSnpnList
+
+`func (o *NFProfile) HasSnpnList() bool`
+
+HasSnpnList returns a boolean if a field has been set.
+
 ### GetSNssais
 
-`func (o *NFProfile) GetSNssais() []Snssai`
+`func (o *NFProfile) GetSNssais() []ExtSnssai`
 
 GetSNssais returns the SNssais field if non-nil, zero value otherwise.
 
 ### GetSNssaisOk
 
-`func (o *NFProfile) GetSNssaisOk() (*[]Snssai, bool)`
+`func (o *NFProfile) GetSNssaisOk() (*[]ExtSnssai, bool)`
 
 GetSNssaisOk returns a tuple with the SNssais field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSNssais
 
-`func (o *NFProfile) SetSNssais(v []Snssai)`
+`func (o *NFProfile) SetSNssais(v []ExtSnssai)`
 
 SetSNssais sets SNssais field to given value.
 
@@ -407,6 +512,31 @@ SetAllowedPlmns sets AllowedPlmns field to given value.
 
 HasAllowedPlmns returns a boolean if a field has been set.
 
+### GetAllowedSnpns
+
+`func (o *NFProfile) GetAllowedSnpns() []PlmnIdNid`
+
+GetAllowedSnpns returns the AllowedSnpns field if non-nil, zero value otherwise.
+
+### GetAllowedSnpnsOk
+
+`func (o *NFProfile) GetAllowedSnpnsOk() (*[]PlmnIdNid, bool)`
+
+GetAllowedSnpnsOk returns a tuple with the AllowedSnpns field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAllowedSnpns
+
+`func (o *NFProfile) SetAllowedSnpns(v []PlmnIdNid)`
+
+SetAllowedSnpns sets AllowedSnpns field to given value.
+
+### HasAllowedSnpns
+
+`func (o *NFProfile) HasAllowedSnpns() bool`
+
+HasAllowedSnpns returns a boolean if a field has been set.
+
 ### GetAllowedNfTypes
 
 `func (o *NFProfile) GetAllowedNfTypes() []NFType`
@@ -459,20 +589,20 @@ HasAllowedNfDomains returns a boolean if a field has been set.
 
 ### GetAllowedNssais
 
-`func (o *NFProfile) GetAllowedNssais() []Snssai`
+`func (o *NFProfile) GetAllowedNssais() []ExtSnssai`
 
 GetAllowedNssais returns the AllowedNssais field if non-nil, zero value otherwise.
 
 ### GetAllowedNssaisOk
 
-`func (o *NFProfile) GetAllowedNssaisOk() (*[]Snssai, bool)`
+`func (o *NFProfile) GetAllowedNssaisOk() (*[]ExtSnssai, bool)`
 
 GetAllowedNssaisOk returns a tuple with the AllowedNssais field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAllowedNssais
 
-`func (o *NFProfile) SetAllowedNssais(v []Snssai)`
+`func (o *NFProfile) SetAllowedNssais(v []ExtSnssai)`
 
 SetAllowedNssais sets AllowedNssais field to given value.
 
@@ -481,6 +611,31 @@ SetAllowedNssais sets AllowedNssais field to given value.
 `func (o *NFProfile) HasAllowedNssais() bool`
 
 HasAllowedNssais returns a boolean if a field has been set.
+
+### GetAllowedRuleSet
+
+`func (o *NFProfile) GetAllowedRuleSet() map[string]RuleSet`
+
+GetAllowedRuleSet returns the AllowedRuleSet field if non-nil, zero value otherwise.
+
+### GetAllowedRuleSetOk
+
+`func (o *NFProfile) GetAllowedRuleSetOk() (*map[string]RuleSet, bool)`
+
+GetAllowedRuleSetOk returns a tuple with the AllowedRuleSet field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAllowedRuleSet
+
+`func (o *NFProfile) SetAllowedRuleSet(v map[string]RuleSet)`
+
+SetAllowedRuleSet sets AllowedRuleSet field to given value.
+
+### HasAllowedRuleSet
+
+`func (o *NFProfile) HasAllowedRuleSet() bool`
+
+HasAllowedRuleSet returns a boolean if a field has been set.
 
 ### GetPriority
 
@@ -557,6 +712,31 @@ SetLoad sets Load field to given value.
 
 HasLoad returns a boolean if a field has been set.
 
+### GetLoadTimeStamp
+
+`func (o *NFProfile) GetLoadTimeStamp() time.Time`
+
+GetLoadTimeStamp returns the LoadTimeStamp field if non-nil, zero value otherwise.
+
+### GetLoadTimeStampOk
+
+`func (o *NFProfile) GetLoadTimeStampOk() (*time.Time, bool)`
+
+GetLoadTimeStampOk returns a tuple with the LoadTimeStamp field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLoadTimeStamp
+
+`func (o *NFProfile) SetLoadTimeStamp(v time.Time)`
+
+SetLoadTimeStamp sets LoadTimeStamp field to given value.
+
+### HasLoadTimeStamp
+
+`func (o *NFProfile) HasLoadTimeStamp() bool`
+
+HasLoadTimeStamp returns a boolean if a field has been set.
+
 ### GetLocality
 
 `func (o *NFProfile) GetLocality() string`
@@ -581,6 +761,31 @@ SetLocality sets Locality field to given value.
 `func (o *NFProfile) HasLocality() bool`
 
 HasLocality returns a boolean if a field has been set.
+
+### GetExtLocality
+
+`func (o *NFProfile) GetExtLocality() map[string]string`
+
+GetExtLocality returns the ExtLocality field if non-nil, zero value otherwise.
+
+### GetExtLocalityOk
+
+`func (o *NFProfile) GetExtLocalityOk() (*map[string]string, bool)`
+
+GetExtLocalityOk returns a tuple with the ExtLocality field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExtLocality
+
+`func (o *NFProfile) SetExtLocality(v map[string]string)`
+
+SetExtLocality sets ExtLocality field to given value.
+
+### HasExtLocality
+
+`func (o *NFProfile) HasExtLocality() bool`
+
+HasExtLocality returns a boolean if a field has been set.
 
 ### GetUdrInfo
 
@@ -607,30 +812,30 @@ SetUdrInfo sets UdrInfo field to given value.
 
 HasUdrInfo returns a boolean if a field has been set.
 
-### GetUdrInfoExt
+### GetUdrInfoList
 
-`func (o *NFProfile) GetUdrInfoExt() []UdrInfo`
+`func (o *NFProfile) GetUdrInfoList() map[string]UdrInfo`
 
-GetUdrInfoExt returns the UdrInfoExt field if non-nil, zero value otherwise.
+GetUdrInfoList returns the UdrInfoList field if non-nil, zero value otherwise.
 
-### GetUdrInfoExtOk
+### GetUdrInfoListOk
 
-`func (o *NFProfile) GetUdrInfoExtOk() (*[]UdrInfo, bool)`
+`func (o *NFProfile) GetUdrInfoListOk() (*map[string]UdrInfo, bool)`
 
-GetUdrInfoExtOk returns a tuple with the UdrInfoExt field if it's non-nil, zero value otherwise
+GetUdrInfoListOk returns a tuple with the UdrInfoList field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetUdrInfoExt
+### SetUdrInfoList
 
-`func (o *NFProfile) SetUdrInfoExt(v []UdrInfo)`
+`func (o *NFProfile) SetUdrInfoList(v map[string]UdrInfo)`
 
-SetUdrInfoExt sets UdrInfoExt field to given value.
+SetUdrInfoList sets UdrInfoList field to given value.
 
-### HasUdrInfoExt
+### HasUdrInfoList
 
-`func (o *NFProfile) HasUdrInfoExt() bool`
+`func (o *NFProfile) HasUdrInfoList() bool`
 
-HasUdrInfoExt returns a boolean if a field has been set.
+HasUdrInfoList returns a boolean if a field has been set.
 
 ### GetUdmInfo
 
@@ -657,30 +862,30 @@ SetUdmInfo sets UdmInfo field to given value.
 
 HasUdmInfo returns a boolean if a field has been set.
 
-### GetUdmInfoExt
+### GetUdmInfoList
 
-`func (o *NFProfile) GetUdmInfoExt() []UdmInfo`
+`func (o *NFProfile) GetUdmInfoList() map[string]UdmInfo`
 
-GetUdmInfoExt returns the UdmInfoExt field if non-nil, zero value otherwise.
+GetUdmInfoList returns the UdmInfoList field if non-nil, zero value otherwise.
 
-### GetUdmInfoExtOk
+### GetUdmInfoListOk
 
-`func (o *NFProfile) GetUdmInfoExtOk() (*[]UdmInfo, bool)`
+`func (o *NFProfile) GetUdmInfoListOk() (*map[string]UdmInfo, bool)`
 
-GetUdmInfoExtOk returns a tuple with the UdmInfoExt field if it's non-nil, zero value otherwise
+GetUdmInfoListOk returns a tuple with the UdmInfoList field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetUdmInfoExt
+### SetUdmInfoList
 
-`func (o *NFProfile) SetUdmInfoExt(v []UdmInfo)`
+`func (o *NFProfile) SetUdmInfoList(v map[string]UdmInfo)`
 
-SetUdmInfoExt sets UdmInfoExt field to given value.
+SetUdmInfoList sets UdmInfoList field to given value.
 
-### HasUdmInfoExt
+### HasUdmInfoList
 
-`func (o *NFProfile) HasUdmInfoExt() bool`
+`func (o *NFProfile) HasUdmInfoList() bool`
 
-HasUdmInfoExt returns a boolean if a field has been set.
+HasUdmInfoList returns a boolean if a field has been set.
 
 ### GetAusfInfo
 
@@ -707,30 +912,30 @@ SetAusfInfo sets AusfInfo field to given value.
 
 HasAusfInfo returns a boolean if a field has been set.
 
-### GetAusfInfoExt
+### GetAusfInfoList
 
-`func (o *NFProfile) GetAusfInfoExt() []AusfInfo`
+`func (o *NFProfile) GetAusfInfoList() map[string]AusfInfo`
 
-GetAusfInfoExt returns the AusfInfoExt field if non-nil, zero value otherwise.
+GetAusfInfoList returns the AusfInfoList field if non-nil, zero value otherwise.
 
-### GetAusfInfoExtOk
+### GetAusfInfoListOk
 
-`func (o *NFProfile) GetAusfInfoExtOk() (*[]AusfInfo, bool)`
+`func (o *NFProfile) GetAusfInfoListOk() (*map[string]AusfInfo, bool)`
 
-GetAusfInfoExtOk returns a tuple with the AusfInfoExt field if it's non-nil, zero value otherwise
+GetAusfInfoListOk returns a tuple with the AusfInfoList field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetAusfInfoExt
+### SetAusfInfoList
 
-`func (o *NFProfile) SetAusfInfoExt(v []AusfInfo)`
+`func (o *NFProfile) SetAusfInfoList(v map[string]AusfInfo)`
 
-SetAusfInfoExt sets AusfInfoExt field to given value.
+SetAusfInfoList sets AusfInfoList field to given value.
 
-### HasAusfInfoExt
+### HasAusfInfoList
 
-`func (o *NFProfile) HasAusfInfoExt() bool`
+`func (o *NFProfile) HasAusfInfoList() bool`
 
-HasAusfInfoExt returns a boolean if a field has been set.
+HasAusfInfoList returns a boolean if a field has been set.
 
 ### GetAmfInfo
 
@@ -757,30 +962,30 @@ SetAmfInfo sets AmfInfo field to given value.
 
 HasAmfInfo returns a boolean if a field has been set.
 
-### GetAmfInfoExt
+### GetAmfInfoList
 
-`func (o *NFProfile) GetAmfInfoExt() []AmfInfo`
+`func (o *NFProfile) GetAmfInfoList() map[string]AmfInfo`
 
-GetAmfInfoExt returns the AmfInfoExt field if non-nil, zero value otherwise.
+GetAmfInfoList returns the AmfInfoList field if non-nil, zero value otherwise.
 
-### GetAmfInfoExtOk
+### GetAmfInfoListOk
 
-`func (o *NFProfile) GetAmfInfoExtOk() (*[]AmfInfo, bool)`
+`func (o *NFProfile) GetAmfInfoListOk() (*map[string]AmfInfo, bool)`
 
-GetAmfInfoExtOk returns a tuple with the AmfInfoExt field if it's non-nil, zero value otherwise
+GetAmfInfoListOk returns a tuple with the AmfInfoList field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetAmfInfoExt
+### SetAmfInfoList
 
-`func (o *NFProfile) SetAmfInfoExt(v []AmfInfo)`
+`func (o *NFProfile) SetAmfInfoList(v map[string]AmfInfo)`
 
-SetAmfInfoExt sets AmfInfoExt field to given value.
+SetAmfInfoList sets AmfInfoList field to given value.
 
-### HasAmfInfoExt
+### HasAmfInfoList
 
-`func (o *NFProfile) HasAmfInfoExt() bool`
+`func (o *NFProfile) HasAmfInfoList() bool`
 
-HasAmfInfoExt returns a boolean if a field has been set.
+HasAmfInfoList returns a boolean if a field has been set.
 
 ### GetSmfInfo
 
@@ -807,30 +1012,30 @@ SetSmfInfo sets SmfInfo field to given value.
 
 HasSmfInfo returns a boolean if a field has been set.
 
-### GetSmfInfoExt
+### GetSmfInfoList
 
-`func (o *NFProfile) GetSmfInfoExt() []SmfInfo`
+`func (o *NFProfile) GetSmfInfoList() map[string]SmfInfo`
 
-GetSmfInfoExt returns the SmfInfoExt field if non-nil, zero value otherwise.
+GetSmfInfoList returns the SmfInfoList field if non-nil, zero value otherwise.
 
-### GetSmfInfoExtOk
+### GetSmfInfoListOk
 
-`func (o *NFProfile) GetSmfInfoExtOk() (*[]SmfInfo, bool)`
+`func (o *NFProfile) GetSmfInfoListOk() (*map[string]SmfInfo, bool)`
 
-GetSmfInfoExtOk returns a tuple with the SmfInfoExt field if it's non-nil, zero value otherwise
+GetSmfInfoListOk returns a tuple with the SmfInfoList field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetSmfInfoExt
+### SetSmfInfoList
 
-`func (o *NFProfile) SetSmfInfoExt(v []SmfInfo)`
+`func (o *NFProfile) SetSmfInfoList(v map[string]SmfInfo)`
 
-SetSmfInfoExt sets SmfInfoExt field to given value.
+SetSmfInfoList sets SmfInfoList field to given value.
 
-### HasSmfInfoExt
+### HasSmfInfoList
 
-`func (o *NFProfile) HasSmfInfoExt() bool`
+`func (o *NFProfile) HasSmfInfoList() bool`
 
-HasSmfInfoExt returns a boolean if a field has been set.
+HasSmfInfoList returns a boolean if a field has been set.
 
 ### GetUpfInfo
 
@@ -857,30 +1062,30 @@ SetUpfInfo sets UpfInfo field to given value.
 
 HasUpfInfo returns a boolean if a field has been set.
 
-### GetUpfInfoExt
+### GetUpfInfoList
 
-`func (o *NFProfile) GetUpfInfoExt() []UpfInfo`
+`func (o *NFProfile) GetUpfInfoList() map[string]UpfInfo`
 
-GetUpfInfoExt returns the UpfInfoExt field if non-nil, zero value otherwise.
+GetUpfInfoList returns the UpfInfoList field if non-nil, zero value otherwise.
 
-### GetUpfInfoExtOk
+### GetUpfInfoListOk
 
-`func (o *NFProfile) GetUpfInfoExtOk() (*[]UpfInfo, bool)`
+`func (o *NFProfile) GetUpfInfoListOk() (*map[string]UpfInfo, bool)`
 
-GetUpfInfoExtOk returns a tuple with the UpfInfoExt field if it's non-nil, zero value otherwise
+GetUpfInfoListOk returns a tuple with the UpfInfoList field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetUpfInfoExt
+### SetUpfInfoList
 
-`func (o *NFProfile) SetUpfInfoExt(v []UpfInfo)`
+`func (o *NFProfile) SetUpfInfoList(v map[string]UpfInfo)`
 
-SetUpfInfoExt sets UpfInfoExt field to given value.
+SetUpfInfoList sets UpfInfoList field to given value.
 
-### HasUpfInfoExt
+### HasUpfInfoList
 
-`func (o *NFProfile) HasUpfInfoExt() bool`
+`func (o *NFProfile) HasUpfInfoList() bool`
 
-HasUpfInfoExt returns a boolean if a field has been set.
+HasUpfInfoList returns a boolean if a field has been set.
 
 ### GetPcfInfo
 
@@ -907,30 +1112,30 @@ SetPcfInfo sets PcfInfo field to given value.
 
 HasPcfInfo returns a boolean if a field has been set.
 
-### GetPcfInfoExt
+### GetPcfInfoList
 
-`func (o *NFProfile) GetPcfInfoExt() []PcfInfo`
+`func (o *NFProfile) GetPcfInfoList() map[string]PcfInfo`
 
-GetPcfInfoExt returns the PcfInfoExt field if non-nil, zero value otherwise.
+GetPcfInfoList returns the PcfInfoList field if non-nil, zero value otherwise.
 
-### GetPcfInfoExtOk
+### GetPcfInfoListOk
 
-`func (o *NFProfile) GetPcfInfoExtOk() (*[]PcfInfo, bool)`
+`func (o *NFProfile) GetPcfInfoListOk() (*map[string]PcfInfo, bool)`
 
-GetPcfInfoExtOk returns a tuple with the PcfInfoExt field if it's non-nil, zero value otherwise
+GetPcfInfoListOk returns a tuple with the PcfInfoList field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetPcfInfoExt
+### SetPcfInfoList
 
-`func (o *NFProfile) SetPcfInfoExt(v []PcfInfo)`
+`func (o *NFProfile) SetPcfInfoList(v map[string]PcfInfo)`
 
-SetPcfInfoExt sets PcfInfoExt field to given value.
+SetPcfInfoList sets PcfInfoList field to given value.
 
-### HasPcfInfoExt
+### HasPcfInfoList
 
-`func (o *NFProfile) HasPcfInfoExt() bool`
+`func (o *NFProfile) HasPcfInfoList() bool`
 
-HasPcfInfoExt returns a boolean if a field has been set.
+HasPcfInfoList returns a boolean if a field has been set.
 
 ### GetBsfInfo
 
@@ -957,30 +1162,30 @@ SetBsfInfo sets BsfInfo field to given value.
 
 HasBsfInfo returns a boolean if a field has been set.
 
-### GetBsfInfoExt
+### GetBsfInfoList
 
-`func (o *NFProfile) GetBsfInfoExt() []BsfInfo`
+`func (o *NFProfile) GetBsfInfoList() map[string]BsfInfo`
 
-GetBsfInfoExt returns the BsfInfoExt field if non-nil, zero value otherwise.
+GetBsfInfoList returns the BsfInfoList field if non-nil, zero value otherwise.
 
-### GetBsfInfoExtOk
+### GetBsfInfoListOk
 
-`func (o *NFProfile) GetBsfInfoExtOk() (*[]BsfInfo, bool)`
+`func (o *NFProfile) GetBsfInfoListOk() (*map[string]BsfInfo, bool)`
 
-GetBsfInfoExtOk returns a tuple with the BsfInfoExt field if it's non-nil, zero value otherwise
+GetBsfInfoListOk returns a tuple with the BsfInfoList field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetBsfInfoExt
+### SetBsfInfoList
 
-`func (o *NFProfile) SetBsfInfoExt(v []BsfInfo)`
+`func (o *NFProfile) SetBsfInfoList(v map[string]BsfInfo)`
 
-SetBsfInfoExt sets BsfInfoExt field to given value.
+SetBsfInfoList sets BsfInfoList field to given value.
 
-### HasBsfInfoExt
+### HasBsfInfoList
 
-`func (o *NFProfile) HasBsfInfoExt() bool`
+`func (o *NFProfile) HasBsfInfoList() bool`
 
-HasBsfInfoExt returns a boolean if a field has been set.
+HasBsfInfoList returns a boolean if a field has been set.
 
 ### GetChfInfo
 
@@ -1007,30 +1212,55 @@ SetChfInfo sets ChfInfo field to given value.
 
 HasChfInfo returns a boolean if a field has been set.
 
-### GetChfInfoExt
+### GetChfInfoList
 
-`func (o *NFProfile) GetChfInfoExt() []ChfInfo`
+`func (o *NFProfile) GetChfInfoList() map[string]ChfInfo`
 
-GetChfInfoExt returns the ChfInfoExt field if non-nil, zero value otherwise.
+GetChfInfoList returns the ChfInfoList field if non-nil, zero value otherwise.
 
-### GetChfInfoExtOk
+### GetChfInfoListOk
 
-`func (o *NFProfile) GetChfInfoExtOk() (*[]ChfInfo, bool)`
+`func (o *NFProfile) GetChfInfoListOk() (*map[string]ChfInfo, bool)`
 
-GetChfInfoExtOk returns a tuple with the ChfInfoExt field if it's non-nil, zero value otherwise
+GetChfInfoListOk returns a tuple with the ChfInfoList field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetChfInfoExt
+### SetChfInfoList
 
-`func (o *NFProfile) SetChfInfoExt(v []ChfInfo)`
+`func (o *NFProfile) SetChfInfoList(v map[string]ChfInfo)`
 
-SetChfInfoExt sets ChfInfoExt field to given value.
+SetChfInfoList sets ChfInfoList field to given value.
 
-### HasChfInfoExt
+### HasChfInfoList
 
-`func (o *NFProfile) HasChfInfoExt() bool`
+`func (o *NFProfile) HasChfInfoList() bool`
 
-HasChfInfoExt returns a boolean if a field has been set.
+HasChfInfoList returns a boolean if a field has been set.
+
+### GetNefInfo
+
+`func (o *NFProfile) GetNefInfo() NefInfo`
+
+GetNefInfo returns the NefInfo field if non-nil, zero value otherwise.
+
+### GetNefInfoOk
+
+`func (o *NFProfile) GetNefInfoOk() (*NefInfo, bool)`
+
+GetNefInfoOk returns a tuple with the NefInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNefInfo
+
+`func (o *NFProfile) SetNefInfo(v NefInfo)`
+
+SetNefInfo sets NefInfo field to given value.
+
+### HasNefInfo
+
+`func (o *NFProfile) HasNefInfo() bool`
+
+HasNefInfo returns a boolean if a field has been set.
 
 ### GetNrfInfo
 
@@ -1057,6 +1287,56 @@ SetNrfInfo sets NrfInfo field to given value.
 
 HasNrfInfo returns a boolean if a field has been set.
 
+### GetUdsfInfo
+
+`func (o *NFProfile) GetUdsfInfo() UdsfInfo`
+
+GetUdsfInfo returns the UdsfInfo field if non-nil, zero value otherwise.
+
+### GetUdsfInfoOk
+
+`func (o *NFProfile) GetUdsfInfoOk() (*UdsfInfo, bool)`
+
+GetUdsfInfoOk returns a tuple with the UdsfInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUdsfInfo
+
+`func (o *NFProfile) SetUdsfInfo(v UdsfInfo)`
+
+SetUdsfInfo sets UdsfInfo field to given value.
+
+### HasUdsfInfo
+
+`func (o *NFProfile) HasUdsfInfo() bool`
+
+HasUdsfInfo returns a boolean if a field has been set.
+
+### GetUdsfInfoList
+
+`func (o *NFProfile) GetUdsfInfoList() map[string]UdsfInfo`
+
+GetUdsfInfoList returns the UdsfInfoList field if non-nil, zero value otherwise.
+
+### GetUdsfInfoListOk
+
+`func (o *NFProfile) GetUdsfInfoListOk() (*map[string]UdsfInfo, bool)`
+
+GetUdsfInfoListOk returns a tuple with the UdsfInfoList field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUdsfInfoList
+
+`func (o *NFProfile) SetUdsfInfoList(v map[string]UdsfInfo)`
+
+SetUdsfInfoList sets UdsfInfoList field to given value.
+
+### HasUdsfInfoList
+
+`func (o *NFProfile) HasUdsfInfoList() bool`
+
+HasUdsfInfoList returns a boolean if a field has been set.
+
 ### GetNwdafInfo
 
 `func (o *NFProfile) GetNwdafInfo() NwdafInfo`
@@ -1081,6 +1361,81 @@ SetNwdafInfo sets NwdafInfo field to given value.
 `func (o *NFProfile) HasNwdafInfo() bool`
 
 HasNwdafInfo returns a boolean if a field has been set.
+
+### GetNwdafInfoList
+
+`func (o *NFProfile) GetNwdafInfoList() map[string]NwdafInfo`
+
+GetNwdafInfoList returns the NwdafInfoList field if non-nil, zero value otherwise.
+
+### GetNwdafInfoListOk
+
+`func (o *NFProfile) GetNwdafInfoListOk() (*map[string]NwdafInfo, bool)`
+
+GetNwdafInfoListOk returns a tuple with the NwdafInfoList field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNwdafInfoList
+
+`func (o *NFProfile) SetNwdafInfoList(v map[string]NwdafInfo)`
+
+SetNwdafInfoList sets NwdafInfoList field to given value.
+
+### HasNwdafInfoList
+
+`func (o *NFProfile) HasNwdafInfoList() bool`
+
+HasNwdafInfoList returns a boolean if a field has been set.
+
+### GetPcscfInfoList
+
+`func (o *NFProfile) GetPcscfInfoList() map[string]PcscfInfo`
+
+GetPcscfInfoList returns the PcscfInfoList field if non-nil, zero value otherwise.
+
+### GetPcscfInfoListOk
+
+`func (o *NFProfile) GetPcscfInfoListOk() (*map[string]PcscfInfo, bool)`
+
+GetPcscfInfoListOk returns a tuple with the PcscfInfoList field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPcscfInfoList
+
+`func (o *NFProfile) SetPcscfInfoList(v map[string]PcscfInfo)`
+
+SetPcscfInfoList sets PcscfInfoList field to given value.
+
+### HasPcscfInfoList
+
+`func (o *NFProfile) HasPcscfInfoList() bool`
+
+HasPcscfInfoList returns a boolean if a field has been set.
+
+### GetHssInfoList
+
+`func (o *NFProfile) GetHssInfoList() map[string]HssInfo`
+
+GetHssInfoList returns the HssInfoList field if non-nil, zero value otherwise.
+
+### GetHssInfoListOk
+
+`func (o *NFProfile) GetHssInfoListOk() (*map[string]HssInfo, bool)`
+
+GetHssInfoListOk returns a tuple with the HssInfoList field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHssInfoList
+
+`func (o *NFProfile) SetHssInfoList(v map[string]HssInfo)`
+
+SetHssInfoList sets HssInfoList field to given value.
+
+### HasHssInfoList
+
+`func (o *NFProfile) HasHssInfoList() bool`
+
+HasHssInfoList returns a boolean if a field has been set.
 
 ### GetCustomInfo
 
@@ -1182,6 +1537,31 @@ SetNfServices sets NfServices field to given value.
 
 HasNfServices returns a boolean if a field has been set.
 
+### GetNfServiceList
+
+`func (o *NFProfile) GetNfServiceList() map[string]NFService`
+
+GetNfServiceList returns the NfServiceList field if non-nil, zero value otherwise.
+
+### GetNfServiceListOk
+
+`func (o *NFProfile) GetNfServiceListOk() (*map[string]NFService, bool)`
+
+GetNfServiceListOk returns a tuple with the NfServiceList field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNfServiceList
+
+`func (o *NFProfile) SetNfServiceList(v map[string]NFService)`
+
+SetNfServiceList sets NfServiceList field to given value.
+
+### HasNfServiceList
+
+`func (o *NFProfile) HasNfServiceList() bool`
+
+HasNfServiceList returns a boolean if a field has been set.
+
 ### GetNfProfileChangesSupportInd
 
 `func (o *NFProfile) GetNfProfileChangesSupportInd() bool`
@@ -1206,6 +1586,31 @@ SetNfProfileChangesSupportInd sets NfProfileChangesSupportInd field to given val
 `func (o *NFProfile) HasNfProfileChangesSupportInd() bool`
 
 HasNfProfileChangesSupportInd returns a boolean if a field has been set.
+
+### GetNfProfilePartialUpdateChangesSupportInd
+
+`func (o *NFProfile) GetNfProfilePartialUpdateChangesSupportInd() bool`
+
+GetNfProfilePartialUpdateChangesSupportInd returns the NfProfilePartialUpdateChangesSupportInd field if non-nil, zero value otherwise.
+
+### GetNfProfilePartialUpdateChangesSupportIndOk
+
+`func (o *NFProfile) GetNfProfilePartialUpdateChangesSupportIndOk() (*bool, bool)`
+
+GetNfProfilePartialUpdateChangesSupportIndOk returns a tuple with the NfProfilePartialUpdateChangesSupportInd field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNfProfilePartialUpdateChangesSupportInd
+
+`func (o *NFProfile) SetNfProfilePartialUpdateChangesSupportInd(v bool)`
+
+SetNfProfilePartialUpdateChangesSupportInd sets NfProfilePartialUpdateChangesSupportInd field to given value.
+
+### HasNfProfilePartialUpdateChangesSupportInd
+
+`func (o *NFProfile) HasNfProfilePartialUpdateChangesSupportInd() bool`
+
+HasNfProfilePartialUpdateChangesSupportInd returns a boolean if a field has been set.
 
 ### GetNfProfileChangesInd
 
@@ -1256,6 +1661,1031 @@ SetDefaultNotificationSubscriptions sets DefaultNotificationSubscriptions field 
 `func (o *NFProfile) HasDefaultNotificationSubscriptions() bool`
 
 HasDefaultNotificationSubscriptions returns a boolean if a field has been set.
+
+### GetLmfInfo
+
+`func (o *NFProfile) GetLmfInfo() LmfInfo`
+
+GetLmfInfo returns the LmfInfo field if non-nil, zero value otherwise.
+
+### GetLmfInfoOk
+
+`func (o *NFProfile) GetLmfInfoOk() (*LmfInfo, bool)`
+
+GetLmfInfoOk returns a tuple with the LmfInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLmfInfo
+
+`func (o *NFProfile) SetLmfInfo(v LmfInfo)`
+
+SetLmfInfo sets LmfInfo field to given value.
+
+### HasLmfInfo
+
+`func (o *NFProfile) HasLmfInfo() bool`
+
+HasLmfInfo returns a boolean if a field has been set.
+
+### GetGmlcInfo
+
+`func (o *NFProfile) GetGmlcInfo() GmlcInfo`
+
+GetGmlcInfo returns the GmlcInfo field if non-nil, zero value otherwise.
+
+### GetGmlcInfoOk
+
+`func (o *NFProfile) GetGmlcInfoOk() (*GmlcInfo, bool)`
+
+GetGmlcInfoOk returns a tuple with the GmlcInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetGmlcInfo
+
+`func (o *NFProfile) SetGmlcInfo(v GmlcInfo)`
+
+SetGmlcInfo sets GmlcInfo field to given value.
+
+### HasGmlcInfo
+
+`func (o *NFProfile) HasGmlcInfo() bool`
+
+HasGmlcInfo returns a boolean if a field has been set.
+
+### GetNfSetIdList
+
+`func (o *NFProfile) GetNfSetIdList() []string`
+
+GetNfSetIdList returns the NfSetIdList field if non-nil, zero value otherwise.
+
+### GetNfSetIdListOk
+
+`func (o *NFProfile) GetNfSetIdListOk() (*[]string, bool)`
+
+GetNfSetIdListOk returns a tuple with the NfSetIdList field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNfSetIdList
+
+`func (o *NFProfile) SetNfSetIdList(v []string)`
+
+SetNfSetIdList sets NfSetIdList field to given value.
+
+### HasNfSetIdList
+
+`func (o *NFProfile) HasNfSetIdList() bool`
+
+HasNfSetIdList returns a boolean if a field has been set.
+
+### GetServingScope
+
+`func (o *NFProfile) GetServingScope() []string`
+
+GetServingScope returns the ServingScope field if non-nil, zero value otherwise.
+
+### GetServingScopeOk
+
+`func (o *NFProfile) GetServingScopeOk() (*[]string, bool)`
+
+GetServingScopeOk returns a tuple with the ServingScope field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetServingScope
+
+`func (o *NFProfile) SetServingScope(v []string)`
+
+SetServingScope sets ServingScope field to given value.
+
+### HasServingScope
+
+`func (o *NFProfile) HasServingScope() bool`
+
+HasServingScope returns a boolean if a field has been set.
+
+### GetLcHSupportInd
+
+`func (o *NFProfile) GetLcHSupportInd() bool`
+
+GetLcHSupportInd returns the LcHSupportInd field if non-nil, zero value otherwise.
+
+### GetLcHSupportIndOk
+
+`func (o *NFProfile) GetLcHSupportIndOk() (*bool, bool)`
+
+GetLcHSupportIndOk returns a tuple with the LcHSupportInd field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLcHSupportInd
+
+`func (o *NFProfile) SetLcHSupportInd(v bool)`
+
+SetLcHSupportInd sets LcHSupportInd field to given value.
+
+### HasLcHSupportInd
+
+`func (o *NFProfile) HasLcHSupportInd() bool`
+
+HasLcHSupportInd returns a boolean if a field has been set.
+
+### GetOlcHSupportInd
+
+`func (o *NFProfile) GetOlcHSupportInd() bool`
+
+GetOlcHSupportInd returns the OlcHSupportInd field if non-nil, zero value otherwise.
+
+### GetOlcHSupportIndOk
+
+`func (o *NFProfile) GetOlcHSupportIndOk() (*bool, bool)`
+
+GetOlcHSupportIndOk returns a tuple with the OlcHSupportInd field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOlcHSupportInd
+
+`func (o *NFProfile) SetOlcHSupportInd(v bool)`
+
+SetOlcHSupportInd sets OlcHSupportInd field to given value.
+
+### HasOlcHSupportInd
+
+`func (o *NFProfile) HasOlcHSupportInd() bool`
+
+HasOlcHSupportInd returns a boolean if a field has been set.
+
+### GetNfSetRecoveryTimeList
+
+`func (o *NFProfile) GetNfSetRecoveryTimeList() map[string]time.Time`
+
+GetNfSetRecoveryTimeList returns the NfSetRecoveryTimeList field if non-nil, zero value otherwise.
+
+### GetNfSetRecoveryTimeListOk
+
+`func (o *NFProfile) GetNfSetRecoveryTimeListOk() (*map[string]time.Time, bool)`
+
+GetNfSetRecoveryTimeListOk returns a tuple with the NfSetRecoveryTimeList field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNfSetRecoveryTimeList
+
+`func (o *NFProfile) SetNfSetRecoveryTimeList(v map[string]time.Time)`
+
+SetNfSetRecoveryTimeList sets NfSetRecoveryTimeList field to given value.
+
+### HasNfSetRecoveryTimeList
+
+`func (o *NFProfile) HasNfSetRecoveryTimeList() bool`
+
+HasNfSetRecoveryTimeList returns a boolean if a field has been set.
+
+### GetServiceSetRecoveryTimeList
+
+`func (o *NFProfile) GetServiceSetRecoveryTimeList() map[string]time.Time`
+
+GetServiceSetRecoveryTimeList returns the ServiceSetRecoveryTimeList field if non-nil, zero value otherwise.
+
+### GetServiceSetRecoveryTimeListOk
+
+`func (o *NFProfile) GetServiceSetRecoveryTimeListOk() (*map[string]time.Time, bool)`
+
+GetServiceSetRecoveryTimeListOk returns a tuple with the ServiceSetRecoveryTimeList field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetServiceSetRecoveryTimeList
+
+`func (o *NFProfile) SetServiceSetRecoveryTimeList(v map[string]time.Time)`
+
+SetServiceSetRecoveryTimeList sets ServiceSetRecoveryTimeList field to given value.
+
+### HasServiceSetRecoveryTimeList
+
+`func (o *NFProfile) HasServiceSetRecoveryTimeList() bool`
+
+HasServiceSetRecoveryTimeList returns a boolean if a field has been set.
+
+### GetScpDomains
+
+`func (o *NFProfile) GetScpDomains() []string`
+
+GetScpDomains returns the ScpDomains field if non-nil, zero value otherwise.
+
+### GetScpDomainsOk
+
+`func (o *NFProfile) GetScpDomainsOk() (*[]string, bool)`
+
+GetScpDomainsOk returns a tuple with the ScpDomains field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetScpDomains
+
+`func (o *NFProfile) SetScpDomains(v []string)`
+
+SetScpDomains sets ScpDomains field to given value.
+
+### HasScpDomains
+
+`func (o *NFProfile) HasScpDomains() bool`
+
+HasScpDomains returns a boolean if a field has been set.
+
+### GetScpInfo
+
+`func (o *NFProfile) GetScpInfo() ScpInfo`
+
+GetScpInfo returns the ScpInfo field if non-nil, zero value otherwise.
+
+### GetScpInfoOk
+
+`func (o *NFProfile) GetScpInfoOk() (*ScpInfo, bool)`
+
+GetScpInfoOk returns a tuple with the ScpInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetScpInfo
+
+`func (o *NFProfile) SetScpInfo(v ScpInfo)`
+
+SetScpInfo sets ScpInfo field to given value.
+
+### HasScpInfo
+
+`func (o *NFProfile) HasScpInfo() bool`
+
+HasScpInfo returns a boolean if a field has been set.
+
+### GetSeppInfo
+
+`func (o *NFProfile) GetSeppInfo() SeppInfo`
+
+GetSeppInfo returns the SeppInfo field if non-nil, zero value otherwise.
+
+### GetSeppInfoOk
+
+`func (o *NFProfile) GetSeppInfoOk() (*SeppInfo, bool)`
+
+GetSeppInfoOk returns a tuple with the SeppInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSeppInfo
+
+`func (o *NFProfile) SetSeppInfo(v SeppInfo)`
+
+SetSeppInfo sets SeppInfo field to given value.
+
+### HasSeppInfo
+
+`func (o *NFProfile) HasSeppInfo() bool`
+
+HasSeppInfo returns a boolean if a field has been set.
+
+### GetVendorId
+
+`func (o *NFProfile) GetVendorId() string`
+
+GetVendorId returns the VendorId field if non-nil, zero value otherwise.
+
+### GetVendorIdOk
+
+`func (o *NFProfile) GetVendorIdOk() (*string, bool)`
+
+GetVendorIdOk returns a tuple with the VendorId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetVendorId
+
+`func (o *NFProfile) SetVendorId(v string)`
+
+SetVendorId sets VendorId field to given value.
+
+### HasVendorId
+
+`func (o *NFProfile) HasVendorId() bool`
+
+HasVendorId returns a boolean if a field has been set.
+
+### GetSupportedVendorSpecificFeatures
+
+`func (o *NFProfile) GetSupportedVendorSpecificFeatures() map[string][]VendorSpecificFeature`
+
+GetSupportedVendorSpecificFeatures returns the SupportedVendorSpecificFeatures field if non-nil, zero value otherwise.
+
+### GetSupportedVendorSpecificFeaturesOk
+
+`func (o *NFProfile) GetSupportedVendorSpecificFeaturesOk() (*map[string][]VendorSpecificFeature, bool)`
+
+GetSupportedVendorSpecificFeaturesOk returns a tuple with the SupportedVendorSpecificFeatures field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSupportedVendorSpecificFeatures
+
+`func (o *NFProfile) SetSupportedVendorSpecificFeatures(v map[string][]VendorSpecificFeature)`
+
+SetSupportedVendorSpecificFeatures sets SupportedVendorSpecificFeatures field to given value.
+
+### HasSupportedVendorSpecificFeatures
+
+`func (o *NFProfile) HasSupportedVendorSpecificFeatures() bool`
+
+HasSupportedVendorSpecificFeatures returns a boolean if a field has been set.
+
+### GetAanfInfoList
+
+`func (o *NFProfile) GetAanfInfoList() map[string]AanfInfo`
+
+GetAanfInfoList returns the AanfInfoList field if non-nil, zero value otherwise.
+
+### GetAanfInfoListOk
+
+`func (o *NFProfile) GetAanfInfoListOk() (*map[string]AanfInfo, bool)`
+
+GetAanfInfoListOk returns a tuple with the AanfInfoList field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAanfInfoList
+
+`func (o *NFProfile) SetAanfInfoList(v map[string]AanfInfo)`
+
+SetAanfInfoList sets AanfInfoList field to given value.
+
+### HasAanfInfoList
+
+`func (o *NFProfile) HasAanfInfoList() bool`
+
+HasAanfInfoList returns a boolean if a field has been set.
+
+### GetVar5gDdnmfInfo
+
+`func (o *NFProfile) GetVar5gDdnmfInfo() Model5GDdnmfInfo`
+
+GetVar5gDdnmfInfo returns the Var5gDdnmfInfo field if non-nil, zero value otherwise.
+
+### GetVar5gDdnmfInfoOk
+
+`func (o *NFProfile) GetVar5gDdnmfInfoOk() (*Model5GDdnmfInfo, bool)`
+
+GetVar5gDdnmfInfoOk returns a tuple with the Var5gDdnmfInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetVar5gDdnmfInfo
+
+`func (o *NFProfile) SetVar5gDdnmfInfo(v Model5GDdnmfInfo)`
+
+SetVar5gDdnmfInfo sets Var5gDdnmfInfo field to given value.
+
+### HasVar5gDdnmfInfo
+
+`func (o *NFProfile) HasVar5gDdnmfInfo() bool`
+
+HasVar5gDdnmfInfo returns a boolean if a field has been set.
+
+### GetMfafInfo
+
+`func (o *NFProfile) GetMfafInfo() MfafInfo`
+
+GetMfafInfo returns the MfafInfo field if non-nil, zero value otherwise.
+
+### GetMfafInfoOk
+
+`func (o *NFProfile) GetMfafInfoOk() (*MfafInfo, bool)`
+
+GetMfafInfoOk returns a tuple with the MfafInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMfafInfo
+
+`func (o *NFProfile) SetMfafInfo(v MfafInfo)`
+
+SetMfafInfo sets MfafInfo field to given value.
+
+### HasMfafInfo
+
+`func (o *NFProfile) HasMfafInfo() bool`
+
+HasMfafInfo returns a boolean if a field has been set.
+
+### GetEasdfInfoList
+
+`func (o *NFProfile) GetEasdfInfoList() map[string]EasdfInfo`
+
+GetEasdfInfoList returns the EasdfInfoList field if non-nil, zero value otherwise.
+
+### GetEasdfInfoListOk
+
+`func (o *NFProfile) GetEasdfInfoListOk() (*map[string]EasdfInfo, bool)`
+
+GetEasdfInfoListOk returns a tuple with the EasdfInfoList field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEasdfInfoList
+
+`func (o *NFProfile) SetEasdfInfoList(v map[string]EasdfInfo)`
+
+SetEasdfInfoList sets EasdfInfoList field to given value.
+
+### HasEasdfInfoList
+
+`func (o *NFProfile) HasEasdfInfoList() bool`
+
+HasEasdfInfoList returns a boolean if a field has been set.
+
+### GetDccfInfo
+
+`func (o *NFProfile) GetDccfInfo() DccfInfo`
+
+GetDccfInfo returns the DccfInfo field if non-nil, zero value otherwise.
+
+### GetDccfInfoOk
+
+`func (o *NFProfile) GetDccfInfoOk() (*DccfInfo, bool)`
+
+GetDccfInfoOk returns a tuple with the DccfInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDccfInfo
+
+`func (o *NFProfile) SetDccfInfo(v DccfInfo)`
+
+SetDccfInfo sets DccfInfo field to given value.
+
+### HasDccfInfo
+
+`func (o *NFProfile) HasDccfInfo() bool`
+
+HasDccfInfo returns a boolean if a field has been set.
+
+### GetNsacfInfoList
+
+`func (o *NFProfile) GetNsacfInfoList() map[string]NsacfInfo`
+
+GetNsacfInfoList returns the NsacfInfoList field if non-nil, zero value otherwise.
+
+### GetNsacfInfoListOk
+
+`func (o *NFProfile) GetNsacfInfoListOk() (*map[string]NsacfInfo, bool)`
+
+GetNsacfInfoListOk returns a tuple with the NsacfInfoList field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNsacfInfoList
+
+`func (o *NFProfile) SetNsacfInfoList(v map[string]NsacfInfo)`
+
+SetNsacfInfoList sets NsacfInfoList field to given value.
+
+### HasNsacfInfoList
+
+`func (o *NFProfile) HasNsacfInfoList() bool`
+
+HasNsacfInfoList returns a boolean if a field has been set.
+
+### GetMbSmfInfoList
+
+`func (o *NFProfile) GetMbSmfInfoList() map[string]MbSmfInfo`
+
+GetMbSmfInfoList returns the MbSmfInfoList field if non-nil, zero value otherwise.
+
+### GetMbSmfInfoListOk
+
+`func (o *NFProfile) GetMbSmfInfoListOk() (*map[string]MbSmfInfo, bool)`
+
+GetMbSmfInfoListOk returns a tuple with the MbSmfInfoList field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMbSmfInfoList
+
+`func (o *NFProfile) SetMbSmfInfoList(v map[string]MbSmfInfo)`
+
+SetMbSmfInfoList sets MbSmfInfoList field to given value.
+
+### HasMbSmfInfoList
+
+`func (o *NFProfile) HasMbSmfInfoList() bool`
+
+HasMbSmfInfoList returns a boolean if a field has been set.
+
+### GetTsctsfInfoList
+
+`func (o *NFProfile) GetTsctsfInfoList() map[string]TsctsfInfo`
+
+GetTsctsfInfoList returns the TsctsfInfoList field if non-nil, zero value otherwise.
+
+### GetTsctsfInfoListOk
+
+`func (o *NFProfile) GetTsctsfInfoListOk() (*map[string]TsctsfInfo, bool)`
+
+GetTsctsfInfoListOk returns a tuple with the TsctsfInfoList field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTsctsfInfoList
+
+`func (o *NFProfile) SetTsctsfInfoList(v map[string]TsctsfInfo)`
+
+SetTsctsfInfoList sets TsctsfInfoList field to given value.
+
+### HasTsctsfInfoList
+
+`func (o *NFProfile) HasTsctsfInfoList() bool`
+
+HasTsctsfInfoList returns a boolean if a field has been set.
+
+### GetMbUpfInfoList
+
+`func (o *NFProfile) GetMbUpfInfoList() map[string]MbUpfInfo`
+
+GetMbUpfInfoList returns the MbUpfInfoList field if non-nil, zero value otherwise.
+
+### GetMbUpfInfoListOk
+
+`func (o *NFProfile) GetMbUpfInfoListOk() (*map[string]MbUpfInfo, bool)`
+
+GetMbUpfInfoListOk returns a tuple with the MbUpfInfoList field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMbUpfInfoList
+
+`func (o *NFProfile) SetMbUpfInfoList(v map[string]MbUpfInfo)`
+
+SetMbUpfInfoList sets MbUpfInfoList field to given value.
+
+### HasMbUpfInfoList
+
+`func (o *NFProfile) HasMbUpfInfoList() bool`
+
+HasMbUpfInfoList returns a boolean if a field has been set.
+
+### GetTrustAfInfo
+
+`func (o *NFProfile) GetTrustAfInfo() TrustAfInfo`
+
+GetTrustAfInfo returns the TrustAfInfo field if non-nil, zero value otherwise.
+
+### GetTrustAfInfoOk
+
+`func (o *NFProfile) GetTrustAfInfoOk() (*TrustAfInfo, bool)`
+
+GetTrustAfInfoOk returns a tuple with the TrustAfInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTrustAfInfo
+
+`func (o *NFProfile) SetTrustAfInfo(v TrustAfInfo)`
+
+SetTrustAfInfo sets TrustAfInfo field to given value.
+
+### HasTrustAfInfo
+
+`func (o *NFProfile) HasTrustAfInfo() bool`
+
+HasTrustAfInfo returns a boolean if a field has been set.
+
+### GetNssaafInfo
+
+`func (o *NFProfile) GetNssaafInfo() NssaafInfo`
+
+GetNssaafInfo returns the NssaafInfo field if non-nil, zero value otherwise.
+
+### GetNssaafInfoOk
+
+`func (o *NFProfile) GetNssaafInfoOk() (*NssaafInfo, bool)`
+
+GetNssaafInfoOk returns a tuple with the NssaafInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNssaafInfo
+
+`func (o *NFProfile) SetNssaafInfo(v NssaafInfo)`
+
+SetNssaafInfo sets NssaafInfo field to given value.
+
+### HasNssaafInfo
+
+`func (o *NFProfile) HasNssaafInfo() bool`
+
+HasNssaafInfo returns a boolean if a field has been set.
+
+### GetHniList
+
+`func (o *NFProfile) GetHniList() []string`
+
+GetHniList returns the HniList field if non-nil, zero value otherwise.
+
+### GetHniListOk
+
+`func (o *NFProfile) GetHniListOk() (*[]string, bool)`
+
+GetHniListOk returns a tuple with the HniList field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHniList
+
+`func (o *NFProfile) SetHniList(v []string)`
+
+SetHniList sets HniList field to given value.
+
+### HasHniList
+
+`func (o *NFProfile) HasHniList() bool`
+
+HasHniList returns a boolean if a field has been set.
+
+### GetIwmscInfo
+
+`func (o *NFProfile) GetIwmscInfo() IwmscInfo`
+
+GetIwmscInfo returns the IwmscInfo field if non-nil, zero value otherwise.
+
+### GetIwmscInfoOk
+
+`func (o *NFProfile) GetIwmscInfoOk() (*IwmscInfo, bool)`
+
+GetIwmscInfoOk returns a tuple with the IwmscInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIwmscInfo
+
+`func (o *NFProfile) SetIwmscInfo(v IwmscInfo)`
+
+SetIwmscInfo sets IwmscInfo field to given value.
+
+### HasIwmscInfo
+
+`func (o *NFProfile) HasIwmscInfo() bool`
+
+HasIwmscInfo returns a boolean if a field has been set.
+
+### GetMnpfInfo
+
+`func (o *NFProfile) GetMnpfInfo() MnpfInfo`
+
+GetMnpfInfo returns the MnpfInfo field if non-nil, zero value otherwise.
+
+### GetMnpfInfoOk
+
+`func (o *NFProfile) GetMnpfInfoOk() (*MnpfInfo, bool)`
+
+GetMnpfInfoOk returns a tuple with the MnpfInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMnpfInfo
+
+`func (o *NFProfile) SetMnpfInfo(v MnpfInfo)`
+
+SetMnpfInfo sets MnpfInfo field to given value.
+
+### HasMnpfInfo
+
+`func (o *NFProfile) HasMnpfInfo() bool`
+
+HasMnpfInfo returns a boolean if a field has been set.
+
+### GetSmsfInfo
+
+`func (o *NFProfile) GetSmsfInfo() SmsfInfo`
+
+GetSmsfInfo returns the SmsfInfo field if non-nil, zero value otherwise.
+
+### GetSmsfInfoOk
+
+`func (o *NFProfile) GetSmsfInfoOk() (*SmsfInfo, bool)`
+
+GetSmsfInfoOk returns a tuple with the SmsfInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSmsfInfo
+
+`func (o *NFProfile) SetSmsfInfo(v SmsfInfo)`
+
+SetSmsfInfo sets SmsfInfo field to given value.
+
+### HasSmsfInfo
+
+`func (o *NFProfile) HasSmsfInfo() bool`
+
+HasSmsfInfo returns a boolean if a field has been set.
+
+### GetDcsfInfoList
+
+`func (o *NFProfile) GetDcsfInfoList() map[string]DcsfInfo`
+
+GetDcsfInfoList returns the DcsfInfoList field if non-nil, zero value otherwise.
+
+### GetDcsfInfoListOk
+
+`func (o *NFProfile) GetDcsfInfoListOk() (*map[string]DcsfInfo, bool)`
+
+GetDcsfInfoListOk returns a tuple with the DcsfInfoList field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDcsfInfoList
+
+`func (o *NFProfile) SetDcsfInfoList(v map[string]DcsfInfo)`
+
+SetDcsfInfoList sets DcsfInfoList field to given value.
+
+### HasDcsfInfoList
+
+`func (o *NFProfile) HasDcsfInfoList() bool`
+
+HasDcsfInfoList returns a boolean if a field has been set.
+
+### GetMrfInfoList
+
+`func (o *NFProfile) GetMrfInfoList() map[string]MrfInfo`
+
+GetMrfInfoList returns the MrfInfoList field if non-nil, zero value otherwise.
+
+### GetMrfInfoListOk
+
+`func (o *NFProfile) GetMrfInfoListOk() (*map[string]MrfInfo, bool)`
+
+GetMrfInfoListOk returns a tuple with the MrfInfoList field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMrfInfoList
+
+`func (o *NFProfile) SetMrfInfoList(v map[string]MrfInfo)`
+
+SetMrfInfoList sets MrfInfoList field to given value.
+
+### HasMrfInfoList
+
+`func (o *NFProfile) HasMrfInfoList() bool`
+
+HasMrfInfoList returns a boolean if a field has been set.
+
+### GetMrfpInfoList
+
+`func (o *NFProfile) GetMrfpInfoList() map[string]MrfpInfo`
+
+GetMrfpInfoList returns the MrfpInfoList field if non-nil, zero value otherwise.
+
+### GetMrfpInfoListOk
+
+`func (o *NFProfile) GetMrfpInfoListOk() (*map[string]MrfpInfo, bool)`
+
+GetMrfpInfoListOk returns a tuple with the MrfpInfoList field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMrfpInfoList
+
+`func (o *NFProfile) SetMrfpInfoList(v map[string]MrfpInfo)`
+
+SetMrfpInfoList sets MrfpInfoList field to given value.
+
+### HasMrfpInfoList
+
+`func (o *NFProfile) HasMrfpInfoList() bool`
+
+HasMrfpInfoList returns a boolean if a field has been set.
+
+### GetMfInfoList
+
+`func (o *NFProfile) GetMfInfoList() map[string]MfInfo`
+
+GetMfInfoList returns the MfInfoList field if non-nil, zero value otherwise.
+
+### GetMfInfoListOk
+
+`func (o *NFProfile) GetMfInfoListOk() (*map[string]MfInfo, bool)`
+
+GetMfInfoListOk returns a tuple with the MfInfoList field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMfInfoList
+
+`func (o *NFProfile) SetMfInfoList(v map[string]MfInfo)`
+
+SetMfInfoList sets MfInfoList field to given value.
+
+### HasMfInfoList
+
+`func (o *NFProfile) HasMfInfoList() bool`
+
+HasMfInfoList returns a boolean if a field has been set.
+
+### GetAdrfInfoList
+
+`func (o *NFProfile) GetAdrfInfoList() map[string]AdrfInfo`
+
+GetAdrfInfoList returns the AdrfInfoList field if non-nil, zero value otherwise.
+
+### GetAdrfInfoListOk
+
+`func (o *NFProfile) GetAdrfInfoListOk() (*map[string]AdrfInfo, bool)`
+
+GetAdrfInfoListOk returns a tuple with the AdrfInfoList field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAdrfInfoList
+
+`func (o *NFProfile) SetAdrfInfoList(v map[string]AdrfInfo)`
+
+SetAdrfInfoList sets AdrfInfoList field to given value.
+
+### HasAdrfInfoList
+
+`func (o *NFProfile) HasAdrfInfoList() bool`
+
+HasAdrfInfoList returns a boolean if a field has been set.
+
+### GetSelectionConditions
+
+`func (o *NFProfile) GetSelectionConditions() SelectionConditions`
+
+GetSelectionConditions returns the SelectionConditions field if non-nil, zero value otherwise.
+
+### GetSelectionConditionsOk
+
+`func (o *NFProfile) GetSelectionConditionsOk() (*SelectionConditions, bool)`
+
+GetSelectionConditionsOk returns a tuple with the SelectionConditions field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSelectionConditions
+
+`func (o *NFProfile) SetSelectionConditions(v SelectionConditions)`
+
+SetSelectionConditions sets SelectionConditions field to given value.
+
+### HasSelectionConditions
+
+`func (o *NFProfile) HasSelectionConditions() bool`
+
+HasSelectionConditions returns a boolean if a field has been set.
+
+### GetCanaryRelease
+
+`func (o *NFProfile) GetCanaryRelease() bool`
+
+GetCanaryRelease returns the CanaryRelease field if non-nil, zero value otherwise.
+
+### GetCanaryReleaseOk
+
+`func (o *NFProfile) GetCanaryReleaseOk() (*bool, bool)`
+
+GetCanaryReleaseOk returns a tuple with the CanaryRelease field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCanaryRelease
+
+`func (o *NFProfile) SetCanaryRelease(v bool)`
+
+SetCanaryRelease sets CanaryRelease field to given value.
+
+### HasCanaryRelease
+
+`func (o *NFProfile) HasCanaryRelease() bool`
+
+HasCanaryRelease returns a boolean if a field has been set.
+
+### GetExclusiveCanaryReleaseSelection
+
+`func (o *NFProfile) GetExclusiveCanaryReleaseSelection() bool`
+
+GetExclusiveCanaryReleaseSelection returns the ExclusiveCanaryReleaseSelection field if non-nil, zero value otherwise.
+
+### GetExclusiveCanaryReleaseSelectionOk
+
+`func (o *NFProfile) GetExclusiveCanaryReleaseSelectionOk() (*bool, bool)`
+
+GetExclusiveCanaryReleaseSelectionOk returns a tuple with the ExclusiveCanaryReleaseSelection field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExclusiveCanaryReleaseSelection
+
+`func (o *NFProfile) SetExclusiveCanaryReleaseSelection(v bool)`
+
+SetExclusiveCanaryReleaseSelection sets ExclusiveCanaryReleaseSelection field to given value.
+
+### HasExclusiveCanaryReleaseSelection
+
+`func (o *NFProfile) HasExclusiveCanaryReleaseSelection() bool`
+
+HasExclusiveCanaryReleaseSelection returns a boolean if a field has been set.
+
+### GetSharedProfileDataId
+
+`func (o *NFProfile) GetSharedProfileDataId() string`
+
+GetSharedProfileDataId returns the SharedProfileDataId field if non-nil, zero value otherwise.
+
+### GetSharedProfileDataIdOk
+
+`func (o *NFProfile) GetSharedProfileDataIdOk() (*string, bool)`
+
+GetSharedProfileDataIdOk returns a tuple with the SharedProfileDataId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSharedProfileDataId
+
+`func (o *NFProfile) SetSharedProfileDataId(v string)`
+
+SetSharedProfileDataId sets SharedProfileDataId field to given value.
+
+### HasSharedProfileDataId
+
+`func (o *NFProfile) HasSharedProfileDataId() bool`
+
+HasSharedProfileDataId returns a boolean if a field has been set.
+
+### GetShutdownTime
+
+`func (o *NFProfile) GetShutdownTime() time.Time`
+
+GetShutdownTime returns the ShutdownTime field if non-nil, zero value otherwise.
+
+### GetShutdownTimeOk
+
+`func (o *NFProfile) GetShutdownTimeOk() (*time.Time, bool)`
+
+GetShutdownTimeOk returns a tuple with the ShutdownTime field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetShutdownTime
+
+`func (o *NFProfile) SetShutdownTime(v time.Time)`
+
+SetShutdownTime sets ShutdownTime field to given value.
+
+### HasShutdownTime
+
+`func (o *NFProfile) HasShutdownTime() bool`
+
+HasShutdownTime returns a boolean if a field has been set.
+
+### GetSupportedRcfs
+
+`func (o *NFProfile) GetSupportedRcfs() []string`
+
+GetSupportedRcfs returns the SupportedRcfs field if non-nil, zero value otherwise.
+
+### GetSupportedRcfsOk
+
+`func (o *NFProfile) GetSupportedRcfsOk() (*[]string, bool)`
+
+GetSupportedRcfsOk returns a tuple with the SupportedRcfs field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSupportedRcfs
+
+`func (o *NFProfile) SetSupportedRcfs(v []string)`
+
+SetSupportedRcfs sets SupportedRcfs field to given value.
+
+### HasSupportedRcfs
+
+`func (o *NFProfile) HasSupportedRcfs() bool`
+
+HasSupportedRcfs returns a boolean if a field has been set.
+
+### GetCanaryPrecedenceOverPreferred
+
+`func (o *NFProfile) GetCanaryPrecedenceOverPreferred() bool`
+
+GetCanaryPrecedenceOverPreferred returns the CanaryPrecedenceOverPreferred field if non-nil, zero value otherwise.
+
+### GetCanaryPrecedenceOverPreferredOk
+
+`func (o *NFProfile) GetCanaryPrecedenceOverPreferredOk() (*bool, bool)`
+
+GetCanaryPrecedenceOverPreferredOk returns a tuple with the CanaryPrecedenceOverPreferred field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCanaryPrecedenceOverPreferred
+
+`func (o *NFProfile) SetCanaryPrecedenceOverPreferred(v bool)`
+
+SetCanaryPrecedenceOverPreferred sets CanaryPrecedenceOverPreferred field to given value.
+
+### HasCanaryPrecedenceOverPreferred
+
+`func (o *NFProfile) HasCanaryPrecedenceOverPreferred() bool`
+
+HasCanaryPrecedenceOverPreferred returns a boolean if a field has been set.
+
+### GetImsasInfoList
+
+`func (o *NFProfile) GetImsasInfoList() map[string]ImsasInfo`
+
+GetImsasInfoList returns the ImsasInfoList field if non-nil, zero value otherwise.
+
+### GetImsasInfoListOk
+
+`func (o *NFProfile) GetImsasInfoListOk() (*map[string]ImsasInfo, bool)`
+
+GetImsasInfoListOk returns a tuple with the ImsasInfoList field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetImsasInfoList
+
+`func (o *NFProfile) SetImsasInfoList(v map[string]ImsasInfo)`
+
+SetImsasInfoList sets ImsasInfoList field to given value.
+
+### HasImsasInfoList
+
+`func (o *NFProfile) HasImsasInfoList() bool`
+
+HasImsasInfoList returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

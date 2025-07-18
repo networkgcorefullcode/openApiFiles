@@ -4,14 +4,19 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | Pointer to **string** |  | [optional] 
+**Type** | Pointer to **string** | String providing an URI formatted according to RFC 3986. | [optional] 
 **Title** | Pointer to **string** |  | [optional] 
 **Status** | Pointer to **int32** |  | [optional] 
-**Detail** | Pointer to **string** |  | [optional] 
-**Instance** | Pointer to **string** |  | [optional] 
-**Cause** | Pointer to **string** |  | [optional] 
+**Detail** | Pointer to **string** | A human-readable explanation specific to this occurrence of the problem. | [optional] 
+**Instance** | Pointer to **string** | String providing an URI formatted according to RFC 3986. | [optional] 
+**Cause** | Pointer to **string** | A machine-readable application error cause specific to this occurrence of the problem.  This IE should be present and provide application-related error information, if available.  | [optional] 
 **InvalidParams** | Pointer to [**[]InvalidParam**](InvalidParam.md) |  | [optional] 
-**SupportedFeatures** | Pointer to **string** |  | [optional] 
+**SupportedFeatures** | Pointer to **string** | A string used to indicate the features supported by an API that is used as defined in clause  6.6 in 3GPP TS 29.500. The string shall contain a bitmask indicating supported features in  hexadecimal representation Each character in the string shall take a value of \&quot;0\&quot; to \&quot;9\&quot;,  \&quot;a\&quot; to \&quot;f\&quot; or \&quot;A\&quot; to \&quot;F\&quot; and shall represent the support of 4 features as described in  table 5.2.2-3. The most significant character representing the highest-numbered features shall  appear first in the string, and the character representing features 1 to 4 shall appear last  in the string. The list of features and their numbering (starting with 1) are defined  separately for each API. If the string contains a lower number of characters than there are  defined features for an API, all features that would be represented by characters that are not  present in the string are not supported.  | [optional] 
+**AccessTokenError** | Pointer to [**AccessTokenErr**](AccessTokenErr.md) |  | [optional] 
+**AccessTokenRequest** | Pointer to [**AccessTokenReq**](AccessTokenReq.md) |  | [optional] 
+**NrfId** | Pointer to **string** | Fully Qualified Domain Name | [optional] 
+**SupportedApiVersions** | Pointer to **[]string** |  | [optional] 
+**NoProfileMatchInfo** | Pointer to [**NoProfileMatchInfo**](NoProfileMatchInfo.md) |  | [optional] 
 
 ## Methods
 
@@ -231,6 +236,131 @@ SetSupportedFeatures sets SupportedFeatures field to given value.
 `func (o *ProblemDetails) HasSupportedFeatures() bool`
 
 HasSupportedFeatures returns a boolean if a field has been set.
+
+### GetAccessTokenError
+
+`func (o *ProblemDetails) GetAccessTokenError() AccessTokenErr`
+
+GetAccessTokenError returns the AccessTokenError field if non-nil, zero value otherwise.
+
+### GetAccessTokenErrorOk
+
+`func (o *ProblemDetails) GetAccessTokenErrorOk() (*AccessTokenErr, bool)`
+
+GetAccessTokenErrorOk returns a tuple with the AccessTokenError field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAccessTokenError
+
+`func (o *ProblemDetails) SetAccessTokenError(v AccessTokenErr)`
+
+SetAccessTokenError sets AccessTokenError field to given value.
+
+### HasAccessTokenError
+
+`func (o *ProblemDetails) HasAccessTokenError() bool`
+
+HasAccessTokenError returns a boolean if a field has been set.
+
+### GetAccessTokenRequest
+
+`func (o *ProblemDetails) GetAccessTokenRequest() AccessTokenReq`
+
+GetAccessTokenRequest returns the AccessTokenRequest field if non-nil, zero value otherwise.
+
+### GetAccessTokenRequestOk
+
+`func (o *ProblemDetails) GetAccessTokenRequestOk() (*AccessTokenReq, bool)`
+
+GetAccessTokenRequestOk returns a tuple with the AccessTokenRequest field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAccessTokenRequest
+
+`func (o *ProblemDetails) SetAccessTokenRequest(v AccessTokenReq)`
+
+SetAccessTokenRequest sets AccessTokenRequest field to given value.
+
+### HasAccessTokenRequest
+
+`func (o *ProblemDetails) HasAccessTokenRequest() bool`
+
+HasAccessTokenRequest returns a boolean if a field has been set.
+
+### GetNrfId
+
+`func (o *ProblemDetails) GetNrfId() string`
+
+GetNrfId returns the NrfId field if non-nil, zero value otherwise.
+
+### GetNrfIdOk
+
+`func (o *ProblemDetails) GetNrfIdOk() (*string, bool)`
+
+GetNrfIdOk returns a tuple with the NrfId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNrfId
+
+`func (o *ProblemDetails) SetNrfId(v string)`
+
+SetNrfId sets NrfId field to given value.
+
+### HasNrfId
+
+`func (o *ProblemDetails) HasNrfId() bool`
+
+HasNrfId returns a boolean if a field has been set.
+
+### GetSupportedApiVersions
+
+`func (o *ProblemDetails) GetSupportedApiVersions() []string`
+
+GetSupportedApiVersions returns the SupportedApiVersions field if non-nil, zero value otherwise.
+
+### GetSupportedApiVersionsOk
+
+`func (o *ProblemDetails) GetSupportedApiVersionsOk() (*[]string, bool)`
+
+GetSupportedApiVersionsOk returns a tuple with the SupportedApiVersions field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSupportedApiVersions
+
+`func (o *ProblemDetails) SetSupportedApiVersions(v []string)`
+
+SetSupportedApiVersions sets SupportedApiVersions field to given value.
+
+### HasSupportedApiVersions
+
+`func (o *ProblemDetails) HasSupportedApiVersions() bool`
+
+HasSupportedApiVersions returns a boolean if a field has been set.
+
+### GetNoProfileMatchInfo
+
+`func (o *ProblemDetails) GetNoProfileMatchInfo() NoProfileMatchInfo`
+
+GetNoProfileMatchInfo returns the NoProfileMatchInfo field if non-nil, zero value otherwise.
+
+### GetNoProfileMatchInfoOk
+
+`func (o *ProblemDetails) GetNoProfileMatchInfoOk() (*NoProfileMatchInfo, bool)`
+
+GetNoProfileMatchInfoOk returns a tuple with the NoProfileMatchInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNoProfileMatchInfo
+
+`func (o *ProblemDetails) SetNoProfileMatchInfo(v NoProfileMatchInfo)`
+
+SetNoProfileMatchInfo sets NoProfileMatchInfo field to given value.
+
+### HasNoProfileMatchInfo
+
+`func (o *ProblemDetails) HasNoProfileMatchInfo() bool`
+
+HasNoProfileMatchInfo returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

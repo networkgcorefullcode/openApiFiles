@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**PlmnId** | [**PlmnId**](PlmnId.md) |  | 
-**AmfId** | **string** |  | 
+**PlmnId** | [**PlmnIdNid**](PlmnIdNid.md) |  | 
+**AmfId** | **string** | String identifying the AMF ID composed of AMF Region ID (8 bits), AMF Set ID (10 bits) and AMF  Pointer (6 bits) as specified in clause 2.10.1 of 3GPP TS 23.003. It is encoded as a string of  6 hexadecimal characters (i.e., 24 bits).   | 
 
 ## Methods
 
 ### NewGuami
 
-`func NewGuami(plmnId PlmnId, amfId string, ) *Guami`
+`func NewGuami(plmnId PlmnIdNid, amfId string, ) *Guami`
 
 NewGuami instantiates a new Guami object
 This constructor will assign default values to properties that have it defined,
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetPlmnId
 
-`func (o *Guami) GetPlmnId() PlmnId`
+`func (o *Guami) GetPlmnId() PlmnIdNid`
 
 GetPlmnId returns the PlmnId field if non-nil, zero value otherwise.
 
 ### GetPlmnIdOk
 
-`func (o *Guami) GetPlmnIdOk() (*PlmnId, bool)`
+`func (o *Guami) GetPlmnIdOk() (*PlmnIdNid, bool)`
 
 GetPlmnIdOk returns a tuple with the PlmnId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPlmnId
 
-`func (o *Guami) SetPlmnId(v PlmnId)`
+`func (o *Guami) SetPlmnId(v PlmnIdNid)`
 
 SetPlmnId sets PlmnId field to given value.
 

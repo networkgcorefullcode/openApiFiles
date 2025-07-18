@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **NfType** | **string** |  | 
-**NfGroupId** | **string** |  | 
+**NfGroupId** | **string** | Identifier of a group of NFs. | 
 
 ## Methods
 

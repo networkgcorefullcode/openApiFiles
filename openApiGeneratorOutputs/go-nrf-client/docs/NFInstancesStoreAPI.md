@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## GetNFInstances
 
-> GetNFInstances200Response GetNFInstances(ctx).NfType(nfType).Limit(limit).Execute()
+> UriList GetNFInstances(ctx).NfType(nfType).Limit(limit).PageNumber(pageNumber).PageSize(pageSize).Execute()
 
 Retrieves a collection of NF Instances
 
@@ -30,15 +30,17 @@ import (
 func main() {
 	nfType := *openapiclient.NewNFType() // NFType | Type of NF (optional)
 	limit := int32(56) // int32 | How many items to return at one time (optional)
+	pageNumber := int32(56) // int32 | Page number where the response shall start (optional)
+	pageSize := int32(56) // int32 | Maximum number of items in each returned page (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.NFInstancesStoreAPI.GetNFInstances(context.Background()).NfType(nfType).Limit(limit).Execute()
+	resp, r, err := apiClient.NFInstancesStoreAPI.GetNFInstances(context.Background()).NfType(nfType).Limit(limit).PageNumber(pageNumber).PageSize(pageSize).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `NFInstancesStoreAPI.GetNFInstances``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetNFInstances`: GetNFInstances200Response
+	// response from `GetNFInstances`: UriList
 	fmt.Fprintf(os.Stdout, "Response from `NFInstancesStoreAPI.GetNFInstances`: %v\n", resp)
 }
 ```
@@ -56,10 +58,12 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **nfType** | [**NFType**](NFType.md) | Type of NF | 
  **limit** | **int32** | How many items to return at one time | 
+ **pageNumber** | **int32** | Page number where the response shall start | 
+ **pageSize** | **int32** | Maximum number of items in each returned page | 
 
 ### Return type
 
-[**GetNFInstances200Response**](GetNFInstances200Response.md)
+[**UriList**](UriList.md)
 
 ### Authorization
 
@@ -68,7 +72,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/3gppHal+json, application/problem+json
+- **Accept**: application/3gppHal+json, application/json, application/problem+json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -77,7 +81,7 @@ Name | Type | Description  | Notes
 
 ## OptionsNFInstances
 
-> OptionsNFInstances(ctx).Execute()
+> OptionsResponse OptionsNFInstances(ctx).Execute()
 
 Discover communication options supported by NRF for NF Instances
 
@@ -97,11 +101,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.NFInstancesStoreAPI.OptionsNFInstances(context.Background()).Execute()
+	resp, r, err := apiClient.NFInstancesStoreAPI.OptionsNFInstances(context.Background()).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `NFInstancesStoreAPI.OptionsNFInstances``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
+	// response from `OptionsNFInstances`: OptionsResponse
+	fmt.Fprintf(os.Stdout, "Response from `NFInstancesStoreAPI.OptionsNFInstances`: %v\n", resp)
 }
 ```
 
@@ -116,7 +122,7 @@ Other parameters are passed through a pointer to a apiOptionsNFInstancesRequest 
 
 ### Return type
 
- (empty response body)
+[**OptionsResponse**](OptionsResponse.md)
 
 ### Authorization
 
@@ -125,7 +131,7 @@ Other parameters are passed through a pointer to a apiOptionsNFInstancesRequest 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/problem+json
+- **Accept**: application/json, application/problem+json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

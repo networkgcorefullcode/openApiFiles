@@ -7,8 +7,9 @@ Name | Type | Description | Notes
 **InterfaceType** | [**UPInterfaceType**](UPInterfaceType.md) |  | 
 **Ipv4EndpointAddresses** | Pointer to **[]string** |  | [optional] 
 **Ipv6EndpointAddresses** | Pointer to [**[]Ipv6Addr**](Ipv6Addr.md) |  | [optional] 
-**EndpointFqdn** | Pointer to **string** |  | [optional] 
+**EndpointFqdn** | Pointer to **string** | Fully Qualified Domain Name | [optional] 
 **NetworkInstance** | Pointer to **string** |  | [optional] 
+**PortRangeList** | Pointer to [**[]PortRange**](PortRange.md) |  | [optional] 
 
 ## Methods
 
@@ -148,6 +149,31 @@ SetNetworkInstance sets NetworkInstance field to given value.
 `func (o *InterfaceUpfInfoItem) HasNetworkInstance() bool`
 
 HasNetworkInstance returns a boolean if a field has been set.
+
+### GetPortRangeList
+
+`func (o *InterfaceUpfInfoItem) GetPortRangeList() []PortRange`
+
+GetPortRangeList returns the PortRangeList field if non-nil, zero value otherwise.
+
+### GetPortRangeListOk
+
+`func (o *InterfaceUpfInfoItem) GetPortRangeListOk() (*[]PortRange, bool)`
+
+GetPortRangeListOk returns a tuple with the PortRangeList field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPortRangeList
+
+`func (o *InterfaceUpfInfoItem) SetPortRangeList(v []PortRange)`
+
+SetPortRangeList sets PortRangeList field to given value.
+
+### HasPortRangeList
+
+`func (o *InterfaceUpfInfoItem) HasPortRangeList() bool`
+
+HasPortRangeList returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

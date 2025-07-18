@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Ipv4Address** | Pointer to **string** |  | [optional] 
+**Ipv4Address** | Pointer to **string** | String identifying a IPv4 address formatted in the &#39;dotted decimal&#39; notation as defined in RFC 1166.  | [optional] 
 **Ipv6Address** | Pointer to [**Ipv6Addr**](Ipv6Addr.md) |  | [optional] 
 **Transport** | Pointer to [**TransportProtocol**](TransportProtocol.md) |  | [optional] 
 **Port** | Pointer to **int32** |  | [optional] 

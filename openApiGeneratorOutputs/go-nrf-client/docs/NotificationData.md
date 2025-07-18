@@ -5,9 +5,13 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Event** | [**NotificationEventType**](NotificationEventType.md) |  | 
-**NfInstanceUri** | **string** |  | 
+**NfInstanceUri** | **string** | String providing an URI formatted according to RFC 3986. | 
 **NfProfile** | Pointer to [**NFProfile**](NFProfile.md) |  | [optional] 
 **ProfileChanges** | Pointer to [**[]ChangeItem**](ChangeItem.md) |  | [optional] 
+**SharedDataChanges** | Pointer to [**[]ChangeItem**](ChangeItem.md) |  | [optional] 
+**ConditionEvent** | Pointer to [**ConditionEventType**](ConditionEventType.md) |  | [optional] 
+**SubscriptionContext** | Pointer to [**SubscriptionContext**](SubscriptionContext.md) |  | [optional] 
+**CompleteNfProfile** | Pointer to [**NullableNFProfile**](NFProfile.md) |  | [optional] 
 
 ## Methods
 
@@ -118,6 +122,116 @@ SetProfileChanges sets ProfileChanges field to given value.
 
 HasProfileChanges returns a boolean if a field has been set.
 
+### GetSharedDataChanges
+
+`func (o *NotificationData) GetSharedDataChanges() []ChangeItem`
+
+GetSharedDataChanges returns the SharedDataChanges field if non-nil, zero value otherwise.
+
+### GetSharedDataChangesOk
+
+`func (o *NotificationData) GetSharedDataChangesOk() (*[]ChangeItem, bool)`
+
+GetSharedDataChangesOk returns a tuple with the SharedDataChanges field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSharedDataChanges
+
+`func (o *NotificationData) SetSharedDataChanges(v []ChangeItem)`
+
+SetSharedDataChanges sets SharedDataChanges field to given value.
+
+### HasSharedDataChanges
+
+`func (o *NotificationData) HasSharedDataChanges() bool`
+
+HasSharedDataChanges returns a boolean if a field has been set.
+
+### GetConditionEvent
+
+`func (o *NotificationData) GetConditionEvent() ConditionEventType`
+
+GetConditionEvent returns the ConditionEvent field if non-nil, zero value otherwise.
+
+### GetConditionEventOk
+
+`func (o *NotificationData) GetConditionEventOk() (*ConditionEventType, bool)`
+
+GetConditionEventOk returns a tuple with the ConditionEvent field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetConditionEvent
+
+`func (o *NotificationData) SetConditionEvent(v ConditionEventType)`
+
+SetConditionEvent sets ConditionEvent field to given value.
+
+### HasConditionEvent
+
+`func (o *NotificationData) HasConditionEvent() bool`
+
+HasConditionEvent returns a boolean if a field has been set.
+
+### GetSubscriptionContext
+
+`func (o *NotificationData) GetSubscriptionContext() SubscriptionContext`
+
+GetSubscriptionContext returns the SubscriptionContext field if non-nil, zero value otherwise.
+
+### GetSubscriptionContextOk
+
+`func (o *NotificationData) GetSubscriptionContextOk() (*SubscriptionContext, bool)`
+
+GetSubscriptionContextOk returns a tuple with the SubscriptionContext field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSubscriptionContext
+
+`func (o *NotificationData) SetSubscriptionContext(v SubscriptionContext)`
+
+SetSubscriptionContext sets SubscriptionContext field to given value.
+
+### HasSubscriptionContext
+
+`func (o *NotificationData) HasSubscriptionContext() bool`
+
+HasSubscriptionContext returns a boolean if a field has been set.
+
+### GetCompleteNfProfile
+
+`func (o *NotificationData) GetCompleteNfProfile() NFProfile`
+
+GetCompleteNfProfile returns the CompleteNfProfile field if non-nil, zero value otherwise.
+
+### GetCompleteNfProfileOk
+
+`func (o *NotificationData) GetCompleteNfProfileOk() (*NFProfile, bool)`
+
+GetCompleteNfProfileOk returns a tuple with the CompleteNfProfile field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCompleteNfProfile
+
+`func (o *NotificationData) SetCompleteNfProfile(v NFProfile)`
+
+SetCompleteNfProfile sets CompleteNfProfile field to given value.
+
+### HasCompleteNfProfile
+
+`func (o *NotificationData) HasCompleteNfProfile() bool`
+
+HasCompleteNfProfile returns a boolean if a field has been set.
+
+### SetCompleteNfProfileNil
+
+`func (o *NotificationData) SetCompleteNfProfileNil(b bool)`
+
+ SetCompleteNfProfileNil sets the value for CompleteNfProfile to be an explicit nil
+
+### UnsetCompleteNfProfile
+`func (o *NotificationData) UnsetCompleteNfProfile()`
+
+UnsetCompleteNfProfile ensures that no value is present for CompleteNfProfile, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

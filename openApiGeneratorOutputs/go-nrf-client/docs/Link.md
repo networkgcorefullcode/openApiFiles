@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Href** | Pointer to **string** |  | [optional] 
+**Href** | Pointer to **string** | String providing an URI formatted according to RFC 3986. | [optional] 
 
 ## Methods
 

@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AmfSetId** | Pointer to **string** |  | [optional] 
-**AmfRegionId** | Pointer to **string** |  | [optional] 
+**AmfSetId** | Pointer to **string** | String identifying the AMF Set ID (10 bits) as specified in clause 2.10.1 of 3GPP TS 23.003.  It is encoded as a string of 3 hexadecimal characters where the first character is limited to  values 0 to 3 (i.e. 10 bits).  | [optional] 
+**AmfRegionId** | Pointer to **string** | String identifying the AMF Set ID (10 bits) as specified in clause 2.10.1 of 3GPP TS 23.003.  It is encoded as a string of 3 hexadecimal characters where the first character is limited to  values 0 to 3 (i.e. 10 bits)  | [optional] 
 
 ## Methods
 
