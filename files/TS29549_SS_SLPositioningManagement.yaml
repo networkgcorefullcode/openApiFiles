@@ -1,0 +1,447 @@
+openapi: 3.0.0
+
+info:
+  title: SS_SLPositioningManagement
+  version: 1.0.0-alpha.1
+  description: |
+    API for SEAL SL Positioning management Service.  
+    © 2024, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  
+    All rights reserved.
+
+externalDocs:
+  description: >
+    3GPP TS 29.549 V19.1.0 Service Enabler Architecture Layer for Verticals (SEAL);
+    Application Programming Interface (API) specification; Stage 3.
+  url: https://www.3gpp.org/ftp/Specs/archive/29_series/29.549/
+
+servers:
+  - url: '{apiRoot}/ss-slpm/v1'
+    variables:
+      apiRoot:
+        default: https://example.com
+        description: apiRoot as defined in clause 6.5 of 3GPP TS 29.549
+
+security:
+  - {}
+  - oAuth2ClientCredentials: []
+
+paths:
+  /subscriptions:
+    post:
+      summary: Create individual SL Positioning Management subscription.
+      operationId: SubscribeSlPositionMgmt
+      tags:
+        - SL Positioning Management Subscriptions (Collection)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SlPositionMgmtSubsc'
+      responses:
+        '201':
+          description: >
+            The requested individual SL Positioning MAnagement subscription
+            resource is successfully created and a representation of the created
+            resource is returned in the response body.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SlPositionMgmtSubsc'
+          headers:
+            Location:
+              description: Contains the URI of the newly created resource.
+              required: true
+              schema:
+                type: string
+        '400':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/400'
+        '401':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/401'
+        '403':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/403'
+        '404':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/404'
+        '411':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/411'
+        '413':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/413'
+        '415':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/415'
+        '429':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/429'
+        '500':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/500'
+        '503':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/503'
+        default:
+          $ref: 'TS29122_CommonData.yaml#/components/responses/default'
+      callbacks:
+        SlPositionMgmtNotif:
+          '{$request.body#/notifUri}': 
+            post:
+              summary: Notify on changes of the SL Positioning Management according to the 
+                requested reporting settings.
+              requestBody:
+                required: true
+                content:
+                  application/json:
+                    schema:
+                      $ref: '#/components/schemas/SlPositionMgmtNotif'
+              responses:
+                '204':
+                  description: The notification is successfully received.
+                '307':
+                  $ref: 'TS29122_CommonData.yaml#/components/responses/307'
+                '308':
+                  $ref: 'TS29122_CommonData.yaml#/components/responses/308'
+                '400':
+                  $ref: 'TS29122_CommonData.yaml#/components/responses/400'
+                '401':
+                  $ref: 'TS29122_CommonData.yaml#/components/responses/401'
+                '403':
+                  $ref: 'TS29122_CommonData.yaml#/components/responses/403'
+                '404':
+                  $ref: 'TS29122_CommonData.yaml#/components/responses/404'
+                '411':
+                  $ref: 'TS29122_CommonData.yaml#/components/responses/411'
+                '413':
+                  $ref: 'TS29122_CommonData.yaml#/components/responses/413'
+                '415':
+                  $ref: 'TS29122_CommonData.yaml#/components/responses/415'
+                '429':
+                  $ref: 'TS29122_CommonData.yaml#/components/responses/429'
+                '500':
+                  $ref: 'TS29122_CommonData.yaml#/components/responses/500'
+                '503':
+                  $ref: 'TS29122_CommonData.yaml#/components/responses/503'
+                default:
+                  $ref: 'TS29122_CommonData.yaml#/components/responses/default'
+
+  /subscriptions/{subscriptionId}:
+    get:
+      summary: Read an existing individual SL Positioning Management subscription resource 
+        according to the subscriptionId.
+      operationId: ReadSlPositioningMgmtSubscription
+      tags:
+        - Individual SL Positioning Management Subscription (Document)
+      parameters:
+        - name: subscriptionId
+          in: path
+          description: >
+            Represents the identifier of an individual SL Positioning Management 
+            subscription resource.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: The requested individual SL Positioning Management subscription returned.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SlPositionMgmtSubsc'
+        '400':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/400'
+        '401':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/401'
+        '403':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/403'
+        '404':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/404'
+        '406':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/406'
+        '429':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/429'
+        '500':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/500'
+        '503':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/503'
+        default:
+          $ref: 'TS29122_CommonData.yaml#/components/responses/default'
+
+    put:
+      summary: >
+        Update an individual SL Positioning Management subscription identified by the
+        subscriptionId.
+      operationId: UpdateSlPositionMgmt
+      tags:
+        - Individual Unicast SL Positioning Management Subscription (Document)
+      parameters:
+        - name: subscriptionId
+          in: path
+          description: >
+            Represents the identifier of an individual unicast monitoring subscription resource.
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: Updated details of the unicast QoS monitoring subscription.
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SlPositionMgmtSubsc'
+      responses:
+        '200':
+          description: >
+            The subscription is updated successfully, and the updated subscription
+            information returned in the response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SlPositionMgmtSubsc'
+        '307':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/307'
+        '308':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/308'
+        '400':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/400'
+        '401':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/401'
+        '403':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/403'
+        '404':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/404'
+        '411':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/411'
+        '413':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/413'
+        '415':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/415'
+        '429':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/429'
+        '500':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/500'
+        '503':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/503'
+        default:
+          $ref: 'TS29122_CommonData.yaml#/components/responses/default'
+
+    patch:
+      summary: >
+        Modify an individual SL Positioning Management subscription identified
+        by the subscriptionId.
+      operationId: ModifySlPositionMgmt
+      tags:
+        - Individual SL Positioning Management Subscription (Document)
+      parameters:
+        - name: subscriptionId
+          in: path
+          description: >
+            Represents the identifier of an individual SL Positioning Management 
+            subscription resource.
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/merge-patch+json:
+            schema:
+              $ref: '#/components/schemas/SlPositionMgmtSubscPatch'
+      responses:
+        '200':
+          description: >
+            Individual individual SL Position Management resource is modified
+            successfully and representation of the modified individual SL Positioning Management
+            resource
+            subscription resource is returned.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SlPositionMgmtSubscPatch'
+        '307':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/307'
+        '308':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/308'
+        '400':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/400'
+        '401':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/401'
+        '403':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/403'
+        '404':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/404'
+        '411':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/411'
+        '413':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/413'
+        '415':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/415'
+        '429':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/429'
+        '500':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/500'
+        '503':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/503'
+        default:
+          $ref: 'TS29122_CommonData.yaml#/components/responses/default'
+
+    delete:
+      summary: Remove an existing individual SL Positioning Management resource according to 
+        the subscriptionId.
+      operationId: UnsubscribeSlPositionMgmt
+      tags:
+        - Individual SL Positioning Management Subscription (Document)
+      parameters:
+        - name: subscriptionId
+          in: path
+          description: >
+            Represents the identifier of an individual SL Positioning Management 
+            subscription resource.
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: >
+            The Individual SL Positioning Management Subscription resource matching the
+            subscriptionId is deleted.
+        '307':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/307'
+        '308':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/308'
+        '400':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/400'
+        '401':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/401'
+        '403':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/403'
+        '404':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/404'
+        '429':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/429'
+        '500':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/500'
+        '503':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/503'
+        default:
+          $ref: 'TS29122_CommonData.yaml#/components/responses/default'
+
+components:
+  securitySchemes:
+    oAuth2ClientCredentials:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: '{tokenUrl}'
+          scopes: {}
+
+  schemas:
+    SlPositionMgmtSubsc:
+      description: Indicate the SL Positioning Management subscription.
+      type: object
+      properties:
+        valSvcId:
+          type: string
+          description: Identity of the VAL service
+        tgtUes:
+          type: array
+          items:
+            $ref: 'TS29549_SS_UserProfileRetrieval.yaml#/components/schemas/ValTargetUe'
+          minItems: 1
+          description: List of VAL Users or UE IDs for which SL location management is requested.
+        valServArea:
+          $ref: 'TS29122_CommonData.yaml#/components/schemas/LocationArea5G'
+        eventReport:
+          $ref: 'TS29523_Npcf_EventExposure.yaml#/components/schemas/ReportingInformation'
+        notifUri:
+          $ref: 'TS29122_CommonData.yaml#/components/schemas/Uri'
+        suppFeat:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/SupportedFeatures'
+      required:
+        - notifUri
+        - eventReport
+        - valSvcId
+
+    SlPositionMgmtSubscPatch:
+      description: Indicate the SL Positioning Management subscription update.
+      type: object
+      properties:
+        valSvcId:
+          type: string
+          description: Identity of the VAL service
+        tgtUes:
+          type: array
+          items:
+            $ref: 'TS29549_SS_UserProfileRetrieval.yaml#/components/schemas/ValTargetUe'
+          minItems: 1
+          description: List of VAL Users or UE IDs for which SL location management is requested.
+        valServArea:
+          $ref: 'TS29122_CommonData.yaml#/components/schemas/LocationArea5G'
+        eventReport:
+          $ref: 'TS29523_Npcf_EventExposure.yaml#/components/schemas/ReportingInformation'
+        notifUri:
+          $ref: 'TS29122_CommonData.yaml#/components/schemas/Uri'
+
+    SlPositionMgmtNotif:
+      description: SL Positioning Management notification.
+      type: object
+      properties:
+        subscId:
+          type: string
+          description: Subscription Identifier
+        refUes:
+          type: array
+          items:
+            $ref: '#/components/schemas/ValUeInfo'
+          minItems: 1
+          description: List of VAL UE(s) identified as Reference UE(s).
+        tgtUes:
+          type: array
+          items:
+            $ref: '#/components/schemas/ValUeInfo'
+          minItems: 1
+          description: List of VAL UE(s) identified as Target UE(s).
+        clientUes:
+          type: array
+          items:
+            $ref: '#/components/schemas/ValUeInfo'
+          minItems: 1
+          description: List of VAL UE(s) identified as Client UE(s).
+        failCause:
+          $ref: '#/components/schemas/Cause'
+      required:
+        - subscId
+        - refUes
+        - tgtUes
+
+    ValUeInfo:
+      description: Indicate the Val UE Information.
+      type: object
+      properties:
+        valUeId:
+          type: string
+          description: Identity of the VAL UE ID.
+        valUeAddr:
+          $ref: 'TS29549_SS_NetworkResourceAdaptation.yaml#/components/schemas/ValUeAddrInfo'
+
+
+# Simple data types and Enumerations
+    Cause:
+      anyOf:
+      - type: string
+        enum:
+          - NOTIFY_CRITERIA_MATCHED
+          - NOTIFY_NO_REFERENCE_UE_FOUND
+          - NOTIFY_NO_TARGET_UE_FOUND
+          - NOTIFY_NO_CLIENT_UE_FOUND
+      - type: string
+        description: >
+          This string provides forward-compatibility with future
+          extensions to the enumeration but is not used to encode
+          content defined in the present version of this API.
+      description: |
+        Possible values are: 
+        Enumeration of SL Positioning management failure cause.  
+        - NOTIFY_CRITERIA_MATCHED: This value indicates that the VAL UE in the report matches 
+          to the criteria indicated in the subscription.
+        - NOTIFY_NO_REFERENCE_UE_FOUND: This value indicates that the none of the VAL UE matches
+          the criteria for the Reference UE.
+        - NOTIFY_NO_TARGET_UE_FOUND: This value indicates that the none of the VAL UE matches
+          the criteria for the Target UE.
+        - NOTIFY_NO_CLIENT_UE_FOUND: This value indicates that the none of the VAL UE matches
+          the criteria for the Client UE.
+
+

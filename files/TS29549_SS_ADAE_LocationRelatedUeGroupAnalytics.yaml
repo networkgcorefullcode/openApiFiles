@@ -1,0 +1,290 @@
+openapi: 3.0.0
+
+info:
+  title: SS_ADAE_LocationRelatedUeGroupAnalytics
+  version: 1.0.0-alpha.1
+  description: |
+    API for ADAE Location-Related UE Group Analytics service.  
+    © 2024, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  
+    All rights reserved.
+
+externalDocs:
+  description: >
+    3GPP TS 29.549 V19.1.0 Service Enabler Architecture Layer for Verticals (SEAL);
+    Application Programming Interface (API) specification; Stage 3.
+  url: https://www.3gpp.org/ftp/Specs/archive/29_series/29.549/
+
+security:
+  - {}
+  - oAuth2ClientCredentials: []
+
+servers:
+  - url: '{apiRoot}/ss-adae-lruga/v1'
+    variables:
+      apiRoot:
+        default: https://example.com
+        description: apiRoot as defined in clause 6.5 of 3GPP TS 29.549
+
+paths:
+  /subscriptions:
+    post:
+      summary: Create an "Individual Location-Related UE Group Analytics Subscription" resource.
+      operationId: SubscribeLocRelUeAnalytics
+      tags:
+        - Location Related UE Group Subscriptions (Collection)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LocRelUeGroupSub'
+      responses:
+        '201':
+          description: >
+            The "Individual Location-Related UE Group Analytics Subscription" resource is created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LocRelUeGroupSub'
+          headers:
+            Location:
+              description: Contains the URI of the newly created individual resource.
+              required: true
+              schema:
+                type: string
+        '400':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/400'
+        '401':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/401'
+        '403':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/403'
+        '404':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/404'
+        '411':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/411'
+        '413':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/413'
+        '415':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/415'
+        '429':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/429'
+        '500':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/500'
+        '503':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/503'
+        default:
+          $ref: 'TS29122_CommonData.yaml#/components/responses/default'
+      callbacks:
+        NotifyLocRelUeEvent:
+          '{$request.body#/notifUri}': 
+            post:
+              requestBody:
+                required: true
+                content:
+                  application/json:
+                    schema:
+                      $ref: '#/components/schemas/LocRelUeGroupNotif'
+              responses:
+                '204':
+                  description: The notification is successfully received.
+                '307':
+                  $ref: 'TS29122_CommonData.yaml#/components/responses/307'
+                '308':
+                  $ref: 'TS29122_CommonData.yaml#/components/responses/308'
+                '400':
+                  $ref: 'TS29122_CommonData.yaml#/components/responses/400'
+                '401':
+                  $ref: 'TS29122_CommonData.yaml#/components/responses/401'
+                '403':
+                  $ref: 'TS29122_CommonData.yaml#/components/responses/403'
+                '404':
+                  $ref: 'TS29122_CommonData.yaml#/components/responses/404'
+                '411':
+                  $ref: 'TS29122_CommonData.yaml#/components/responses/411'
+                '413':
+                  $ref: 'TS29122_CommonData.yaml#/components/responses/413'
+                '415':
+                  $ref: 'TS29122_CommonData.yaml#/components/responses/415'
+                '429':
+                  $ref: 'TS29122_CommonData.yaml#/components/responses/429'
+                '500':
+                  $ref: 'TS29122_CommonData.yaml#/components/responses/500'
+                '503':
+                  $ref: 'TS29122_CommonData.yaml#/components/responses/503'
+                default:
+                  $ref: 'TS29122_CommonData.yaml#/components/responses/default'
+
+  /subscriptions/{subscriptionId}:
+    get:
+      summary: Read the "Individual Location-Related UE Group Analytics Subscription" resource.
+      operationId: ReadLocRelUeGroupSubscription
+      tags:
+        - Individual Location-Related UE Group Analytics Subscription (Document)
+      parameters:
+        - name: subscriptionId
+          in: path
+          description: >
+            Represents the identifier of an Individual Location-Related UE
+            Group Analytics Subscription.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: >
+            The requested "Individual Location-Related UE Group Analytics Subscription"
+            resource is returned.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LocRelUeGroupSub'
+        '400':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/400'
+        '401':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/401'
+        '403':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/403'
+        '404':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/404'
+        '406':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/406'
+        '429':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/429'
+        '500':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/500'
+        '503':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/503'
+        default:
+          $ref: 'TS29122_CommonData.yaml#/components/responses/default'
+
+    delete:
+      summary: Remove the "Individual Location-Related UE Group Analytics Subscription" resource.
+      operationId: RemoveLocRelUeGroupSubscription
+      tags:
+        - Individual Location-Related UE Group Analytics Subscription (Document)
+      parameters:
+        - name: subscriptionId
+          in: path
+          description: >
+            Represents the identifier of an Individual Location-Related UE
+            Group Analytics Subscription.
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: >
+            The "Individual Location-Related UE Group Analytics Subscription" resource
+            matching the subscriptionId is deleted.
+        '307':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/307'
+        '308':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/308'
+        '400':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/400'
+        '401':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/401'
+        '403':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/403'
+        '404':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/404'
+        '429':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/429'
+        '500':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/500'
+        '503':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/503'
+        default:
+          $ref: 'TS29122_CommonData.yaml#/components/responses/default'
+
+components:
+  securitySchemes:
+    oAuth2ClientCredentials:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: '{tokenUrl}'
+          scopes: {}
+
+  schemas:
+    LocRelUeGroupSub:
+      description: >
+        Represents the location-related UE group analytics subscription.
+      type: object
+      properties:
+        analyticsType:
+          $ref: 'TS29549_SS_ADAE_VALPerformanceAnalytics.yaml#/components/schemas/AnalyticsType'
+        analyticsId:
+          $ref: '#/components/schemas/AnalyticsIdLocGrp'
+        analyticsFilt:
+          $ref: '#/components/schemas/LocRelUeGroupFilter'
+        confLevel:
+          type: integer
+          minimum: 0
+          maximum: 100
+        repReq:
+          $ref: 'TS29523_Npcf_EventExposure.yaml#/components/schemas/ReportingInformation'
+        notifUri:
+          $ref: 'TS29122_CommonData.yaml#/components/schemas/Uri'
+        timeInterval:
+          $ref: 'TS29122_CommonData.yaml#/components/schemas/TimeWindow'
+        suppFeat:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/SupportedFeatures'
+      required:
+        - analyticsType
+        - notifUri
+
+    LocRelUeGroupNotif:
+      description: >
+        Represents the location-related UE group analytics notification.
+      type: object
+      properties:
+        timeValid:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/DurationSec'
+        confLevel:
+          type: integer
+          minimum: 0
+          maximum: 100
+        analyticsId:
+          $ref: '#/components/schemas/AnalyticsIdLocGrp'
+
+    LocRelUeGroupFilter:
+      description: >
+        Represent the the location-related UE group analytics filtering information.
+      type: object
+      properties:
+        groupId:
+          type: string
+        valTrgUes:
+          type: array
+          items:
+            type: string
+          minItems: 1
+        area:
+          $ref: 'TS29122_CommonData.yaml#/components/schemas/LocationArea5G'
+        profiles:
+          type: array
+          items:
+            $ref: 'TS29558_Eecs_ECSServiceProvisioning.yaml#/components/schemas/AppGrpProfile'
+          minItems: 1
+
+# Simple data types and Enumerations
+
+    AnalyticsIdLocGrp:
+      anyOf:
+      - type: string
+        enum:
+           - GROUP_ROUTE
+           - GROUP_MEMBER_DEVIATION
+      - type: string
+        description: >
+          This string provides forward-compatibility with future
+          extensions to the enumeration and is not used to encode
+          content defined in the present version of this API.
+      description: |
+        Represents the analytic IDs for location related UE group analytics.  
+        Possible values are:
+        - GROUP_ROUTE: Indicates that the requested analytics is UE group route analytics.
+        - GROUP_MEMBER_DEVIATION: Indicates that the requested analytics
+          is UE group member deviation analytics.
+

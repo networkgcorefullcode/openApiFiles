@@ -1,0 +1,165 @@
+openapi: 3.0.0
+
+info:
+  title: 3gpp-retrieve-uav-flight
+  version: 1.0.0-alpha.1
+  description: |
+    API for UE Address service.
+    © 2024, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  
+    All rights reserved.
+
+externalDocs:
+  description: 3GPP TS 29.522 V19.1.0; 5G System; Network Exposure Function Northbound APIs.
+  url: 'https://www.3gpp.org/ftp/Specs/archive/29_series/29.522/'
+security:
+  - {}
+  - oAuth2ClientCredentials: []
+
+servers:
+  - url: '{apiRoot}/3gpp-retrieve-uav-flight/v1'
+    variables:
+      apiRoot:
+        default: https://example.com
+        description: apiRoot as defined in subclause 5.2.4 of 3GPP TS 29.122.
+
+paths:
+  /{afId}/retrieve:
+    parameters:
+      - name: afId
+        in: path
+        description: Represents the identifier of the AF.
+        required: true
+        schema:
+          type: string
+    post:
+      summary: Request to retrieve UAV flight information.
+      operationId: RetrieveUAVFlightInfo
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RetrieveUAVFlightReq'
+      responses:
+        '200':
+          description: >
+            OK. The Retrieve UAV Flight information request is successfully processed, and the
+            retrieved information is returned in the response body.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RetrievedUAVFlightInfo'
+        '307':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/307'
+        '308':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/308'
+        '400':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/400'
+        '401':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/401'
+        '403':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/403'
+        '404':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/404'
+        '411':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/411'
+        '413':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/413'
+        '415':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/415'
+        '429':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/429'
+        '500':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/500'
+        '503':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/503'
+        default:
+          $ref: 'TS29122_CommonData.yaml#/components/responses/default'
+
+components:
+  securitySchemes:
+    oAuth2ClientCredentials:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: '{tokenUrl}'
+          scopes: {}
+
+  schemas: 
+    RetrieveUAVFlightReq:
+      description: Represents the parameters to request the UAV Flight information.
+      type: object
+      properties:
+        afId:
+          type: string
+        gpsi:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/Gpsi'
+        retrievePurpose:
+          $ref: '#/components/schemas/RetrievePurpose'
+        targetUssList:
+          type: array
+          items:
+            type: string
+          minItems: 1
+          description: >
+            Contains the list of suitable target USSes.
+        canFltPathInfos:
+          type: array
+          items:
+            $ref: '#/components/schemas/CandidateFlightPathInfo'
+          minItems: 1
+          description: >
+            Contains a list of candidate Flight Path information.
+        suppFeat:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/SupportedFeatures'
+      required:
+        - afId
+        - gpsi
+        - retrievePurpose
+
+    CandidateFlightPathInfo:
+      description: Represents the candidate Flight Path information.
+      type: object
+      properties:
+        borderCrssPnt:
+          $ref: 'TS29122_CommonData.yaml#/components/schemas/LocationArea5G'
+        canFlightPath:
+          $ref: 'TS29522_UAVFlightAssistance.yaml#/components/schemas/SingleFlightPath'
+# Editor’s Note: The acceptable deviation and requirement are not specified FFS depends on SA2.
+
+    RetrievedUAVFlightInfo:
+      description: Represents the retrieved UAV Flight information.
+      type: object
+      properties:
+        retrievedResults:
+          type: array
+          items:
+            $ref: 'TS29522_UAVFlightAssistance.yaml#/components/schemas/UAVFlightAssistNotif'
+          minItems: 1
+      required:
+        - retrievedResults
+
+
+#
+# SIMPLE DATA TYPES
+#
+
+#
+# ENUMERATIONS
+#
+
+    RetrievePurpose:
+      anyOf:
+      - type: string
+        enum:
+          - USS_CHANGEOVER
+          - PRE_FLIGHT_PLANNING
+      - type: string
+        description: >
+          This string provides forward-compatibility with future extensions to the enumeration and
+          is not used to encode content defined in the present version of this API.
+      description: |
+        Represents the filter criterion event.  
+        Possible values are:
+          - USS_CHANGEOVER: Indicates the purpose of retrieved information is pre-flight planning.
+          - PRE_FLIGHT_PLANNING: Indicates the purpose of retrieved information for USS changeover.

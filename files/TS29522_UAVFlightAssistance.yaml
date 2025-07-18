@@ -1,0 +1,375 @@
+openapi: 3.0.0
+
+info:
+  title: UAVFlightAssistance
+  version: 1.0.0-alpha.1
+  description: |
+    API for UAV Flight Assistance Configuration.  
+    © 2024, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  
+    All rights reserved.
+
+externalDocs:
+  description: >
+    3GPP TS 29.522 V19.1.0; 5G System; Network Exposure Function Northbound APIs.
+  url: https://www.3gpp.org/ftp/Specs/archive/29_series/29.522/
+
+servers:
+  - url: '{apiRoot}/3gpp-uav-flight-assistance/v1'
+    variables:
+      apiRoot:
+        default: https://example.com
+        description: apiRoot as defined in clause 5.2.4 of 3GPP TS 29.122
+
+security:
+  - {}
+  - oAuth2ClientCredentials: []
+
+paths:
+  /{afId}/configurations:
+    parameters:
+      - name: afId
+        in: path
+        description: Represents the identifier of the AF
+        required: true
+        schema:
+          type: string
+
+    post:
+      summary: Request the creation of a new UAV Flight Assistance Configuration.
+      operationId: CreateUavFlightAssistConfig
+      tags:
+        - UAV Flight Assistance Configurations (Collection)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PlannedFlightPaths'
+      responses:
+        '201':
+          description: >
+            Created. The UAV Flight Assistance Configuration is successfully created and a
+            representation of the created Individual UAV Flight Assistance Configuration resource
+            shall be returned.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlannedFlightPaths'
+          headers:
+            Location:
+              description: >
+                Contains the URI of the created Individual UAV Flight Assistance Configuration
+                resource.
+              required: true
+              schema:
+                type: string
+        '400':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/400'
+        '401':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/401'
+        '403':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/403'
+        '404':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/404'
+        '411':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/411'
+        '413':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/413'
+        '415':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/415'
+        '429':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/429'
+        '500':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/500'
+        '503':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/503'
+        default:
+          $ref: 'TS29122_CommonData.yaml#/components/responses/default'
+      callbacks:
+        myNotification:
+          '{$request.body#/notifUri}':
+            post:
+              requestBody:
+                required: true
+                content:
+                  application/json:
+                    schema:
+                      $ref: '#/components/schemas/UAVFlightAssistNotif'
+              responses:
+                '200':
+                  description: The receipt of the notification is acknowledged.
+                  content:
+                    application/json:
+                      schema:
+                        $ref: '#/components/schemas/NotifyResponse'
+                '204':
+                  description: >
+                    No Content. The notification is successfully received and acknowledged.
+                '307':
+                  $ref: 'TS29122_CommonData.yaml#/components/responses/307'
+                '308':
+                  $ref: 'TS29122_CommonData.yaml#/components/responses/308'
+                '400':
+                  $ref: 'TS29122_CommonData.yaml#/components/responses/400'
+                '401':
+                  $ref: 'TS29122_CommonData.yaml#/components/responses/401'
+                '403':
+                  $ref: 'TS29122_CommonData.yaml#/components/responses/403'
+                '404':
+                  $ref: 'TS29122_CommonData.yaml#/components/responses/404'
+                '411':
+                  $ref: 'TS29122_CommonData.yaml#/components/responses/411'
+                '413':
+                  $ref: 'TS29122_CommonData.yaml#/components/responses/413'
+                '415':
+                  $ref: 'TS29122_CommonData.yaml#/components/responses/415'
+                '429':
+                  $ref: 'TS29122_CommonData.yaml#/components/responses/429'
+                '500':
+                  $ref: 'TS29122_CommonData.yaml#/components/responses/500'
+                '503':
+                  $ref: 'TS29122_CommonData.yaml#/components/responses/503'
+                default:
+                  $ref: 'TS29122_CommonData.yaml#/components/responses/default'
+
+  /{afId}/configurations/{configurationId}:
+    parameters:
+      - name: afId
+        description: Represents the identifier of the AF.
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: configurationId
+        description: String identifying a UAV Flight Assistance Configuration.
+        in: path
+        required: true
+        schema:
+          type: string
+
+    delete:
+      summary: Delete an existing Individual UAV Flight Assistance Configuration.
+      operationId: DeleteUavFlightAssistConfig
+      tags:
+        - Individual UAV Flight Assistance Configuration (Document)
+      responses:
+        '204':
+          description: >
+            No Content. The Individual UAV Flight Assistance Configuration resource matching the
+            configurationId was deleted.
+        '307':
+          $ref: 'TS29571_CommonData.yaml#/components/responses/307'
+        '308':
+          $ref: 'TS29571_CommonData.yaml#/components/responses/308'
+        '400':
+          $ref: 'TS29571_CommonData.yaml#/components/responses/400'
+        '401':
+          $ref: 'TS29571_CommonData.yaml#/components/responses/401'
+        '403':
+          $ref: 'TS29571_CommonData.yaml#/components/responses/403'
+        '404':
+          $ref: 'TS29571_CommonData.yaml#/components/responses/404'
+        '429':
+          $ref: 'TS29571_CommonData.yaml#/components/responses/429'
+        '500':
+          $ref: 'TS29571_CommonData.yaml#/components/responses/500'
+        '501':
+          $ref: 'TS29571_CommonData.yaml#/components/responses/501'
+        '502':
+          $ref: 'TS29571_CommonData.yaml#/components/responses/502'
+        '503':
+          $ref: 'TS29571_CommonData.yaml#/components/responses/503'
+        default:
+          $ref: 'TS29571_CommonData.yaml#/components/responses/default'
+
+    put:
+      summary: Update an existing Individual UAV Flight Assistance Configuration.
+      operationId: UpdateUavFlightAssistConfig
+      tags:
+        - Individual UAV Flight Assistance Configuration (Document)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PlannedFlightPaths'
+      responses:
+        '200':
+          description: >
+            The Individual UAV Flight Assistance Configuration resource was modified successfully
+            and a representation of that resource is returned.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlannedFlightPaths'
+        '204':
+          description: >
+            The Individual UAV Flight Assistance Configuration resource was modified successfully.
+        '307':
+          $ref: 'TS29571_CommonData.yaml#/components/responses/307'
+        '308':
+          $ref: 'TS29571_CommonData.yaml#/components/responses/308'
+        '400':
+          $ref: 'TS29571_CommonData.yaml#/components/responses/400'
+        '401':
+          $ref: 'TS29571_CommonData.yaml#/components/responses/401'
+        '403':
+          $ref: 'TS29571_CommonData.yaml#/components/responses/403'
+        '404':
+          $ref: 'TS29571_CommonData.yaml#/components/responses/404'
+        '411':
+          $ref: 'TS29571_CommonData.yaml#/components/responses/411'
+        '413':
+          $ref: 'TS29571_CommonData.yaml#/components/responses/413'
+        '415':
+          $ref: 'TS29571_CommonData.yaml#/components/responses/415'
+        '429':
+          $ref: 'TS29571_CommonData.yaml#/components/responses/429'
+        '500':
+          $ref: 'TS29571_CommonData.yaml#/components/responses/500'
+        '501':
+          $ref: 'TS29571_CommonData.yaml#/components/responses/501'
+        '502':
+          $ref: 'TS29571_CommonData.yaml#/components/responses/502'
+        '503':
+          $ref: 'TS29571_CommonData.yaml#/components/responses/503'
+        default:
+          $ref: 'TS29571_CommonData.yaml#/components/responses/default'
+
+components:
+
+  securitySchemes:
+    oAuth2ClientCredentials:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: '{tokenUrl}'
+          scopes: {}
+
+  schemas:
+
+#
+# STRUCTURED DATA TYPES
+#
+    PlannedFlightPaths:
+      description: Represents the planned flight path(s).
+      type: object
+      properties:
+        uavId:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/Gpsi'
+        reqPurpose:
+          $ref: '#/components/schemas/RequestPurpose'
+        notifUri:
+          $ref: 'TS29122_CommonData.yaml#/components/schemas/Uri'
+        notifId:
+          type: string
+        flightPaths:
+          type: array
+          items:
+            $ref: '#/components/schemas/SingleFlightPath'
+          minItems: 1
+          description: Indicates the list of flight paths.
+        suppFeat:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/SupportedFeatures'
+      required:
+        - uavId
+        - notifUri
+        - reqPurpose
+
+    SingleFlightPath:
+      description: Contains the single flight path information.
+      type: object
+      properties:
+        pathInfo:
+          type: array
+          items:
+            $ref: '#/components/schemas/FlightPathInfo'
+          minItems: 1
+          description: >
+            Each element contains the flight path information for each segment that constitutes the
+            single flight path.
+      required:
+        - pathInfo
+
+    FlightPathInfo:
+      description: Contains the information of the flight path.
+      type: object
+      properties:
+        areaInfo:
+          $ref: 'TS29122_CommonData.yaml#/components/schemas/LocationArea5G'
+        uavSpeed:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/Uinteger'
+        height:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/Uinteger'
+        timeSchedule:
+          $ref: 'TS29122_CommonData.yaml#/components/schemas/TimeWindow'
+      required:
+        - areaInfo
+
+    UAVFlightAssistNotif:
+      description: Notify the UAV status.
+      type: object
+      properties:
+        notifId:
+          type: string
+        uavStatus:
+            $ref: '#/components/schemas/UavStatus'
+        borderPoint:
+          $ref: 'TS29122_CommonData.yaml#/components/schemas/LocationArea5G'
+      required:
+        - uavStatus
+
+    NotifyResponse:
+      description: Represents the response to the notification.
+      type: object
+      properties:
+        chgCompleteInd:
+          type: boolean
+          description: >
+            This attribute is used to indicate whether the USS changeover is completed successfully.
+            When present, it shall be set as follows: true: USS changeover is completed
+            successfully; false (default): USS changeover failed.
+      required:
+        - chgCompleteInd
+
+#
+# ENUMERATIONS
+#
+    UavStatus:
+      anyOf:
+        - type: string
+          enum:
+          - LEAVING
+          - ENTERING
+          - DEVIATING
+        - type: string
+          description: >
+            This string provides forward-compatibility with future extensions to the enumeration but
+            is not used to encode content defined in the present version of this API.
+      description: |
+        Represents the status of the UAV..  
+        Possible values are:
+        - LEAVING: The status of the UAV is leaving an area (e.g. TA/Cell) which is part of the
+          planned flight path.
+        - ENTERING: The status of the UAV is entering an area (e.g. TA/Cell) which is part of the
+          planned flight path.
+        - DEVIATING: The status of the UAV is deviating an area (e.g. TA/Cell) which is part of the
+          planned flight path.
+
+    RequestPurpose:
+      anyOf:
+      - type: string
+        enum:
+          - USS_CHANGEOVER
+          - PRE_FLIGHT_PLANNING
+          - IN_FLIGHT_MONITORING
+      - type: string
+        description: >
+          This string provides forward-compatibility with future extensions to the enumeration and
+          is not used to encode content defined in the present version of this API.
+      description: |
+        Represents the filter criterion event.  
+        Possible values are:
+          - USS_CHANGEOVER: Indicates the purpose of the request is for pre-flight planning.
+          - PRE_FLIGHT_PLANNING: Indicates the purpose of the request is for USS changeover.
+          - IN_FLIGHT_MONITORING:Indicates the purpose of the request is for in flight monitoring.
