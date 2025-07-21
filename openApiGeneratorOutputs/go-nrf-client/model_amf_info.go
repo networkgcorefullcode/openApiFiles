@@ -1,7 +1,7 @@
 /*
 NRF NFManagement Service
 
-NRF NFManagement Service.   © 2024, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).   All rights reserved. 
+NRF NFManagement Service.   © 2024, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).   All rights reserved.
 
 API version: 1.4.0-alpha.2
 */
@@ -11,8 +11,8 @@ API version: 1.4.0-alpha.2
 package openapi
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -21,18 +21,18 @@ var _ MappedNullable = &AmfInfo{}
 
 // AmfInfo Information of an AMF NF Instance
 type AmfInfo struct {
-	// String identifying the AMF Set ID (10 bits) as specified in clause 2.10.1 of 3GPP TS 23.003.  It is encoded as a string of 3 hexadecimal characters where the first character is limited to  values 0 to 3 (i.e. 10 bits). 
+	// String identifying the AMF Set ID (10 bits) as specified in clause 2.10.1 of 3GPP TS 23.003.  It is encoded as a string of 3 hexadecimal characters where the first character is limited to  values 0 to 3 (i.e. 10 bits).
 	AmfSetId string `json:"amfSetId"`
-	// String identifying the AMF Set ID (10 bits) as specified in clause 2.10.1 of 3GPP TS 23.003.  It is encoded as a string of 3 hexadecimal characters where the first character is limited to  values 0 to 3 (i.e. 10 bits) 
-	AmfRegionId string `json:"amfRegionId"`
-	GuamiList []Guami `json:"guamiList"`
-	TaiList []Tai `json:"taiList,omitempty"`
-	TaiRangeList []TaiRange `json:"taiRangeList,omitempty"`
-	BackupInfoAmfFailure []Guami `json:"backupInfoAmfFailure,omitempty"`
-	BackupInfoAmfRemoval []Guami `json:"backupInfoAmfRemoval,omitempty"`
-	N2InterfaceAmfInfo NullableN2InterfaceAmfInfo `json:"n2InterfaceAmfInfo,omitempty"`
-	AmfOnboardingCapability *bool `json:"amfOnboardingCapability,omitempty"`
-	HighLatencyCom *bool `json:"highLatencyCom,omitempty"`
+	// String identifying the AMF Set ID (10 bits) as specified in clause 2.10.1 of 3GPP TS 23.003.  It is encoded as a string of 3 hexadecimal characters where the first character is limited to  values 0 to 3 (i.e. 10 bits)
+	AmfRegionId             string                     `json:"amfRegionId"`
+	GuamiList               []Guami                    `json:"guamiList"`
+	TaiList                 []Tai                      `json:"taiList,omitempty"`
+	TaiRangeList            []TaiRange                 `json:"taiRangeList,omitempty"`
+	BackupInfoAmfFailure    []Guami                    `json:"backupInfoAmfFailure,omitempty"`
+	BackupInfoAmfRemoval    []Guami                    `json:"backupInfoAmfRemoval,omitempty"`
+	N2InterfaceAmfInfo      NullableN2InterfaceAmfInfo `json:"n2InterfaceAmfInfo,omitempty"`
+	AmfOnboardingCapability *bool                      `json:"amfOnboardingCapability,omitempty"`
+	HighLatencyCom          *bool                      `json:"highLatencyCom,omitempty"`
 }
 
 type _AmfInfo AmfInfo
@@ -293,6 +293,7 @@ func (o *AmfInfo) HasN2InterfaceAmfInfo() bool {
 func (o *AmfInfo) SetN2InterfaceAmfInfo(v N2InterfaceAmfInfo) {
 	o.N2InterfaceAmfInfo.Set(&v)
 }
+
 // SetN2InterfaceAmfInfoNil sets the value for N2InterfaceAmfInfo to be an explicit nil
 func (o *AmfInfo) SetN2InterfaceAmfInfoNil() {
 	o.N2InterfaceAmfInfo.Set(nil)
@@ -368,7 +369,7 @@ func (o *AmfInfo) SetHighLatencyCom(v bool) {
 }
 
 func (o AmfInfo) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -419,10 +420,10 @@ func (o *AmfInfo) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -478,5 +479,3 @@ func (v *NullableAmfInfo) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-
