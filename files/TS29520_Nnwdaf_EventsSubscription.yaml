@@ -515,7 +515,7 @@ components:
         nfTypes:
           type: array
           items:
-            $ref: 'TS29510_Nnrf_NFManagement.yaml#/components/schemas/NFType'
+            $ref: 'TS29510_Nnrf_NFManagement.yaml#/components/schemas/NfType'
           minItems: 1
         networkArea:
           $ref: 'TS29554_Npcf_BDTPolicyControl.yaml#/components/schemas/NetworkAreaInfo'
@@ -1428,7 +1428,7 @@ components:
       type: object
       properties:
         nfType:
-          $ref: 'TS29510_Nnrf_NFManagement.yaml#/components/schemas/NFType'
+          $ref: 'TS29510_Nnrf_NFManagement.yaml#/components/schemas/NfType'
         nfInstanceId:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/NfInstanceId'
         nfSetId:

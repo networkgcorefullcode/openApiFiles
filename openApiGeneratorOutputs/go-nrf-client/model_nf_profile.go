@@ -25,8 +25,8 @@ type NFProfile struct {
 	// String uniquely identifying a NF instance. The format of the NF Instance ID shall be a  Universally Unique Identifier (UUID) version 4, as described in IETF RFC 4122.
 	NfInstanceId          string                 `json:"nfInstanceId"`
 	NfInstanceName        *string                `json:"nfInstanceName,omitempty"`
-	NfType                NFType                 `json:"nfType"`
-	NfStatus              NFStatus               `json:"nfStatus"`
+	NfType                NfType                 `json:"nfType"`
+	NfStatus              NfStatus               `json:"nfStatus"`
 	CollocatedNfInstances []CollocatedNfInstance `json:"collocatedNfInstances,omitempty"`
 	HeartBeatTimer        *int32                 `json:"heartBeatTimer,omitempty"`
 	PlmnList              []PlmnId               `json:"plmnList,omitempty"`
@@ -42,7 +42,7 @@ type NFProfile struct {
 	Ipv6Addresses    []Ipv6Addr  `json:"ipv6Addresses,omitempty"`
 	AllowedPlmns     []PlmnId    `json:"allowedPlmns,omitempty"`
 	AllowedSnpns     []PlmnIdNid `json:"allowedSnpns,omitempty"`
-	AllowedNfTypes   []NFType    `json:"allowedNfTypes,omitempty"`
+	AllowedNfTypes   []NfType    `json:"allowedNfTypes,omitempty"`
 	AllowedNfDomains []string    `json:"allowedNfDomains,omitempty"`
 	AllowedNssais    []ExtSnssai `json:"allowedNssais,omitempty"`
 	// A map (list of key-value pairs) where a valid JSON pointer Id serves as key
@@ -172,7 +172,7 @@ type _NFProfile NFProfile
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewNFProfile(nfInstanceId string, nfType NFType, nfStatus NFStatus) *NFProfile {
+func NewNFProfile(nfInstanceId string, nfType NfType, nfStatus NfStatus) *NFProfile {
 	this := NFProfile{}
 	return &this
 }
@@ -258,9 +258,9 @@ func (o *NFProfile) SetNfInstanceName(v string) {
 }
 
 // GetNfType returns the NfType field value
-func (o *NFProfile) GetNfType() NFType {
+func (o *NFProfile) GetNfType() NfType {
 	if o == nil {
-		var ret NFType
+		var ret NfType
 		return ret
 	}
 
@@ -269,7 +269,7 @@ func (o *NFProfile) GetNfType() NFType {
 
 // GetNfTypeOk returns a tuple with the NfType field value
 // and a boolean to check if the value has been set.
-func (o *NFProfile) GetNfTypeOk() (*NFType, bool) {
+func (o *NFProfile) GetNfTypeOk() (*NfType, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -277,14 +277,14 @@ func (o *NFProfile) GetNfTypeOk() (*NFType, bool) {
 }
 
 // SetNfType sets field value
-func (o *NFProfile) SetNfType(v NFType) {
+func (o *NFProfile) SetNfType(v NfType) {
 	o.NfType = v
 }
 
 // GetNfStatus returns the NfStatus field value
-func (o *NFProfile) GetNfStatus() NFStatus {
+func (o *NFProfile) GetNfStatus() NfStatus {
 	if o == nil {
-		var ret NFStatus
+		var ret NfStatus
 		return ret
 	}
 
@@ -293,7 +293,7 @@ func (o *NFProfile) GetNfStatus() NFStatus {
 
 // GetNfStatusOk returns a tuple with the NfStatus field value
 // and a boolean to check if the value has been set.
-func (o *NFProfile) GetNfStatusOk() (*NFStatus, bool) {
+func (o *NFProfile) GetNfStatusOk() (*NfStatus, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -301,7 +301,7 @@ func (o *NFProfile) GetNfStatusOk() (*NFStatus, bool) {
 }
 
 // SetNfStatus sets field value
-func (o *NFProfile) SetNfStatus(v NFStatus) {
+func (o *NFProfile) SetNfStatus(v NfStatus) {
 	o.NfStatus = v
 }
 
@@ -722,9 +722,9 @@ func (o *NFProfile) SetAllowedSnpns(v []PlmnIdNid) {
 }
 
 // GetAllowedNfTypes returns the AllowedNfTypes field value if set, zero value otherwise.
-func (o *NFProfile) GetAllowedNfTypes() []NFType {
+func (o *NFProfile) GetAllowedNfTypes() []NfType {
 	if o == nil || IsNil(o.AllowedNfTypes) {
-		var ret []NFType
+		var ret []NfType
 		return ret
 	}
 	return o.AllowedNfTypes
@@ -732,7 +732,7 @@ func (o *NFProfile) GetAllowedNfTypes() []NFType {
 
 // GetAllowedNfTypesOk returns a tuple with the AllowedNfTypes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *NFProfile) GetAllowedNfTypesOk() ([]NFType, bool) {
+func (o *NFProfile) GetAllowedNfTypesOk() ([]NfType, bool) {
 	if o == nil || IsNil(o.AllowedNfTypes) {
 		return nil, false
 	}
@@ -748,8 +748,8 @@ func (o *NFProfile) HasAllowedNfTypes() bool {
 	return false
 }
 
-// SetAllowedNfTypes gets a reference to the given []NFType and assigns it to the AllowedNfTypes field.
-func (o *NFProfile) SetAllowedNfTypes(v []NFType) {
+// SetAllowedNfTypes gets a reference to the given []NfType and assigns it to the AllowedNfTypes field.
+func (o *NFProfile) SetAllowedNfTypes(v []NfType) {
 	o.AllowedNfTypes = v
 }
 

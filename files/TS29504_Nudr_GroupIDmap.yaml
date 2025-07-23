@@ -41,7 +41,7 @@ paths:
           schema:
             type: array
             items:
-              $ref: 'TS29510_Nnrf_NFManagement.yaml#/components/schemas/NFType'
+              $ref: 'TS29510_Nnrf_NFManagement.yaml#/components/schemas/NfType'
             minItems: 1
         - name: subscriberId
 # The name of this query parameter is left not following the naming convention as defined in 3GPP TS 29.501 due to backward compatibility consideration.
@@ -319,7 +319,7 @@ paths:
           description: Type of NF
           required: true
           schema:
-            $ref: 'TS29510_Nnrf_NFManagement.yaml#/components/schemas/NFType'
+            $ref: 'TS29510_Nnrf_NFManagement.yaml#/components/schemas/NfType'
         - name: nf-group-id
           in: query
           description: Identifier of the NF Group
@@ -372,7 +372,7 @@ components:
 
     NfGroupIdMapResult:
       description: >
-        Contains the NFGroupIds for the requested NF types. The NFType is the key of the map.
+        Contains the NFGroupIds for the requested NF types. The NfType is the key of the map.
       type: object
       additionalProperties:
         $ref: 'TS29571_CommonData.yaml#/components/schemas/NfGroupId'
@@ -403,7 +403,7 @@ components:
         notificationUri:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/Uri'
         nfType:
-          $ref: 'TS29510_Nnrf_NFManagement.yaml#/components/schemas/NFType'
+          $ref: 'TS29510_Nnrf_NFManagement.yaml#/components/schemas/NfType'
         nfGroupId:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/NfGroupId'
         subscriptionId:
@@ -425,7 +425,7 @@ components:
         subscriberId:
           $ref: '#/components/schemas/SubscriberId'
         nfType:
-          $ref: 'TS29510_Nnrf_NFManagement.yaml#/components/schemas/NFType'
+          $ref: 'TS29510_Nnrf_NFManagement.yaml#/components/schemas/NfType'
         nfGroupId:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/NfGroupId'
         identityRanges:

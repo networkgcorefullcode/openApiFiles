@@ -11171,7 +11171,7 @@ components:
         - nfType
       properties:
         nfType:
-          $ref: 'TS29510_Nnrf_NFManagement.yaml#/components/schemas/NFType'
+          $ref: 'TS29510_Nnrf_NFManagement.yaml#/components/schemas/NfType'
         nfInstanceId:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/NfInstanceId'
 

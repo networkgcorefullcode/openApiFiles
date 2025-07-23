@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **NwdafCapability** | Pointer to [**NwdafCapability**](NwdafCapability.md) |  | [optional] 
 **AnalyticsDelay** | Pointer to **int32** | indicating a time in seconds. | [optional] 
 **ServingNfSetIdList** | Pointer to **[]string** |  | [optional] 
-**ServingNfTypeList** | Pointer to [**[]NFType**](NFType.md) |  | [optional] 
+**ServingNfTypeList** | Pointer to [**[]NfType**](NfType.md) |  | [optional] 
 **MlAnalyticsList** | Pointer to [**[]MlAnalyticsInfo**](MlAnalyticsInfo.md) |  | [optional] 
 
 ## Methods
@@ -210,20 +210,20 @@ HasServingNfSetIdList returns a boolean if a field has been set.
 
 ### GetServingNfTypeList
 
-`func (o *NrfInfoServedNwdafInfoValue) GetServingNfTypeList() []NFType`
+`func (o *NrfInfoServedNwdafInfoValue) GetServingNfTypeList() []NfType`
 
 GetServingNfTypeList returns the ServingNfTypeList field if non-nil, zero value otherwise.
 
 ### GetServingNfTypeListOk
 
-`func (o *NrfInfoServedNwdafInfoValue) GetServingNfTypeListOk() (*[]NFType, bool)`
+`func (o *NrfInfoServedNwdafInfoValue) GetServingNfTypeListOk() (*[]NfType, bool)`
 
 GetServingNfTypeListOk returns a tuple with the ServingNfTypeList field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetServingNfTypeList
 
-`func (o *NrfInfoServedNwdafInfoValue) SetServingNfTypeList(v []NFType)`
+`func (o *NrfInfoServedNwdafInfoValue) SetServingNfTypeList(v []NfType)`
 
 SetServingNfTypeList sets ServingNfTypeList field to given value.
 

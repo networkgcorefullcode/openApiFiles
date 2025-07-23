@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 **DefaultNotificationSubscriptions** | Pointer to [**[]DefaultNotificationSubscription**](DefaultNotificationSubscription.md) |  | [optional] 
 **AllowedPlmns** | Pointer to [**[]PlmnId**](PlmnId.md) |  | [optional] 
 **AllowedSnpns** | Pointer to [**[]PlmnIdNid**](PlmnIdNid.md) |  | [optional] 
-**AllowedNfTypes** | Pointer to [**[]NFType**](NFType.md) |  | [optional] 
+**AllowedNfTypes** | Pointer to [**[]NfType**](NfType.md) |  | [optional] 
 **AllowedNfDomains** | Pointer to **[]string** |  | [optional] 
 **AllowedNssais** | Pointer to [**[]ExtSnssai**](ExtSnssai.md) |  | [optional] 
 **AllowedOperationsPerNfType** | Pointer to **map[string][]string** | A map (list of key-value pairs) where NF Type serves as key | [optional] 
@@ -365,20 +365,20 @@ HasAllowedSnpns returns a boolean if a field has been set.
 
 ### GetAllowedNfTypes
 
-`func (o *NFService) GetAllowedNfTypes() []NFType`
+`func (o *NFService) GetAllowedNfTypes() []NfType`
 
 GetAllowedNfTypes returns the AllowedNfTypes field if non-nil, zero value otherwise.
 
 ### GetAllowedNfTypesOk
 
-`func (o *NFService) GetAllowedNfTypesOk() (*[]NFType, bool)`
+`func (o *NFService) GetAllowedNfTypesOk() (*[]NfType, bool)`
 
 GetAllowedNfTypesOk returns a tuple with the AllowedNfTypes field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAllowedNfTypes
 
-`func (o *NFService) SetAllowedNfTypes(v []NFType)`
+`func (o *NFService) SetAllowedNfTypes(v []NfType)`
 
 SetAllowedNfTypes sets AllowedNfTypes field to given value.
 

@@ -17,15 +17,15 @@ Name | Type | Description | Notes
 **NsiList** | Pointer to **[]string** |  | [optional] 
 **NfGroupId** | **string** | Identifier of a group of NFs. | 
 **NfGroupIdList** | **[]string** |  | 
-**NfSetId** | **string** | NF Set Identifier (see clause 28.12 of 3GPP TS 23.003), formatted as the following string \&quot;set&lt;Set ID&gt;.&lt;nftype&gt;set.5gc.mnc&lt;MNC&gt;.mcc&lt;MCC&gt;\&quot;, or  \&quot;set&lt;SetID&gt;.&lt;NFType&gt;set.5gc.nid&lt;NID&gt;.mnc&lt;MNC&gt;.mcc&lt;MCC&gt;\&quot; with  &lt;MCC&gt; encoded as defined in clause 5.4.2 (\&quot;Mcc\&quot; data type definition)  &lt;MNC&gt; encoding the Mobile Network Code part of the PLMN, comprising 3 digits.    If there are only 2 significant digits in the MNC, one \&quot;0\&quot; digit shall be inserted    at the left side to fill the 3 digits coding of MNC.  Pattern: &#39;^[0-9]{3}$&#39; &lt;NFType&gt; encoded as a value defined in Table 6.1.6.3.3-1 of 3GPP TS 29.510 but    with lower case characters &lt;Set ID&gt; encoded as a string of characters consisting of    alphabetic characters (A-Z and a-z), digits (0-9) and/or the hyphen (-) and that    shall end with either an alphabetic character or a digit.   | 
+**NfSetId** | **string** | NF Set Identifier (see clause 28.12 of 3GPP TS 23.003), formatted as the following string \&quot;set&lt;Set ID&gt;.&lt;nftype&gt;set.5gc.mnc&lt;MNC&gt;.mcc&lt;MCC&gt;\&quot;, or  \&quot;set&lt;SetID&gt;.&lt;NfType&gt;set.5gc.nid&lt;NID&gt;.mnc&lt;MNC&gt;.mcc&lt;MCC&gt;\&quot; with  &lt;MCC&gt; encoded as defined in clause 5.4.2 (\&quot;Mcc\&quot; data type definition)  &lt;MNC&gt; encoding the Mobile Network Code part of the PLMN, comprising 3 digits.    If there are only 2 significant digits in the MNC, one \&quot;0\&quot; digit shall be inserted    at the left side to fill the 3 digits coding of MNC.  Pattern: &#39;^[0-9]{3}$&#39; &lt;NfType&gt; encoded as a value defined in Table 6.1.6.3.3-1 of 3GPP TS 29.510 but    with lower case characters &lt;Set ID&gt; encoded as a string of characters consisting of    alphabetic characters (A-Z and a-z), digits (0-9) and/or the hyphen (-) and that    shall end with either an alphabetic character or a digit.   | 
 **NfServiceSetId** | **string** | NF Service Set Identifier (see clause 28.12 of 3GPP TS 23.003) formatted as the following  string \&quot;set&lt;Set ID&gt;.sn&lt;Service Name&gt;.nfi&lt;NF Instance ID&gt;.5gc.mnc&lt;MNC&gt;.mcc&lt;MCC&gt;\&quot;, or  \&quot;set&lt;SetID&gt;.sn&lt;ServiceName&gt;.nfi&lt;NFInstanceID&gt;.5gc.nid&lt;NID&gt;.mnc&lt;MNC&gt;.mcc&lt;MCC&gt;\&quot; with  &lt;MCC&gt; encoded as defined in clause 5.4.2 (\&quot;Mcc\&quot; data type definition)   &lt;MNC&gt; encoding the Mobile Network Code part of the PLMN, comprising 3 digits.    If there are only 2 significant digits in the MNC, one \&quot;0\&quot; digit shall be inserted    at the left side to fill the 3 digits coding of MNC.  Pattern: &#39;^[0-9]{3}$&#39; &lt;NID&gt; encoded as defined in clause 5.4.2 (\&quot;Nid\&quot; data type definition)  &lt;NFInstanceId&gt; encoded as defined in clause 5.3.2  &lt;ServiceName&gt; encoded as defined in 3GPP TS 29.510  &lt;Set ID&gt; encoded as a string of characters consisting of alphabetic    characters (A-Z and a-z), digits (0-9) and/or the hyphen (-) and that shall end    with either an alphabetic character or a digit.  | 
 **SmfServingArea** | Pointer to **[]string** |  | [optional] 
 **TaiList** | Pointer to [**[]Tai**](Tai.md) |  | [optional] 
 **ScpDomains** | **[]string** |  | 
-**NfTypeList** | Pointer to [**[]NFType**](NFType.md) |  | [optional] 
+**NfTypeList** | Pointer to [**[]NfType**](NfType.md) |  | [optional] 
 **AnalyticsIds** | Pointer to **[]string** |  | [optional] 
 **TaiRangeList** | Pointer to [**[]TaiRange**](TaiRange.md) |  | [optional] 
-**ServingNfTypeList** | Pointer to [**[]NFType**](NFType.md) |  | [optional] 
+**ServingNfTypeList** | Pointer to [**[]NfType**](NfType.md) |  | [optional] 
 **ServingNfSetIdList** | Pointer to **[]string** |  | [optional] 
 **MlAnalyticsList** | Pointer to [**[]MlAnalyticsInfo**](MlAnalyticsInfo.md) |  | [optional] 
 **AfEvents** | Pointer to [**[]AfEvent**](AfEvent.md) |  | [optional] 
@@ -440,20 +440,20 @@ SetScpDomains sets ScpDomains field to given value.
 
 ### GetNfTypeList
 
-`func (o *SubscrCond) GetNfTypeList() []NFType`
+`func (o *SubscrCond) GetNfTypeList() []NfType`
 
 GetNfTypeList returns the NfTypeList field if non-nil, zero value otherwise.
 
 ### GetNfTypeListOk
 
-`func (o *SubscrCond) GetNfTypeListOk() (*[]NFType, bool)`
+`func (o *SubscrCond) GetNfTypeListOk() (*[]NfType, bool)`
 
 GetNfTypeListOk returns a tuple with the NfTypeList field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetNfTypeList
 
-`func (o *SubscrCond) SetNfTypeList(v []NFType)`
+`func (o *SubscrCond) SetNfTypeList(v []NfType)`
 
 SetNfTypeList sets NfTypeList field to given value.
 
@@ -515,20 +515,20 @@ HasTaiRangeList returns a boolean if a field has been set.
 
 ### GetServingNfTypeList
 
-`func (o *SubscrCond) GetServingNfTypeList() []NFType`
+`func (o *SubscrCond) GetServingNfTypeList() []NfType`
 
 GetServingNfTypeList returns the ServingNfTypeList field if non-nil, zero value otherwise.
 
 ### GetServingNfTypeListOk
 
-`func (o *SubscrCond) GetServingNfTypeListOk() (*[]NFType, bool)`
+`func (o *SubscrCond) GetServingNfTypeListOk() (*[]NfType, bool)`
 
 GetServingNfTypeListOk returns a tuple with the ServingNfTypeList field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetServingNfTypeList
 
-`func (o *SubscrCond) SetServingNfTypeList(v []NFType)`
+`func (o *SubscrCond) SetServingNfTypeList(v []NfType)`
 
 SetServingNfTypeList sets ServingNfTypeList field to given value.
 

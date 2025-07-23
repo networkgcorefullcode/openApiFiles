@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**NfType** | Pointer to [**NFType**](NFType.md) |  | [optional] 
+**NfType** | Pointer to [**NfType**](NfType.md) |  | [optional] 
 
 ## Methods
 
@@ -27,20 +27,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetNfType
 
-`func (o *NfInfo) GetNfType() NFType`
+`func (o *NfInfo) GetNfType() NfType`
 
 GetNfType returns the NfType field if non-nil, zero value otherwise.
 
 ### GetNfTypeOk
 
-`func (o *NfInfo) GetNfTypeOk() (*NFType, bool)`
+`func (o *NfInfo) GetNfTypeOk() (*NfType, bool)`
 
 GetNfTypeOk returns a tuple with the NfType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetNfType
 
-`func (o *NfInfo) SetNfType(v NFType)`
+`func (o *NfInfo) SetNfType(v NfType)`
 
 SetNfType sets NfType field to given value.
 

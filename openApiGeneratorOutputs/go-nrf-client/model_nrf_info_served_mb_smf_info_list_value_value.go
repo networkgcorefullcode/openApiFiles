@@ -1,7 +1,7 @@
 /*
 NRF NFManagement Service
 
-NRF NFManagement Service.   © 2024, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).   All rights reserved. 
+NRF NFManagement Service.   © 2024, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).   All rights reserved.
 
 API version: 1.4.0-alpha.2
 */
@@ -18,14 +18,14 @@ import (
 // NrfInfoServedMbSmfInfoListValueValue struct for NrfInfoServedMbSmfInfoListValueValue
 type NrfInfoServedMbSmfInfoListValueValue struct {
 	MbSmfInfo *MbSmfInfo
-	map[string]interface{} *map[string]interface{}
+	MapData   *map[string]interface{}
 }
 
 // Unmarshal JSON data into any of the pointers in the struct
 func (dst *NrfInfoServedMbSmfInfoListValueValue) UnmarshalJSON(data []byte) error {
 	var err error
 	// try to unmarshal JSON data into MbSmfInfo
-	err = json.Unmarshal(data, &dst.MbSmfInfo);
+	err = json.Unmarshal(data, &dst.MbSmfInfo)
 	if err == nil {
 		jsonMbSmfInfo, _ := json.Marshal(dst.MbSmfInfo)
 		if string(jsonMbSmfInfo) == "{}" { // empty struct
@@ -38,16 +38,16 @@ func (dst *NrfInfoServedMbSmfInfoListValueValue) UnmarshalJSON(data []byte) erro
 	}
 
 	// try to unmarshal JSON data into map[string]interface{}
-	err = json.Unmarshal(data, &dst.map[string]interface{});
+	err = json.Unmarshal(data, &dst.MapData)
 	if err == nil {
-		jsonmap[string]interface{}, _ := json.Marshal(dst.map[string]interface{})
-		if string(jsonmap[string]interface{}) == "{}" { // empty struct
-			dst.map[string]interface{} = nil
+		jsonMapData, _ := json.Marshal(dst.MapData)
+		if string(jsonMapData) == "{}" { // empty struct
+			dst.MapData = nil
 		} else {
-			return nil // data stored in dst.map[string]interface{}, return on the first match
+			return nil // data stored in dst.MapData, return on the first match
 		}
 	} else {
-		dst.map[string]interface{} = nil
+		dst.MapData = nil
 	}
 
 	return fmt.Errorf("data failed to match schemas in anyOf(NrfInfoServedMbSmfInfoListValueValue)")
@@ -59,8 +59,8 @@ func (src *NrfInfoServedMbSmfInfoListValueValue) MarshalJSON() ([]byte, error) {
 		return json.Marshal(&src.MbSmfInfo)
 	}
 
-	if src.map[string]interface{} != nil {
-		return json.Marshal(&src.map[string]interface{})
+	if src.MapData != nil {
+		return json.Marshal(&src.MapData)
 	}
 
 	return nil, nil // no data in anyOf schemas
@@ -101,5 +101,3 @@ func (v *NullableNrfInfoServedMbSmfInfoListValueValue) UnmarshalJSON(src []byte)
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

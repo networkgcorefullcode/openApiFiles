@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Priority** | **int32** |  | 
 **Plmns** | Pointer to [**[]PlmnId**](PlmnId.md) |  | [optional] 
 **Snpns** | Pointer to [**[]PlmnIdNid**](PlmnIdNid.md) |  | [optional] 
-**NfTypes** | Pointer to [**[]NFType**](NFType.md) |  | [optional] 
+**NfTypes** | Pointer to [**[]NfType**](NfType.md) |  | [optional] 
 **NfDomains** | Pointer to **[]string** |  | [optional] 
 **Nssais** | Pointer to [**[]ExtSnssai**](ExtSnssai.md) |  | [optional] 
 **NfInstances** | Pointer to **[]string** |  | [optional] 
@@ -105,20 +105,20 @@ HasSnpns returns a boolean if a field has been set.
 
 ### GetNfTypes
 
-`func (o *RuleSet) GetNfTypes() []NFType`
+`func (o *RuleSet) GetNfTypes() []NfType`
 
 GetNfTypes returns the NfTypes field if non-nil, zero value otherwise.
 
 ### GetNfTypesOk
 
-`func (o *RuleSet) GetNfTypesOk() (*[]NFType, bool)`
+`func (o *RuleSet) GetNfTypesOk() (*[]NfType, bool)`
 
 GetNfTypesOk returns a tuple with the NfTypes field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetNfTypes
 
-`func (o *RuleSet) SetNfTypes(v []NFType)`
+`func (o *RuleSet) SetNfTypes(v []NfType)`
 
 SetNfTypes sets NfTypes field to given value.
 

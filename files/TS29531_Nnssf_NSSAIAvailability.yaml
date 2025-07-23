@@ -741,7 +741,7 @@ components:
           items:
             $ref: 'TS29571_CommonData.yaml#/components/schemas/Snssai'
         nfType:
-          $ref: 'TS29510_Nnrf_NFManagement.yaml#/components/schemas/NFType'
+          $ref: 'TS29510_Nnrf_NFManagement.yaml#/components/schemas/NfType'
         nfId:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/NfInstanceId'
         plmnId:

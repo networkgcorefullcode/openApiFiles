@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ServingNfTypeList** | Pointer to [**[]NFType**](NFType.md) |  | [optional] 
+**ServingNfTypeList** | Pointer to [**[]NfType**](NfType.md) |  | [optional] 
 **ServingNfSetIdList** | Pointer to **[]string** |  | [optional] 
 **TaiList** | Pointer to [**[]Tai**](Tai.md) |  | [optional] 
 **TaiRangeList** | Pointer to [**[]TaiRange**](TaiRange.md) |  | [optional] 
@@ -31,20 +31,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetServingNfTypeList
 
-`func (o *DccfInfo) GetServingNfTypeList() []NFType`
+`func (o *DccfInfo) GetServingNfTypeList() []NfType`
 
 GetServingNfTypeList returns the ServingNfTypeList field if non-nil, zero value otherwise.
 
 ### GetServingNfTypeListOk
 
-`func (o *DccfInfo) GetServingNfTypeListOk() (*[]NFType, bool)`
+`func (o *DccfInfo) GetServingNfTypeListOk() (*[]NfType, bool)`
 
 GetServingNfTypeListOk returns a tuple with the ServingNfTypeList field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetServingNfTypeList
 
-`func (o *DccfInfo) SetServingNfTypeList(v []NFType)`
+`func (o *DccfInfo) SetServingNfTypeList(v []NfType)`
 
 SetServingNfTypeList sets ServingNfTypeList field to given value.
 

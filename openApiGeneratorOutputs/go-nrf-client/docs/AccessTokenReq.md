@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **GrantType** | **string** |  | 
 **NfInstanceId** | **string** | String uniquely identifying a NF instance. The format of the NF Instance ID shall be a  Universally Unique Identifier (UUID) version 4, as described in IETF RFC 4122.   | 
-**NfType** | Pointer to [**NFType**](NFType.md) |  | [optional] 
-**TargetNfType** | Pointer to [**NFType**](NFType.md) |  | [optional] 
+**NfType** | Pointer to [**NfType**](NfType.md) |  | [optional] 
+**TargetNfType** | Pointer to [**NfType**](NfType.md) |  | [optional] 
 **Scope** | **string** |  | 
 **TargetNfInstanceId** | Pointer to **string** | String uniquely identifying a NF instance. The format of the NF Instance ID shall be a  Universally Unique Identifier (UUID) version 4, as described in IETF RFC 4122.   | [optional] 
 **RequesterPlmn** | Pointer to [**PlmnId**](PlmnId.md) |  | [optional] 
@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **TargetSnpn** | Pointer to [**PlmnIdNid**](PlmnIdNid.md) |  | [optional] 
 **TargetSnssaiList** | Pointer to [**[]Snssai**](Snssai.md) |  | [optional] 
 **TargetNsiList** | Pointer to **[]string** |  | [optional] 
-**TargetNfSetId** | Pointer to **string** | NF Set Identifier (see clause 28.12 of 3GPP TS 23.003), formatted as the following string \&quot;set&lt;Set ID&gt;.&lt;nftype&gt;set.5gc.mnc&lt;MNC&gt;.mcc&lt;MCC&gt;\&quot;, or  \&quot;set&lt;SetID&gt;.&lt;NFType&gt;set.5gc.nid&lt;NID&gt;.mnc&lt;MNC&gt;.mcc&lt;MCC&gt;\&quot; with  &lt;MCC&gt; encoded as defined in clause 5.4.2 (\&quot;Mcc\&quot; data type definition)  &lt;MNC&gt; encoding the Mobile Network Code part of the PLMN, comprising 3 digits.    If there are only 2 significant digits in the MNC, one \&quot;0\&quot; digit shall be inserted    at the left side to fill the 3 digits coding of MNC.  Pattern: &#39;^[0-9]{3}$&#39; &lt;NFType&gt; encoded as a value defined in Table 6.1.6.3.3-1 of 3GPP TS 29.510 but    with lower case characters &lt;Set ID&gt; encoded as a string of characters consisting of    alphabetic characters (A-Z and a-z), digits (0-9) and/or the hyphen (-) and that    shall end with either an alphabetic character or a digit.   | [optional] 
+**TargetNfSetId** | Pointer to **string** | NF Set Identifier (see clause 28.12 of 3GPP TS 23.003), formatted as the following string \&quot;set&lt;Set ID&gt;.&lt;nftype&gt;set.5gc.mnc&lt;MNC&gt;.mcc&lt;MCC&gt;\&quot;, or  \&quot;set&lt;SetID&gt;.&lt;NfType&gt;set.5gc.nid&lt;NID&gt;.mnc&lt;MNC&gt;.mcc&lt;MCC&gt;\&quot; with  &lt;MCC&gt; encoded as defined in clause 5.4.2 (\&quot;Mcc\&quot; data type definition)  &lt;MNC&gt; encoding the Mobile Network Code part of the PLMN, comprising 3 digits.    If there are only 2 significant digits in the MNC, one \&quot;0\&quot; digit shall be inserted    at the left side to fill the 3 digits coding of MNC.  Pattern: &#39;^[0-9]{3}$&#39; &lt;NfType&gt; encoded as a value defined in Table 6.1.6.3.3-1 of 3GPP TS 29.510 but    with lower case characters &lt;Set ID&gt; encoded as a string of characters consisting of    alphabetic characters (A-Z and a-z), digits (0-9) and/or the hyphen (-) and that    shall end with either an alphabetic character or a digit.   | [optional] 
 **TargetNfServiceSetId** | Pointer to **string** | NF Service Set Identifier (see clause 28.12 of 3GPP TS 23.003) formatted as the following  string \&quot;set&lt;Set ID&gt;.sn&lt;Service Name&gt;.nfi&lt;NF Instance ID&gt;.5gc.mnc&lt;MNC&gt;.mcc&lt;MCC&gt;\&quot;, or  \&quot;set&lt;SetID&gt;.sn&lt;ServiceName&gt;.nfi&lt;NFInstanceID&gt;.5gc.nid&lt;NID&gt;.mnc&lt;MNC&gt;.mcc&lt;MCC&gt;\&quot; with  &lt;MCC&gt; encoded as defined in clause 5.4.2 (\&quot;Mcc\&quot; data type definition)   &lt;MNC&gt; encoding the Mobile Network Code part of the PLMN, comprising 3 digits.    If there are only 2 significant digits in the MNC, one \&quot;0\&quot; digit shall be inserted    at the left side to fill the 3 digits coding of MNC.  Pattern: &#39;^[0-9]{3}$&#39; &lt;NID&gt; encoded as defined in clause 5.4.2 (\&quot;Nid\&quot; data type definition)  &lt;NFInstanceId&gt; encoded as defined in clause 5.3.2  &lt;ServiceName&gt; encoded as defined in 3GPP TS 29.510  &lt;Set ID&gt; encoded as a string of characters consisting of alphabetic    characters (A-Z and a-z), digits (0-9) and/or the hyphen (-) and that shall end    with either an alphabetic character or a digit.  | [optional] 
 **HnrfAccessTokenUri** | Pointer to **string** | String providing an URI formatted according to RFC 3986. | [optional] 
 **SourceNfInstanceId** | Pointer to **string** | String uniquely identifying a NF instance. The format of the NF Instance ID shall be a  Universally Unique Identifier (UUID) version 4, as described in IETF RFC 4122.   | [optional] 
@@ -89,20 +89,20 @@ SetNfInstanceId sets NfInstanceId field to given value.
 
 ### GetNfType
 
-`func (o *AccessTokenReq) GetNfType() NFType`
+`func (o *AccessTokenReq) GetNfType() NfType`
 
 GetNfType returns the NfType field if non-nil, zero value otherwise.
 
 ### GetNfTypeOk
 
-`func (o *AccessTokenReq) GetNfTypeOk() (*NFType, bool)`
+`func (o *AccessTokenReq) GetNfTypeOk() (*NfType, bool)`
 
 GetNfTypeOk returns a tuple with the NfType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetNfType
 
-`func (o *AccessTokenReq) SetNfType(v NFType)`
+`func (o *AccessTokenReq) SetNfType(v NfType)`
 
 SetNfType sets NfType field to given value.
 
@@ -114,20 +114,20 @@ HasNfType returns a boolean if a field has been set.
 
 ### GetTargetNfType
 
-`func (o *AccessTokenReq) GetTargetNfType() NFType`
+`func (o *AccessTokenReq) GetTargetNfType() NfType`
 
 GetTargetNfType returns the TargetNfType field if non-nil, zero value otherwise.
 
 ### GetTargetNfTypeOk
 
-`func (o *AccessTokenReq) GetTargetNfTypeOk() (*NFType, bool)`
+`func (o *AccessTokenReq) GetTargetNfTypeOk() (*NfType, bool)`
 
 GetTargetNfTypeOk returns a tuple with the TargetNfType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTargetNfType
 
-`func (o *AccessTokenReq) SetTargetNfType(v NFType)`
+`func (o *AccessTokenReq) SetTargetNfType(v NfType)`
 
 SetTargetNfType sets TargetNfType field to given value.
 

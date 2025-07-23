@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**NfType** | [**NFType**](NFType.md) |  | 
+**NfType** | [**NfType**](NfType.md) |  | 
 
 ## Methods
 
 ### NewNfTypeCond
 
-`func NewNfTypeCond(nfType NFType, ) *NfTypeCond`
+`func NewNfTypeCond(nfType NfType, ) *NfTypeCond`
 
 NewNfTypeCond instantiates a new NfTypeCond object
 This constructor will assign default values to properties that have it defined,
@@ -27,20 +27,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetNfType
 
-`func (o *NfTypeCond) GetNfType() NFType`
+`func (o *NfTypeCond) GetNfType() NfType`
 
 GetNfType returns the NfType field if non-nil, zero value otherwise.
 
 ### GetNfTypeOk
 
-`func (o *NfTypeCond) GetNfTypeOk() (*NFType, bool)`
+`func (o *NfTypeCond) GetNfTypeOk() (*NfType, bool)`
 
 GetNfTypeOk returns a tuple with the NfType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetNfType
 
-`func (o *NfTypeCond) SetNfType(v NFType)`
+`func (o *NfTypeCond) SetNfType(v NfType)`
 
 SetNfType sets NfType field to given value.
 

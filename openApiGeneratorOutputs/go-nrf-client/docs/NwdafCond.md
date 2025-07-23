@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **SnssaiList** | Pointer to [**[]Snssai**](Snssai.md) |  | [optional] 
 **TaiList** | Pointer to [**[]Tai**](Tai.md) |  | [optional] 
 **TaiRangeList** | Pointer to [**[]TaiRange**](TaiRange.md) |  | [optional] 
-**ServingNfTypeList** | Pointer to [**[]NFType**](NFType.md) |  | [optional] 
+**ServingNfTypeList** | Pointer to [**[]NfType**](NfType.md) |  | [optional] 
 **ServingNfSetIdList** | Pointer to **[]string** |  | [optional] 
 **MlAnalyticsList** | Pointer to [**[]MlAnalyticsInfo**](MlAnalyticsInfo.md) |  | [optional] 
 
@@ -154,20 +154,20 @@ HasTaiRangeList returns a boolean if a field has been set.
 
 ### GetServingNfTypeList
 
-`func (o *NwdafCond) GetServingNfTypeList() []NFType`
+`func (o *NwdafCond) GetServingNfTypeList() []NfType`
 
 GetServingNfTypeList returns the ServingNfTypeList field if non-nil, zero value otherwise.
 
 ### GetServingNfTypeListOk
 
-`func (o *NwdafCond) GetServingNfTypeListOk() (*[]NFType, bool)`
+`func (o *NwdafCond) GetServingNfTypeListOk() (*[]NfType, bool)`
 
 GetServingNfTypeListOk returns a tuple with the ServingNfTypeList field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetServingNfTypeList
 
-`func (o *NwdafCond) SetServingNfTypeList(v []NFType)`
+`func (o *NwdafCond) SetServingNfTypeList(v []NfType)`
 
 SetServingNfTypeList sets ServingNfTypeList field to given value.
 

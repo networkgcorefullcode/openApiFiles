@@ -29,7 +29,7 @@ paths:
         name: nf-type
         required: false
         schema:
-          $ref: '#/components/schemas/NFType'
+          $ref: '#/components/schemas/NfType'
         style: form
       - description: How many items to return at one time
         explode: true
@@ -1715,10 +1715,10 @@ paths:
   /subscriptions:
     post:
       callbacks:
-        onNFStatusEvent:
+        onNfStatusEvent:
           '{$request.body#/nfStatusNotificationUri}':
             post:
-              operationId: onNFStatusEvent_Post
+              operationId: onNfStatusEvent_Post
               parameters:
               - description: "Content-Encoding, described in IETF RFC 9110"
                 explode: false
@@ -10117,9 +10117,9 @@ components:
         nfInstanceName:
           type: string
         nfType:
-          $ref: '#/components/schemas/NFType'
+          $ref: '#/components/schemas/NfType'
         nfStatus:
-          $ref: '#/components/schemas/NFStatus'
+          $ref: '#/components/schemas/NfStatus'
         collocatedNfInstances:
           items:
             $ref: '#/components/schemas/CollocatedNfInstance'
@@ -10189,7 +10189,7 @@ components:
           type: array
         allowedNfTypes:
           items:
-            $ref: '#/components/schemas/NFType'
+            $ref: '#/components/schemas/NfType'
           minItems: 1
           type: array
         allowedNfDomains:
@@ -19060,7 +19060,7 @@ components:
           type: array
         allowedNfTypes:
           items:
-            $ref: '#/components/schemas/NFType'
+            $ref: '#/components/schemas/NfType'
           minItems: 1
           type: array
         allowedNfDomains:
@@ -19186,7 +19186,7 @@ components:
       - serviceName
       - versions
       type: object
-    NFType:
+    NfType:
       anyOf:
       - enum:
         - NRF
@@ -19454,7 +19454,7 @@ components:
         notifCondition:
           $ref: '#/components/schemas/NotifCondition'
         reqNfType:
-          $ref: '#/components/schemas/NFType'
+          $ref: '#/components/schemas/NfType'
         reqNfFqdn:
           description: Fully Qualified Domain Name
           maxLength: 253
@@ -19585,7 +19585,7 @@ components:
       description: Subscription to a set of NFs based on their NF Type
       properties:
         nfType:
-          $ref: '#/components/schemas/NFType'
+          $ref: '#/components/schemas/NfType'
       required:
       - nfType
       type: object
@@ -22011,12 +22011,12 @@ components:
         nfSetId:
           description: "NF Set Identifier (see clause 28.12 of 3GPP TS 23.003), formatted\
             \ as the following string \"set<Set ID>.<nftype>set.5gc.mnc<MNC>.mcc<MCC>\"\
-            , or  \"set<SetID>.<NFType>set.5gc.nid<NID>.mnc<MNC>.mcc<MCC>\" with \
+            , or  \"set<SetID>.<NfType>set.5gc.nid<NID>.mnc<MNC>.mcc<MCC>\" with \
             \ <MCC> encoded as defined in clause 5.4.2 (\"Mcc\" data type definition)\
             \  <MNC> encoding the Mobile Network Code part of the PLMN, comprising\
             \ 3 digits. \n  If there are only 2 significant digits in the MNC, one\
             \ \"0\" digit shall be inserted \n  at the left side to fill the 3 digits\
-            \ coding of MNC.  Pattern: '^[0-9]{3}$'\n<NFType> encoded as a value defined\
+            \ coding of MNC.  Pattern: '^[0-9]{3}$'\n<NfType> encoded as a value defined\
             \ in Table 6.1.6.3.3-1 of 3GPP TS 29.510 but \n  with lower case characters\
             \ <Set ID> encoded as a string of characters consisting of \n  alphabetic\
             \ characters (A-Z and a-z), digits (0-9) and/or the hyphen (-) and that\
@@ -22046,12 +22046,12 @@ components:
         nfSetId:
           description: "NF Set Identifier (see clause 28.12 of 3GPP TS 23.003), formatted\
             \ as the following string \"set<Set ID>.<nftype>set.5gc.mnc<MNC>.mcc<MCC>\"\
-            , or  \"set<SetID>.<NFType>set.5gc.nid<NID>.mnc<MNC>.mcc<MCC>\" with \
+            , or  \"set<SetID>.<NfType>set.5gc.nid<NID>.mnc<MNC>.mcc<MCC>\" with \
             \ <MCC> encoded as defined in clause 5.4.2 (\"Mcc\" data type definition)\
             \  <MNC> encoding the Mobile Network Code part of the PLMN, comprising\
             \ 3 digits. \n  If there are only 2 significant digits in the MNC, one\
             \ \"0\" digit shall be inserted \n  at the left side to fill the 3 digits\
-            \ coding of MNC.  Pattern: '^[0-9]{3}$'\n<NFType> encoded as a value defined\
+            \ coding of MNC.  Pattern: '^[0-9]{3}$'\n<NfType> encoded as a value defined\
             \ in Table 6.1.6.3.3-1 of 3GPP TS 29.510 but \n  with lower case characters\
             \ <Set ID> encoded as a string of characters consisting of \n  alphabetic\
             \ characters (A-Z and a-z), digits (0-9) and/or the hyphen (-) and that\
@@ -22111,7 +22111,7 @@ components:
           type: array
         servingNfTypeList:
           items:
-            $ref: '#/components/schemas/NFType'
+            $ref: '#/components/schemas/NfType'
           minItems: 1
           type: array
         servingNfSetIdList:
@@ -30066,7 +30066,7 @@ components:
       - event
       - nfInstanceUri
       type: object
-    NFStatus:
+    NfStatus:
       anyOf:
       - enum:
         - REGISTERED
@@ -33929,7 +33929,7 @@ components:
           type: array
         servingNfTypeList:
           items:
-            $ref: '#/components/schemas/NFType'
+            $ref: '#/components/schemas/NfType'
           minItems: 1
           type: array
         mlAnalyticsList:
@@ -34311,7 +34311,7 @@ components:
         nfType: null
       properties:
         nfType:
-          $ref: '#/components/schemas/NFType'
+          $ref: '#/components/schemas/NfType'
       type: object
     HssInfo:
       description: Information of an HSS NF Instance
@@ -34690,7 +34690,7 @@ components:
           type: array
         nfTypeList:
           items:
-            $ref: '#/components/schemas/NFType'
+            $ref: '#/components/schemas/NfType'
           minItems: 1
           type: array
       required:
@@ -34889,7 +34889,7 @@ components:
       properties:
         servingNfTypeList:
           items:
-            $ref: '#/components/schemas/NFType'
+            $ref: '#/components/schemas/NfType'
           minItems: 1
           type: array
         servingNfSetIdList:
@@ -35133,7 +35133,7 @@ components:
       properties:
         servingNfTypeList:
           items:
-            $ref: '#/components/schemas/NFType'
+            $ref: '#/components/schemas/NfType'
           minItems: 1
           type: array
         servingNfSetIdList:
@@ -35302,7 +35302,7 @@ components:
           type: array
         servingNfTypeList:
           items:
-            $ref: '#/components/schemas/NFType'
+            $ref: '#/components/schemas/NfType'
           minItems: 1
           type: array
         servingNfSetIdList:
@@ -35374,7 +35374,7 @@ components:
           type: integer
         nfTypeList:
           items:
-            $ref: '#/components/schemas/NFType'
+            $ref: '#/components/schemas/NfType'
           minItems: 1
           type: array
         nfSetIdList:
@@ -37151,7 +37151,7 @@ components:
           type: array
         nfTypes:
           items:
-            $ref: '#/components/schemas/NFType'
+            $ref: '#/components/schemas/NfType'
           minItems: 1
           type: array
         nfDomains:
@@ -37209,7 +37209,7 @@ components:
       - $ref: '#/components/schemas/ConditionGroup'
     ConditionGroup:
       description: |
-        List (array) of conditions (joined by the "and" or "or" logical relationship), under which an NF Instance with an NFStatus or NFServiceStatus value set to, "CANARY_RELEASE", or with a "canaryRelease" attribute set to true, shall be selected by an NF Service Consumer.
+        List (array) of conditions (joined by the "and" or "or" logical relationship), under which an NF Instance with an NfStatus or NFServiceStatus value set to, "CANARY_RELEASE", or with a "canaryRelease" attribute set to true, shall be selected by an NF Service Consumer.
       nullable: true
       oneOf: []
       properties:
@@ -37300,7 +37300,7 @@ components:
       properties:
         consumerNfTypes:
           items:
-            $ref: '#/components/schemas/NFType'
+            $ref: '#/components/schemas/NfType'
           minItems: 1
           type: array
         serviceFeature:
@@ -37811,12 +37811,12 @@ components:
     NfSetId:
       description: "NF Set Identifier (see clause 28.12 of 3GPP TS 23.003), formatted\
         \ as the following string \"set<Set ID>.<nftype>set.5gc.mnc<MNC>.mcc<MCC>\"\
-        , or  \"set<SetID>.<NFType>set.5gc.nid<NID>.mnc<MNC>.mcc<MCC>\" with  <MCC>\
+        , or  \"set<SetID>.<NfType>set.5gc.nid<NID>.mnc<MNC>.mcc<MCC>\" with  <MCC>\
         \ encoded as defined in clause 5.4.2 (\"Mcc\" data type definition)  <MNC>\
         \ encoding the Mobile Network Code part of the PLMN, comprising 3 digits.\
         \ \n  If there are only 2 significant digits in the MNC, one \"0\" digit shall\
         \ be inserted \n  at the left side to fill the 3 digits coding of MNC.  Pattern:\
-        \ '^[0-9]{3}$'\n<NFType> encoded as a value defined in Table 6.1.6.3.3-1 of\
+        \ '^[0-9]{3}$'\n<NfType> encoded as a value defined in Table 6.1.6.3.3-1 of\
         \ 3GPP TS 29.510 but \n  with lower case characters <Set ID> encoded as a\
         \ string of characters consisting of \n  alphabetic characters (A-Z and a-z),\
         \ digits (0-9) and/or the hyphen (-) and that \n  shall end with either an\
@@ -38826,9 +38826,9 @@ components:
           format: uuid
           type: string
         nfType:
-          $ref: '#/components/schemas/NFType'
+          $ref: '#/components/schemas/NfType'
         targetNfType:
-          $ref: '#/components/schemas/NFType'
+          $ref: '#/components/schemas/NfType'
         scope:
           pattern: "^([a-zA-Z0-9_:-]+)( [a-zA-Z0-9_:-]+)*$"
           type: string
@@ -38879,12 +38879,12 @@ components:
         targetNfSetId:
           description: "NF Set Identifier (see clause 28.12 of 3GPP TS 23.003), formatted\
             \ as the following string \"set<Set ID>.<nftype>set.5gc.mnc<MNC>.mcc<MCC>\"\
-            , or  \"set<SetID>.<NFType>set.5gc.nid<NID>.mnc<MNC>.mcc<MCC>\" with \
+            , or  \"set<SetID>.<NfType>set.5gc.nid<NID>.mnc<MNC>.mcc<MCC>\" with \
             \ <MCC> encoded as defined in clause 5.4.2 (\"Mcc\" data type definition)\
             \  <MNC> encoding the Mobile Network Code part of the PLMN, comprising\
             \ 3 digits. \n  If there are only 2 significant digits in the MNC, one\
             \ \"0\" digit shall be inserted \n  at the left side to fill the 3 digits\
-            \ coding of MNC.  Pattern: '^[0-9]{3}$'\n<NFType> encoded as a value defined\
+            \ coding of MNC.  Pattern: '^[0-9]{3}$'\n<NfType> encoded as a value defined\
             \ in Table 6.1.6.3.3-1 of 3GPP TS 29.510 but \n  with lower case characters\
             \ <Set ID> encoded as a string of characters consisting of \n  alphabetic\
             \ characters (A-Z and a-z), digits (0-9) and/or the hyphen (-) and that\

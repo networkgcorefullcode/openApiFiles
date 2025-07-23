@@ -175,9 +175,9 @@ components:
         nfInstanceId:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/NfInstanceId'
         nfType:
-          $ref: 'TS29510_Nnrf_NFManagement.yaml#/components/schemas/NFType'
+          $ref: 'TS29510_Nnrf_NFManagement.yaml#/components/schemas/NfType'
         targetNfType:
-          $ref: 'TS29510_Nnrf_NFManagement.yaml#/components/schemas/NFType'
+          $ref: 'TS29510_Nnrf_NFManagement.yaml#/components/schemas/NfType'
         scope:
           type: string
           pattern: '^([a-zA-Z0-9_:-]+)( [a-zA-Z0-9_:-]+)*$'
@@ -276,7 +276,7 @@ components:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/NfInstanceId'
         aud:
           anyOf:
-            - $ref: 'TS29510_Nnrf_NFManagement.yaml#/components/schemas/NFType'
+            - $ref: 'TS29510_Nnrf_NFManagement.yaml#/components/schemas/NfType'
             - type: array
               items:
                 $ref: 'TS29571_CommonData.yaml#/components/schemas/NfInstanceId'

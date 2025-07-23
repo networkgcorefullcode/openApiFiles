@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **ConditionType** | **string** |  | 
 **TaiList** | Pointer to [**[]Tai**](Tai.md) |  | [optional] 
 **TaiRangeList** | Pointer to [**[]TaiRange**](TaiRange.md) |  | [optional] 
-**ServingNfTypeList** | Pointer to [**[]NFType**](NFType.md) |  | [optional] 
+**ServingNfTypeList** | Pointer to [**[]NfType**](NfType.md) |  | [optional] 
 **ServingNfSetIdList** | Pointer to **[]string** |  | [optional] 
 
 ## Methods
@@ -101,20 +101,20 @@ HasTaiRangeList returns a boolean if a field has been set.
 
 ### GetServingNfTypeList
 
-`func (o *DccfCond) GetServingNfTypeList() []NFType`
+`func (o *DccfCond) GetServingNfTypeList() []NfType`
 
 GetServingNfTypeList returns the ServingNfTypeList field if non-nil, zero value otherwise.
 
 ### GetServingNfTypeListOk
 
-`func (o *DccfCond) GetServingNfTypeListOk() (*[]NFType, bool)`
+`func (o *DccfCond) GetServingNfTypeListOk() (*[]NfType, bool)`
 
 GetServingNfTypeListOk returns a tuple with the ServingNfTypeList field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetServingNfTypeList
 
-`func (o *DccfCond) SetServingNfTypeList(v []NFType)`
+`func (o *DccfCond) SetServingNfTypeList(v []NfType)`
 
 SetServingNfTypeList sets ServingNfTypeList field to given value.
 

@@ -138,7 +138,7 @@ components:
         sNssai:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/ExtSnssai'
         nfType:
-          $ref: 'TS29510_Nnrf_NFManagement.yaml#/components/schemas/NFType'
+          $ref: 'TS29510_Nnrf_NFManagement.yaml#/components/schemas/NfType'
 
     UAVAuthResponse:
       description: UAV auth response data

@@ -4031,7 +4031,7 @@ components:
           minItems: 1
           maxItems: 2
         subscribingNfType:
-          $ref: 'TS29510_Nnrf_NFManagement.yaml#/components/schemas/NFType'
+          $ref: 'TS29510_Nnrf_NFManagement.yaml#/components/schemas/NfType'
         eventSyncInd:
           type: boolean
         nfConsumerInfo:

@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **NfInstanceId** | **string** | String uniquely identifying a NF instance. The format of the NF Instance ID shall be a  Universally Unique Identifier (UUID) version 4, as described in IETF RFC 4122.   | 
 **NfInstanceName** | Pointer to **string** |  | [optional] 
-**NfType** | [**NFType**](NFType.md) |  | 
-**NfStatus** | [**NFStatus**](NFStatus.md) |  | 
+**NfType** | [**NfType**](NfType.md) |  | 
+**NfStatus** | [**NfStatus**](NfStatus.md) |  | 
 **CollocatedNfInstances** | Pointer to [**[]CollocatedNfInstance**](CollocatedNfInstance.md) |  | [optional] 
 **HeartBeatTimer** | Pointer to **int32** |  | [optional] 
 **PlmnList** | Pointer to [**[]PlmnId**](PlmnId.md) |  | [optional] 
@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **Ipv6Addresses** | Pointer to [**[]Ipv6Addr**](Ipv6Addr.md) |  | [optional] 
 **AllowedPlmns** | Pointer to [**[]PlmnId**](PlmnId.md) |  | [optional] 
 **AllowedSnpns** | Pointer to [**[]PlmnIdNid**](PlmnIdNid.md) |  | [optional] 
-**AllowedNfTypes** | Pointer to [**[]NFType**](NFType.md) |  | [optional] 
+**AllowedNfTypes** | Pointer to [**[]NfType**](NfType.md) |  | [optional] 
 **AllowedNfDomains** | Pointer to **[]string** |  | [optional] 
 **AllowedNssais** | Pointer to [**[]ExtSnssai**](ExtSnssai.md) |  | [optional] 
 **AllowedRuleSet** | Pointer to [**map[string]RuleSet**](RuleSet.md) | A map (list of key-value pairs) where a valid JSON pointer Id serves as key | [optional] 
@@ -112,7 +112,7 @@ Name | Type | Description | Notes
 
 ### NewNFProfile
 
-`func NewNFProfile(nfInstanceId string, nfType NFType, nfStatus NFStatus, ) *NFProfile`
+`func NewNFProfile(nfInstanceId string, nfType NfType, nfStatus NfStatus, ) *NFProfile`
 
 NewNFProfile instantiates a new NFProfile object
 This constructor will assign default values to properties that have it defined,
@@ -174,40 +174,40 @@ HasNfInstanceName returns a boolean if a field has been set.
 
 ### GetNfType
 
-`func (o *NFProfile) GetNfType() NFType`
+`func (o *NFProfile) GetNfType() NfType`
 
 GetNfType returns the NfType field if non-nil, zero value otherwise.
 
 ### GetNfTypeOk
 
-`func (o *NFProfile) GetNfTypeOk() (*NFType, bool)`
+`func (o *NFProfile) GetNfTypeOk() (*NfType, bool)`
 
 GetNfTypeOk returns a tuple with the NfType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetNfType
 
-`func (o *NFProfile) SetNfType(v NFType)`
+`func (o *NFProfile) SetNfType(v NfType)`
 
 SetNfType sets NfType field to given value.
 
 
 ### GetNfStatus
 
-`func (o *NFProfile) GetNfStatus() NFStatus`
+`func (o *NFProfile) GetNfStatus() NfStatus`
 
 GetNfStatus returns the NfStatus field if non-nil, zero value otherwise.
 
 ### GetNfStatusOk
 
-`func (o *NFProfile) GetNfStatusOk() (*NFStatus, bool)`
+`func (o *NFProfile) GetNfStatusOk() (*NfStatus, bool)`
 
 GetNfStatusOk returns a tuple with the NfStatus field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetNfStatus
 
-`func (o *NFProfile) SetNfStatus(v NFStatus)`
+`func (o *NFProfile) SetNfStatus(v NfStatus)`
 
 SetNfStatus sets NfStatus field to given value.
 
@@ -539,20 +539,20 @@ HasAllowedSnpns returns a boolean if a field has been set.
 
 ### GetAllowedNfTypes
 
-`func (o *NFProfile) GetAllowedNfTypes() []NFType`
+`func (o *NFProfile) GetAllowedNfTypes() []NfType`
 
 GetAllowedNfTypes returns the AllowedNfTypes field if non-nil, zero value otherwise.
 
 ### GetAllowedNfTypesOk
 
-`func (o *NFProfile) GetAllowedNfTypesOk() (*[]NFType, bool)`
+`func (o *NFProfile) GetAllowedNfTypesOk() (*[]NfType, bool)`
 
 GetAllowedNfTypesOk returns a tuple with the AllowedNfTypes field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAllowedNfTypes
 
-`func (o *NFProfile) SetAllowedNfTypes(v []NFType)`
+`func (o *NFProfile) SetAllowedNfTypes(v []NfType)`
 
 SetAllowedNfTypes sets AllowedNfTypes field to given value.
 

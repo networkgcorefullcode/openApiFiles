@@ -1,7 +1,7 @@
 /*
 NRF NFManagement Service
 
-NRF NFManagement Service.   © 2024, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).   All rights reserved. 
+NRF NFManagement Service.   © 2024, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).   All rights reserved.
 
 API version: 1.4.0-alpha.2
 */
@@ -17,10 +17,10 @@ import (
 // checks if the ConditionGroup type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &ConditionGroup{}
 
-// ConditionGroup List (array) of conditions (joined by the \"and\" or \"or\" logical relationship), under which an NF Instance with an NFStatus or NFServiceStatus value set to, \"CANARY_RELEASE\", or with a \"canaryRelease\" attribute set to true, shall be selected by an NF Service Consumer. 
+// ConditionGroup List (array) of conditions (joined by the \"and\" or \"or\" logical relationship), under which an NF Instance with an NfStatus or NFServiceStatus value set to, \"CANARY_RELEASE\", or with a \"canaryRelease\" attribute set to true, shall be selected by an NF Service Consumer.
 type ConditionGroup struct {
 	And []SelectionConditions `json:"and,omitempty"`
-	Or []SelectionConditions `json:"or,omitempty"`
+	Or  []SelectionConditions `json:"or,omitempty"`
 }
 
 // NewConditionGroup instantiates a new ConditionGroup object
@@ -105,7 +105,7 @@ func (o *ConditionGroup) SetOr(v []SelectionConditions) {
 }
 
 func (o ConditionGroup) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -158,5 +158,3 @@ func (v *NullableConditionGroup) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **PlmnId** | Pointer to [**PlmnId**](PlmnId.md) |  | [optional] 
 **Nid** | Pointer to **string** | This represents the Network Identifier, which together with a PLMN ID is used to identify an SNPN (see 3GPP TS 23.003 and 3GPP TS 23.501 clause 5.30.2.1).   | [optional] 
 **NotifCondition** | Pointer to [**NotifCondition**](NotifCondition.md) |  | [optional] 
-**ReqNfType** | Pointer to [**NFType**](NFType.md) |  | [optional] 
+**ReqNfType** | Pointer to [**NfType**](NfType.md) |  | [optional] 
 **ReqNfFqdn** | Pointer to **string** | Fully Qualified Domain Name | [optional] 
 **ReqSnssais** | Pointer to [**[]ExtSnssai**](ExtSnssai.md) |  | [optional] 
 **ReqPerPlmnSnssais** | Pointer to [**[]PlmnSnssai**](PlmnSnssai.md) |  | [optional] 
@@ -296,20 +296,20 @@ HasNotifCondition returns a boolean if a field has been set.
 
 ### GetReqNfType
 
-`func (o *SubscriptionData) GetReqNfType() NFType`
+`func (o *SubscriptionData) GetReqNfType() NfType`
 
 GetReqNfType returns the ReqNfType field if non-nil, zero value otherwise.
 
 ### GetReqNfTypeOk
 
-`func (o *SubscriptionData) GetReqNfTypeOk() (*NFType, bool)`
+`func (o *SubscriptionData) GetReqNfTypeOk() (*NfType, bool)`
 
 GetReqNfTypeOk returns a tuple with the ReqNfType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetReqNfType
 
-`func (o *SubscriptionData) SetReqNfType(v NFType)`
+`func (o *SubscriptionData) SetReqNfType(v NfType)`
 
 SetReqNfType sets ReqNfType field to given value.
 

@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **MlModelInterInfo** | Pointer to [**MlModelInterInfo**](MlModelInterInfo.md) |  | [optional] 
 **FlCapabilityType** | Pointer to [**FlCapabilityType**](FlCapabilityType.md) |  | [optional] 
 **FlTimeInterval** | Pointer to **int32** | indicating a time in seconds. | [optional] 
-**NfTypeList** | Pointer to [**[]NFType**](NFType.md) |  | [optional] 
+**NfTypeList** | Pointer to [**[]NfType**](NfType.md) |  | [optional] 
 **NfSetIdList** | Pointer to **[]string** |  | [optional] 
 **VflCapabilityType** | Pointer to [**VflCapabilityType**](VflCapabilityType.md) |  | [optional] 
 
@@ -185,20 +185,20 @@ HasFlTimeInterval returns a boolean if a field has been set.
 
 ### GetNfTypeList
 
-`func (o *MlAnalyticsInfo) GetNfTypeList() []NFType`
+`func (o *MlAnalyticsInfo) GetNfTypeList() []NfType`
 
 GetNfTypeList returns the NfTypeList field if non-nil, zero value otherwise.
 
 ### GetNfTypeListOk
 
-`func (o *MlAnalyticsInfo) GetNfTypeListOk() (*[]NFType, bool)`
+`func (o *MlAnalyticsInfo) GetNfTypeListOk() (*[]NfType, bool)`
 
 GetNfTypeListOk returns a tuple with the NfTypeList field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetNfTypeList
 
-`func (o *MlAnalyticsInfo) SetNfTypeList(v []NFType)`
+`func (o *MlAnalyticsInfo) SetNfTypeList(v []NfType)`
 
 SetNfTypeList sets NfTypeList field to given value.
 

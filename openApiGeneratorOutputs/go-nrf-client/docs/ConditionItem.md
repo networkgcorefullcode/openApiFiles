@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ConsumerNfTypes** | Pointer to [**[]NFType**](NFType.md) |  | [optional] 
+**ConsumerNfTypes** | Pointer to [**[]NfType**](NfType.md) |  | [optional] 
 **ServiceFeature** | Pointer to **int32** |  | [optional] 
 **VsServiceFeature** | Pointer to **int32** |  | [optional] 
 **SupiRangeList** | Pointer to [**[]SupiRange**](SupiRange.md) |  | [optional] 
@@ -36,20 +36,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetConsumerNfTypes
 
-`func (o *ConditionItem) GetConsumerNfTypes() []NFType`
+`func (o *ConditionItem) GetConsumerNfTypes() []NfType`
 
 GetConsumerNfTypes returns the ConsumerNfTypes field if non-nil, zero value otherwise.
 
 ### GetConsumerNfTypesOk
 
-`func (o *ConditionItem) GetConsumerNfTypesOk() (*[]NFType, bool)`
+`func (o *ConditionItem) GetConsumerNfTypesOk() (*[]NfType, bool)`
 
 GetConsumerNfTypesOk returns a tuple with the ConsumerNfTypes field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetConsumerNfTypes
 
-`func (o *ConditionItem) SetConsumerNfTypes(v []NFType)`
+`func (o *ConditionItem) SetConsumerNfTypes(v []NfType)`
 
 SetConsumerNfTypes sets ConsumerNfTypes field to given value.
 

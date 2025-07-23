@@ -492,7 +492,7 @@ components:
         dnProtocol:
           $ref: 'TS29122_PfdManagement.yaml#/components/schemas/DomainNameProtocol'
         sourceNfType:
-          $ref: 'TS29510_Nnrf_NFManagement.yaml#/components/schemas/NFType'
+          $ref: 'TS29510_Nnrf_NFManagement.yaml#/components/schemas/NfType'
 
     PfdDataForApp:
       description: Represents the PFDs for an application identifier.

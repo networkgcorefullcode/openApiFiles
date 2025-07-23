@@ -45,13 +45,13 @@ paths:
           description: Type of the target NF
           required: true
           schema:
-            $ref: 'TS29510_Nnrf_NFManagement.yaml#/components/schemas/NFType'
+            $ref: 'TS29510_Nnrf_NFManagement.yaml#/components/schemas/NfType'
         - name: requester-nf-type
           in: query
           description: Type of the requester NF
           required: true
           schema:
-            $ref: 'TS29510_Nnrf_NFManagement.yaml#/components/schemas/NFType'
+            $ref: 'TS29510_Nnrf_NFManagement.yaml#/components/schemas/NfType'
         - name: preferred-collocated-nf-types
           in: query
           description: collocated NF types that candidate NFs should preferentially support
@@ -833,7 +833,7 @@ paths:
           in: query
           description: NF type served by the target NF
           schema:
-            $ref: 'TS29510_Nnrf_NFManagement.yaml#/components/schemas/NFType'
+            $ref: 'TS29510_Nnrf_NFManagement.yaml#/components/schemas/NfType'
         - name: ml-analytics-info-list
           in: query
           description: Lisf of ML Analytics Filter information of Nnwdaf_MLModelProvision service
@@ -1845,9 +1845,9 @@ components:
         nfInstanceName:
           type: string
         nfType:
-          $ref: 'TS29510_Nnrf_NFManagement.yaml#/components/schemas/NFType'
+          $ref: 'TS29510_Nnrf_NFManagement.yaml#/components/schemas/NfType'
         nfStatus:
-          $ref: 'TS29510_Nnrf_NFManagement.yaml#/components/schemas/NFStatus'
+          $ref: 'TS29510_Nnrf_NFManagement.yaml#/components/schemas/NfStatus'
         collocatedNfInstances:
           type: array
           items:
@@ -1900,7 +1900,7 @@ components:
         allowedNfTypes:
           type: array
           items:
-            $ref: 'TS29510_Nnrf_NFManagement.yaml#/components/schemas/NFType'
+            $ref: 'TS29510_Nnrf_NFManagement.yaml#/components/schemas/NfType'
           minItems: 1
         allowedNfDomains:
           type: array
@@ -2327,7 +2327,7 @@ components:
         allowedNfTypes:
           type: array
           items:
-            $ref: 'TS29510_Nnrf_NFManagement.yaml#/components/schemas/NFType'
+            $ref: 'TS29510_Nnrf_NFManagement.yaml#/components/schemas/NfType'
           minItems: 1
         allowedNfDomains:
           type: array

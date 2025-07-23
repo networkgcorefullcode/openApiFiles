@@ -44,7 +44,7 @@ paths:
           description: Type of NF
           required: false
           schema:
-            $ref: '#/components/schemas/NFType'
+            $ref: '#/components/schemas/NfType'
         - name: limit
           in: query
           description: How many items to return at one time
@@ -1182,7 +1182,7 @@ paths:
         default:
           $ref: 'TS29571_CommonData.yaml#/components/responses/default'
       callbacks:
-        onNFStatusEvent:
+        onNfStatusEvent:
           '{$request.body#/nfStatusNotificationUri}':
             post:
               parameters:
@@ -1464,9 +1464,9 @@ components:
         nfInstanceName:
           type: string
         nfType:
-          $ref: '#/components/schemas/NFType'
+          $ref: '#/components/schemas/NfType'
         nfStatus:
-          $ref: '#/components/schemas/NFStatus'
+          $ref: '#/components/schemas/NfStatus'
         collocatedNfInstances:
           type: array
           items:
@@ -1527,7 +1527,7 @@ components:
         allowedNfTypes:
           type: array
           items:
-            $ref: '#/components/schemas/NFType'
+            $ref: '#/components/schemas/NfType'
           minItems: 1
         allowedNfDomains:
           type: array
@@ -2035,7 +2035,7 @@ components:
         allowedNfTypes:
           type: array
           items:
-            $ref: '#/components/schemas/NFType'
+            $ref: '#/components/schemas/NfType'
           minItems: 1
         allowedNfDomains:
           type: array
@@ -2141,7 +2141,7 @@ components:
           type: boolean
           default: false
 
-    NFType:
+    NfType:
       description: NF types known to NRF
       anyOf:
         - type: string
@@ -2272,7 +2272,7 @@ components:
         notifCondition:
            $ref: '#/components/schemas/NotifCondition'
         reqNfType:
-          $ref: '#/components/schemas/NFType'
+          $ref: '#/components/schemas/NfType'
         reqNfFqdn:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/Fqdn'
         reqSnssais:
@@ -2390,7 +2390,7 @@ components:
             required: [ conditionType, nfGroupIdList ]
       properties:
         nfType:
-          $ref: '#/components/schemas/NFType'
+          $ref: '#/components/schemas/NfType'
 
     ServiceNameCond:
       description: Subscription to a set of NFs based on their support for a given Service Name
@@ -3443,7 +3443,7 @@ components:
         servingNfTypeList:
           type: array
           items:
-            $ref: '#/components/schemas/NFType'
+            $ref: '#/components/schemas/NfType'
           minItems: 1
         servingNfSetIdList:
           type: array
@@ -3651,7 +3651,7 @@ components:
         completeNfProfile:
           $ref: '#/components/schemas/NFProfile'
 
-    NFStatus:
+    NfStatus:
       description: Status of a given NF Instance stored in NRF
       anyOf:
         - type: string
@@ -4435,7 +4435,7 @@ components:
         servingNfTypeList:
           type: array
           items:
-            $ref: '#/components/schemas/NFType'
+            $ref: '#/components/schemas/NfType'
           minItems: 1
         mlAnalyticsList:
           type: array
@@ -4616,7 +4616,7 @@ components:
       type: object
       properties:
         nfType:
-          $ref: '#/components/schemas/NFType'
+          $ref: '#/components/schemas/NfType'
 
     HssInfo:
       description: Information of an HSS NF Instance
@@ -4853,7 +4853,7 @@ components:
         nfTypeList:
           type: array
           items:
-            $ref: '#/components/schemas/NFType'
+            $ref: '#/components/schemas/NfType'
           minItems: 1
 
     OptionsResponse:
@@ -4981,7 +4981,7 @@ components:
         servingNfTypeList:
           type: array
           items:
-            $ref: '#/components/schemas/NFType'
+            $ref: '#/components/schemas/NfType'
           minItems: 1
         servingNfSetIdList:
           type: array
@@ -5090,7 +5090,7 @@ components:
         servingNfTypeList:
           type: array
           items:
-            $ref: '#/components/schemas/NFType'
+            $ref: '#/components/schemas/NfType'
           minItems: 1
         servingNfSetIdList:
           type: array
@@ -5206,7 +5206,7 @@ components:
         servingNfTypeList:
           type: array
           items:
-            $ref: '#/components/schemas/NFType'
+            $ref: '#/components/schemas/NfType'
           minItems: 1
         servingNfSetIdList:
           type: array
@@ -5242,7 +5242,7 @@ components:
         nfTypeList:
           type: array
           items:
-            $ref: '#/components/schemas/NFType'
+            $ref: '#/components/schemas/NfType'
           minItems: 1
         nfSetIdList:
           type: array
@@ -5946,7 +5946,7 @@ components:
         nfTypes:
           type: array
           items:
-            $ref: '#/components/schemas/NFType'
+            $ref: '#/components/schemas/NfType'
           minItems: 1
         nfDomains:
           type: array
@@ -6005,7 +6005,7 @@ components:
     ConditionGroup:
       description: >
         List (array) of conditions (joined by the "and" or "or" logical relationship),
-        under which an NF Instance with an NFStatus or NFServiceStatus value set to,
+        under which an NF Instance with an NfStatus or NFServiceStatus value set to,
         "CANARY_RELEASE", or with a "canaryRelease" attribute set to true,
         shall be selected by an NF Service Consumer.
       type: object
@@ -6040,7 +6040,7 @@ components:
         consumerNfTypes:
           type: array
           items:
-            $ref: '#/components/schemas/NFType'
+            $ref: '#/components/schemas/NfType'
           minItems: 1
         serviceFeature:
           type: integer

@@ -33,7 +33,7 @@ paths:
           description: NF type of the NF service consumer
           required: true
           schema:
-            $ref: 'TS29510_Nnrf_NFManagement.yaml#/components/schemas/NFType'
+            $ref: 'TS29510_Nnrf_NFManagement.yaml#/components/schemas/NfType'
         - name: nf-id
           in: query
           description: NF Instance ID of the NF service consumer

@@ -28,7 +28,7 @@ import (
 )
 
 func main() {
-	nfType := *openapiclient.NewNFType() // NFType | Type of NF (optional)
+	nfType := *openapiclient.NewNfType() // NfType | Type of NF (optional)
 	limit := int32(56) // int32 | How many items to return at one time (optional)
 	pageNumber := int32(56) // int32 | Page number where the response shall start (optional)
 	pageSize := int32(56) // int32 | Maximum number of items in each returned page (optional)
@@ -56,7 +56,7 @@ Other parameters are passed through a pointer to a apiGetNFInstancesRequest stru
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **nfType** | [**NFType**](NFType.md) | Type of NF | 
+ **nfType** | [**NfType**](NfType.md) | Type of NF | 
  **limit** | **int32** | How many items to return at one time | 
  **pageNumber** | **int32** | Page number where the response shall start | 
  **pageSize** | **int32** | Maximum number of items in each returned page | 

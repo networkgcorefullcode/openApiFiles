@@ -167,7 +167,7 @@ import (
 
 func main() {
 	nfInstanceID := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Unique ID of the NF Instance to register
-	nFProfile := *openapiclient.NewNFProfile("NfInstanceId_example", *openapiclient.NewNFType(), *openapiclient.NewNFStatus()) // NFProfile | 
+	nFProfile := *openapiclient.NewNFProfile("NfInstanceId_example", *openapiclient.NewNfType(), *openapiclient.NewNfStatus()) // NFProfile | 
 	contentEncoding := "contentEncoding_example" // string | Content-Encoding, described in IETF RFC 9110 (optional)
 	acceptEncoding := "acceptEncoding_example" // string | Accept-Encoding, described in IETF RFC 9110 (optional)
 

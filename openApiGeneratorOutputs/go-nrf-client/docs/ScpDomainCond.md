@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ScpDomains** | **[]string** |  | 
-**NfTypeList** | Pointer to [**[]NFType**](NFType.md) |  | [optional] 
+**NfTypeList** | Pointer to [**[]NfType**](NfType.md) |  | [optional] 
 
 ## Methods
 
@@ -48,20 +48,20 @@ SetScpDomains sets ScpDomains field to given value.
 
 ### GetNfTypeList
 
-`func (o *ScpDomainCond) GetNfTypeList() []NFType`
+`func (o *ScpDomainCond) GetNfTypeList() []NfType`
 
 GetNfTypeList returns the NfTypeList field if non-nil, zero value otherwise.
 
 ### GetNfTypeListOk
 
-`func (o *ScpDomainCond) GetNfTypeListOk() (*[]NFType, bool)`
+`func (o *ScpDomainCond) GetNfTypeListOk() (*[]NfType, bool)`
 
 GetNfTypeListOk returns a tuple with the NfTypeList field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetNfTypeList
 
-`func (o *ScpDomainCond) SetNfTypeList(v []NFType)`
+`func (o *ScpDomainCond) SetNfTypeList(v []NfType)`
 
 SetNfTypeList sets NfTypeList field to given value.
 

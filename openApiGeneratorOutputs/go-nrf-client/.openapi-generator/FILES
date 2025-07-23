@@ -113,8 +113,8 @@ docs/NFProfileRegistrationError.md
 docs/NFService.md
 docs/NFServiceStatus.md
 docs/NFServiceVersion.md
-docs/NFStatus.md
-docs/NFType.md
+docs/NfStatus.md
+docs/NfType.md
 docs/Ncgi.md
 docs/NcgiTai.md
 docs/NefCond.md

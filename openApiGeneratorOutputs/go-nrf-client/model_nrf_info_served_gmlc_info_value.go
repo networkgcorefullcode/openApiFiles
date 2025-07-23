@@ -1,7 +1,7 @@
 /*
 NRF NFManagement Service
 
-NRF NFManagement Service.   © 2024, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).   All rights reserved. 
+NRF NFManagement Service.   © 2024, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).   All rights reserved.
 
 API version: 1.4.0-alpha.2
 */
@@ -18,14 +18,14 @@ import (
 // NrfInfoServedGmlcInfoValue struct for NrfInfoServedGmlcInfoValue
 type NrfInfoServedGmlcInfoValue struct {
 	GmlcInfo *GmlcInfo
-	map[string]interface{} *map[string]interface{}
+	MapData  *map[string]interface{}
 }
 
 // Unmarshal JSON data into any of the pointers in the struct
 func (dst *NrfInfoServedGmlcInfoValue) UnmarshalJSON(data []byte) error {
 	var err error
 	// try to unmarshal JSON data into GmlcInfo
-	err = json.Unmarshal(data, &dst.GmlcInfo);
+	err = json.Unmarshal(data, &dst.GmlcInfo)
 	if err == nil {
 		jsonGmlcInfo, _ := json.Marshal(dst.GmlcInfo)
 		if string(jsonGmlcInfo) == "{}" { // empty struct
@@ -38,16 +38,16 @@ func (dst *NrfInfoServedGmlcInfoValue) UnmarshalJSON(data []byte) error {
 	}
 
 	// try to unmarshal JSON data into map[string]interface{}
-	err = json.Unmarshal(data, &dst.map[string]interface{});
+	err = json.Unmarshal(data, &dst.MapData)
 	if err == nil {
-		jsonmap[string]interface{}, _ := json.Marshal(dst.map[string]interface{})
-		if string(jsonmap[string]interface{}) == "{}" { // empty struct
-			dst.map[string]interface{} = nil
+		jsonMapData, _ := json.Marshal(dst.MapData)
+		if string(jsonMapData) == "{}" { // empty struct
+			dst.MapData = nil
 		} else {
-			return nil // data stored in dst.map[string]interface{}, return on the first match
+			return nil // data stored in dst.MapData, return on the first match
 		}
 	} else {
-		dst.map[string]interface{} = nil
+		dst.MapData = nil
 	}
 
 	return fmt.Errorf("data failed to match schemas in anyOf(NrfInfoServedGmlcInfoValue)")
@@ -59,8 +59,8 @@ func (src *NrfInfoServedGmlcInfoValue) MarshalJSON() ([]byte, error) {
 		return json.Marshal(&src.GmlcInfo)
 	}
 
-	if src.map[string]interface{} != nil {
-		return json.Marshal(&src.map[string]interface{})
+	if src.MapData != nil {
+		return json.Marshal(&src.MapData)
 	}
 
 	return nil, nil // no data in anyOf schemas
@@ -101,5 +101,3 @@ func (v *NullableNrfInfoServedGmlcInfoValue) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

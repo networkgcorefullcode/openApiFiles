@@ -1,7 +1,7 @@
 /*
 NRF NFManagement Service
 
-NRF NFManagement Service.   © 2024, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).   All rights reserved. 
+NRF NFManagement Service.   © 2024, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).   All rights reserved.
 
 API version: 1.4.0-alpha.2
 */
@@ -24,7 +24,7 @@ type N6DelayMeasurementProtocol struct {
 func (dst *N6DelayMeasurementProtocol) UnmarshalJSON(data []byte) error {
 	var err error
 	// try to unmarshal JSON data into string
-	err = json.Unmarshal(data, &dst.string);
+	err = json.Unmarshal(data, &dst.string)
 	if err == nil {
 		jsonstring, _ := json.Marshal(dst.string)
 		if string(jsonstring) == "{}" { // empty struct
@@ -83,5 +83,3 @@ func (v *NullableN6DelayMeasurementProtocol) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-
