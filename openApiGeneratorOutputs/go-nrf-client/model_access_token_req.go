@@ -24,8 +24,8 @@ type AccessTokenReq struct {
 	GrantType string `json:"grant_type"`
 	// String uniquely identifying a NF instance. The format of the NF Instance ID shall be a  Universally Unique Identifier (UUID) version 4, as described in IETF RFC 4122.  
 	NfInstanceId string `json:"nfInstanceId"`
-	NfType *NFType `json:"nfType,omitempty"`
-	TargetNfType *NFType `json:"targetNfType,omitempty"`
+	NfType *NfType `json:"nfType,omitempty"`
+	TargetNfType *NfType `json:"targetNfType,omitempty"`
 	Scope string `json:"scope"`
 	// String uniquely identifying a NF instance. The format of the NF Instance ID shall be a  Universally Unique Identifier (UUID) version 4, as described in IETF RFC 4122.  
 	TargetNfInstanceId *string `json:"targetNfInstanceId,omitempty"`
@@ -39,7 +39,7 @@ type AccessTokenReq struct {
 	TargetSnpn *PlmnIdNid `json:"targetSnpn,omitempty"`
 	TargetSnssaiList []Snssai `json:"targetSnssaiList,omitempty"`
 	TargetNsiList []string `json:"targetNsiList,omitempty"`
-	// NF Set Identifier (see clause 28.12 of 3GPP TS 23.003), formatted as the following string \"set<Set ID>.<nftype>set.5gc.mnc<MNC>.mcc<MCC>\", or  \"set<SetID>.<NFType>set.5gc.nid<NID>.mnc<MNC>.mcc<MCC>\" with  <MCC> encoded as defined in clause 5.4.2 (\"Mcc\" data type definition)  <MNC> encoding the Mobile Network Code part of the PLMN, comprising 3 digits.    If there are only 2 significant digits in the MNC, one \"0\" digit shall be inserted    at the left side to fill the 3 digits coding of MNC.  Pattern: '^[0-9]{3}$' <NFType> encoded as a value defined in Table 6.1.6.3.3-1 of 3GPP TS 29.510 but    with lower case characters <Set ID> encoded as a string of characters consisting of    alphabetic characters (A-Z and a-z), digits (0-9) and/or the hyphen (-) and that    shall end with either an alphabetic character or a digit.  
+	// NF Set Identifier (see clause 28.12 of 3GPP TS 23.003), formatted as the following string \"set<Set ID>.<nftype>set.5gc.mnc<MNC>.mcc<MCC>\", or  \"set<SetID>.<NfType>set.5gc.nid<NID>.mnc<MNC>.mcc<MCC>\" with  <MCC> encoded as defined in clause 5.4.2 (\"Mcc\" data type definition)  <MNC> encoding the Mobile Network Code part of the PLMN, comprising 3 digits.    If there are only 2 significant digits in the MNC, one \"0\" digit shall be inserted    at the left side to fill the 3 digits coding of MNC.  Pattern: '^[0-9]{3}$' <NfType> encoded as a value defined in Table 6.1.6.3.3-1 of 3GPP TS 29.510 but    with lower case characters <Set ID> encoded as a string of characters consisting of    alphabetic characters (A-Z and a-z), digits (0-9) and/or the hyphen (-) and that    shall end with either an alphabetic character or a digit.  
 	TargetNfSetId *string `json:"targetNfSetId,omitempty"`
 	// NF Service Set Identifier (see clause 28.12 of 3GPP TS 23.003) formatted as the following  string \"set<Set ID>.sn<Service Name>.nfi<NF Instance ID>.5gc.mnc<MNC>.mcc<MCC>\", or  \"set<SetID>.sn<ServiceName>.nfi<NFInstanceID>.5gc.nid<NID>.mnc<MNC>.mcc<MCC>\" with  <MCC> encoded as defined in clause 5.4.2 (\"Mcc\" data type definition)   <MNC> encoding the Mobile Network Code part of the PLMN, comprising 3 digits.    If there are only 2 significant digits in the MNC, one \"0\" digit shall be inserted    at the left side to fill the 3 digits coding of MNC.  Pattern: '^[0-9]{3}$' <NID> encoded as defined in clause 5.4.2 (\"Nid\" data type definition)  <NFInstanceId> encoded as defined in clause 5.3.2  <ServiceName> encoded as defined in 3GPP TS 29.510  <Set ID> encoded as a string of characters consisting of alphabetic    characters (A-Z and a-z), digits (0-9) and/or the hyphen (-) and that shall end    with either an alphabetic character or a digit. 
 	TargetNfServiceSetId *string `json:"targetNfServiceSetId,omitempty"`
@@ -126,9 +126,9 @@ func (o *AccessTokenReq) SetNfInstanceId(v string) {
 }
 
 // GetNfType returns the NfType field value if set, zero value otherwise.
-func (o *AccessTokenReq) GetNfType() NFType {
+func (o *AccessTokenReq) GetNfType() NfType {
 	if o == nil || IsNil(o.NfType) {
-		var ret NFType
+		var ret NfType
 		return ret
 	}
 	return *o.NfType
@@ -136,7 +136,7 @@ func (o *AccessTokenReq) GetNfType() NFType {
 
 // GetNfTypeOk returns a tuple with the NfType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AccessTokenReq) GetNfTypeOk() (*NFType, bool) {
+func (o *AccessTokenReq) GetNfTypeOk() (*NfType, bool) {
 	if o == nil || IsNil(o.NfType) {
 		return nil, false
 	}
@@ -152,15 +152,15 @@ func (o *AccessTokenReq) HasNfType() bool {
 	return false
 }
 
-// SetNfType gets a reference to the given NFType and assigns it to the NfType field.
-func (o *AccessTokenReq) SetNfType(v NFType) {
+// SetNfType gets a reference to the given NfType and assigns it to the NfType field.
+func (o *AccessTokenReq) SetNfType(v NfType) {
 	o.NfType = &v
 }
 
 // GetTargetNfType returns the TargetNfType field value if set, zero value otherwise.
-func (o *AccessTokenReq) GetTargetNfType() NFType {
+func (o *AccessTokenReq) GetTargetNfType() NfType {
 	if o == nil || IsNil(o.TargetNfType) {
-		var ret NFType
+		var ret NfType
 		return ret
 	}
 	return *o.TargetNfType
@@ -168,7 +168,7 @@ func (o *AccessTokenReq) GetTargetNfType() NFType {
 
 // GetTargetNfTypeOk returns a tuple with the TargetNfType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AccessTokenReq) GetTargetNfTypeOk() (*NFType, bool) {
+func (o *AccessTokenReq) GetTargetNfTypeOk() (*NfType, bool) {
 	if o == nil || IsNil(o.TargetNfType) {
 		return nil, false
 	}
@@ -184,8 +184,8 @@ func (o *AccessTokenReq) HasTargetNfType() bool {
 	return false
 }
 
-// SetTargetNfType gets a reference to the given NFType and assigns it to the TargetNfType field.
-func (o *AccessTokenReq) SetTargetNfType(v NFType) {
+// SetTargetNfType gets a reference to the given NfType and assigns it to the TargetNfType field.
+func (o *AccessTokenReq) SetTargetNfType(v NfType) {
 	o.TargetNfType = &v
 }
 

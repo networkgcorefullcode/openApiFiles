@@ -19,7 +19,7 @@ var _ MappedNullable = &ConditionItem{}
 
 // ConditionItem A ConditionItem consists of a number of attributes representing individual conditions (e.g. a SUPI range, or a TAI list). If several attributes/conditions are present, the evaluation of the ConditionItem is <true> if all attributes/conditions are evaluated as <true> (i.e., it follows the AND logical relationship). 
 type ConditionItem struct {
-	ConsumerNfTypes []NFType `json:"consumerNfTypes,omitempty"`
+	ConsumerNfTypes []NfType `json:"consumerNfTypes,omitempty"`
 	ServiceFeature *int32 `json:"serviceFeature,omitempty"`
 	VsServiceFeature *int32 `json:"vsServiceFeature,omitempty"`
 	SupiRangeList []SupiRange `json:"supiRangeList,omitempty"`
@@ -49,9 +49,9 @@ func NewConditionItemWithDefaults() *ConditionItem {
 }
 
 // GetConsumerNfTypes returns the ConsumerNfTypes field value if set, zero value otherwise.
-func (o *ConditionItem) GetConsumerNfTypes() []NFType {
+func (o *ConditionItem) GetConsumerNfTypes() []NfType {
 	if o == nil || IsNil(o.ConsumerNfTypes) {
-		var ret []NFType
+		var ret []NfType
 		return ret
 	}
 	return o.ConsumerNfTypes
@@ -59,7 +59,7 @@ func (o *ConditionItem) GetConsumerNfTypes() []NFType {
 
 // GetConsumerNfTypesOk returns a tuple with the ConsumerNfTypes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ConditionItem) GetConsumerNfTypesOk() ([]NFType, bool) {
+func (o *ConditionItem) GetConsumerNfTypesOk() ([]NfType, bool) {
 	if o == nil || IsNil(o.ConsumerNfTypes) {
 		return nil, false
 	}
@@ -75,8 +75,8 @@ func (o *ConditionItem) HasConsumerNfTypes() bool {
 	return false
 }
 
-// SetConsumerNfTypes gets a reference to the given []NFType and assigns it to the ConsumerNfTypes field.
-func (o *ConditionItem) SetConsumerNfTypes(v []NFType) {
+// SetConsumerNfTypes gets a reference to the given []NfType and assigns it to the ConsumerNfTypes field.
+func (o *ConditionItem) SetConsumerNfTypes(v []NfType) {
 	o.ConsumerNfTypes = v
 }
 

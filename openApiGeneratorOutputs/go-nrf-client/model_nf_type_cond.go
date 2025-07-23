@@ -21,7 +21,7 @@ var _ MappedNullable = &NfTypeCond{}
 
 // NfTypeCond Subscription to a set of NFs based on their NF Type
 type NfTypeCond struct {
-	NfType NFType `json:"nfType"`
+	NfType NfType `json:"nfType"`
 }
 
 type _NfTypeCond NfTypeCond
@@ -30,7 +30,7 @@ type _NfTypeCond NfTypeCond
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewNfTypeCond(nfType NFType) *NfTypeCond {
+func NewNfTypeCond(nfType NfType) *NfTypeCond {
 	this := NfTypeCond{}
 	return &this
 }
@@ -44,9 +44,9 @@ func NewNfTypeCondWithDefaults() *NfTypeCond {
 }
 
 // GetNfType returns the NfType field value
-func (o *NfTypeCond) GetNfType() NFType {
+func (o *NfTypeCond) GetNfType() NfType {
 	if o == nil {
-		var ret NFType
+		var ret NfType
 		return ret
 	}
 
@@ -55,7 +55,7 @@ func (o *NfTypeCond) GetNfType() NFType {
 
 // GetNfTypeOk returns a tuple with the NfType field value
 // and a boolean to check if the value has been set.
-func (o *NfTypeCond) GetNfTypeOk() (*NFType, bool) {
+func (o *NfTypeCond) GetNfTypeOk() (*NfType, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -63,7 +63,7 @@ func (o *NfTypeCond) GetNfTypeOk() (*NFType, bool) {
 }
 
 // SetNfType sets field value
-func (o *NfTypeCond) SetNfType(v NFType) {
+func (o *NfTypeCond) SetNfType(v NfType) {
 	o.NfType = v
 }
 

@@ -22,148 +22,109 @@ var _ MappedNullable = &NFProfile{}
 
 // NFProfile Information of an NF Instance registered in the NRF
 type NFProfile struct {
-	// String uniquely identifying a NF instance. The format of the NF Instance ID shall be a  Universally Unique Identifier (UUID) version 4, as described in IETF RFC 4122.
-	NfInstanceId          string                 `json:"nfInstanceId"`
-	NfInstanceName        *string                `json:"nfInstanceName,omitempty"`
-	NfType                NfType                 `json:"nfType"`
-	NfStatus              NfStatus               `json:"nfStatus"`
-	CollocatedNfInstances []CollocatedNfInstance `json:"collocatedNfInstances,omitempty"`
-	HeartBeatTimer        *int32                 `json:"heartBeatTimer,omitempty"`
-	PlmnList              []PlmnId               `json:"plmnList,omitempty"`
-	SnpnList              []PlmnIdNid            `json:"snpnList,omitempty"`
-	SNssais               []ExtSnssai            `json:"sNssais,omitempty"`
-	PerPlmnSnssaiList     []PlmnSnssai           `json:"perPlmnSnssaiList,omitempty"`
-	NsiList               []string               `json:"nsiList,omitempty"`
-	// Fully Qualified Domain Name
-	Fqdn *string `json:"fqdn,omitempty"`
-	// Fully Qualified Domain Name
-	InterPlmnFqdn    *string     `json:"interPlmnFqdn,omitempty"`
-	Ipv4Addresses    []string    `json:"ipv4Addresses,omitempty"`
-	Ipv6Addresses    []Ipv6Addr  `json:"ipv6Addresses,omitempty"`
-	AllowedPlmns     []PlmnId    `json:"allowedPlmns,omitempty"`
-	AllowedSnpns     []PlmnIdNid `json:"allowedSnpns,omitempty"`
-	AllowedNfTypes   []NfType    `json:"allowedNfTypes,omitempty"`
-	AllowedNfDomains []string    `json:"allowedNfDomains,omitempty"`
-	AllowedNssais    []ExtSnssai `json:"allowedNssais,omitempty"`
-	// A map (list of key-value pairs) where a valid JSON pointer Id serves as key
-	AllowedRuleSet *map[string]RuleSet `json:"allowedRuleSet,omitempty"`
-	Priority       *int32              `json:"priority,omitempty"`
-	Capacity       *int32              `json:"capacity,omitempty"`
-	Load           *int32              `json:"load,omitempty"`
-	// string with format 'date-time' as defined in OpenAPI.
-	LoadTimeStamp *time.Time `json:"loadTimeStamp,omitempty"`
-	Locality      *string    `json:"locality,omitempty"`
-	// A map (list of key-value pairs) where a (unique) valid JSON string serves as key representing a type of locality
-	ExtLocality *map[string]string `json:"extLocality,omitempty"`
-	UdrInfo     *UdrInfo           `json:"udrInfo,omitempty"`
-	// A map (list of key-value pairs) where a (unique) valid JSON string serves as key of UdrInfo
-	UdrInfoList *map[string]UdrInfo `json:"udrInfoList,omitempty"`
-	UdmInfo     *UdmInfo            `json:"udmInfo,omitempty"`
-	// A map (list of key-value pairs) where a (unique) valid JSON string serves as key of UdmInfo
-	UdmInfoList *map[string]UdmInfo `json:"udmInfoList,omitempty"`
-	AusfInfo    *AusfInfo           `json:"ausfInfo,omitempty"`
-	// A map (list of key-value pairs) where a (unique) valid JSON string serves as key of AusfInfo
-	AusfInfoList *map[string]AusfInfo `json:"ausfInfoList,omitempty"`
-	AmfInfo      *AmfInfo             `json:"amfInfo,omitempty"`
-	// A map (list of key-value pairs) where a (unique) valid JSON string serves as key of AmfInfo
-	AmfInfoList *map[string]AmfInfo `json:"amfInfoList,omitempty"`
-	SmfInfo     *SmfInfo            `json:"smfInfo,omitempty"`
-	// A map (list of key-value pairs) where a (unique) valid JSON string serves as key of SmfInfo
-	SmfInfoList *map[string]SmfInfo `json:"smfInfoList,omitempty"`
-	UpfInfo     *UpfInfo            `json:"upfInfo,omitempty"`
-	// A map (list of key-value pairs) where a (unique) valid JSON string serves as key of UpfInfo
-	UpfInfoList *map[string]UpfInfo `json:"upfInfoList,omitempty"`
-	PcfInfo     *PcfInfo            `json:"pcfInfo,omitempty"`
-	// A map (list of key-value pairs) where a (unique) valid JSON string serves as key of PcfInfo
-	PcfInfoList *map[string]PcfInfo `json:"pcfInfoList,omitempty"`
-	BsfInfo     *BsfInfo            `json:"bsfInfo,omitempty"`
-	// A map (list of key-value pairs) where a (unique) valid JSON string serves as key of BsfInfo
-	BsfInfoList *map[string]BsfInfo `json:"bsfInfoList,omitempty"`
-	ChfInfo     *ChfInfo            `json:"chfInfo,omitempty"`
-	// A map (list of key-value pairs) where a (unique) valid JSON string serves as key of ChfInfo
-	ChfInfoList *map[string]ChfInfo `json:"chfInfoList,omitempty"`
-	NefInfo     *NefInfo            `json:"nefInfo,omitempty"`
-	NrfInfo     *NrfInfo            `json:"nrfInfo,omitempty"`
-	UdsfInfo    *UdsfInfo           `json:"udsfInfo,omitempty"`
-	// A map (list of key-value pairs) where a (unique) valid JSON string serves as key of UdsfInfo
-	UdsfInfoList *map[string]UdsfInfo `json:"udsfInfoList,omitempty"`
-	NwdafInfo    *NwdafInfo           `json:"nwdafInfo,omitempty"`
-	// A map (list of key-value pairs) where a (unique) valid JSON string serves as key of NwdafInfo
-	NwdafInfoList *map[string]NwdafInfo `json:"nwdafInfoList,omitempty"`
-	// A map (list of key-value pairs) where a (unique) valid JSON string serves as key of PcscfInfo
-	PcscfInfoList *map[string]PcscfInfo `json:"pcscfInfoList,omitempty"`
-	// A map (list of key-value pairs) where a (unique) valid JSON string serves as key of HssInfo
-	HssInfoList *map[string]HssInfo    `json:"hssInfoList,omitempty"`
-	CustomInfo  map[string]interface{} `json:"customInfo,omitempty"`
-	// string with format 'date-time' as defined in OpenAPI.
-	RecoveryTime         *time.Time `json:"recoveryTime,omitempty"`
-	NfServicePersistence *bool      `json:"nfServicePersistence,omitempty"`
-	// Deprecated
-	NfServices []NFService `json:"nfServices,omitempty"`
-	// A map (list of key-value pairs) where serviceInstanceId serves as key of NFService
-	NfServiceList                           *map[string]NFService             `json:"nfServiceList,omitempty"`
-	NfProfileChangesSupportInd              *bool                             `json:"nfProfileChangesSupportInd,omitempty"`
-	NfProfilePartialUpdateChangesSupportInd *bool                             `json:"nfProfilePartialUpdateChangesSupportInd,omitempty"`
-	NfProfileChangesInd                     *bool                             `json:"nfProfileChangesInd,omitempty"`
-	DefaultNotificationSubscriptions        []DefaultNotificationSubscription `json:"defaultNotificationSubscriptions,omitempty"`
-	LmfInfo                                 *LmfInfo                          `json:"lmfInfo,omitempty"`
-	GmlcInfo                                *GmlcInfo                         `json:"gmlcInfo,omitempty"`
-	NfSetIdList                             []string                          `json:"nfSetIdList,omitempty"`
-	ServingScope                            []string                          `json:"servingScope,omitempty"`
-	LcHSupportInd                           *bool                             `json:"lcHSupportInd,omitempty"`
-	OlcHSupportInd                          *bool                             `json:"olcHSupportInd,omitempty"`
-	// A map (list of key-value pairs) where NfSetId serves as key of DateTime
-	NfSetRecoveryTimeList *map[string]time.Time `json:"nfSetRecoveryTimeList,omitempty"`
-	// A map (list of key-value pairs) where NfServiceSetId serves as key of DateTime
-	ServiceSetRecoveryTimeList *map[string]time.Time `json:"serviceSetRecoveryTimeList,omitempty"`
-	ScpDomains                 []string              `json:"scpDomains,omitempty"`
-	ScpInfo                    *ScpInfo              `json:"scpInfo,omitempty"`
-	SeppInfo                   *SeppInfo             `json:"seppInfo,omitempty"`
-	// Vendor ID of the NF Service instance (Private Enterprise Number assigned by IANA)
-	VendorId *string `json:"vendorId,omitempty"`
-	// The key of the map is the IANA-assigned SMI Network Management Private Enterprise Codes
-	SupportedVendorSpecificFeatures *map[string][]VendorSpecificFeature `json:"supportedVendorSpecificFeatures,omitempty"`
-	// A map (list of key-value pairs) where a (unique) valid JSON string serves as key of AanfInfo
-	AanfInfoList   *map[string]AanfInfo `json:"aanfInfoList,omitempty"`
-	Var5gDdnmfInfo *Model5GDdnmfInfo    `json:"5gDdnmfInfo,omitempty"`
-	MfafInfo       *MfafInfo            `json:"mfafInfo,omitempty"`
-	// A map (list of key-value pairs) where a (unique) valid JSON string serves as key of EasdfInfo
-	EasdfInfoList *map[string]EasdfInfo `json:"easdfInfoList,omitempty"`
-	DccfInfo      *DccfInfo             `json:"dccfInfo,omitempty"`
-	// A map (list of key-value pairs) where a (unique) valid JSON string serves as key of NsacfInfo
-	NsacfInfoList *map[string]NsacfInfo `json:"nsacfInfoList,omitempty"`
-	// A map (list of key-value pairs) where a (unique) valid JSON string serves as key of MbSmfInfo
-	MbSmfInfoList *map[string]MbSmfInfo `json:"mbSmfInfoList,omitempty"`
-	// A map (list of key-value pairs) where a (unique) valid JSON string serves as key of TsctsfInfo
-	TsctsfInfoList *map[string]TsctsfInfo `json:"tsctsfInfoList,omitempty"`
-	// A map (list of key-value pairs) where a (unique) valid JSON string serves as key of MbUpfInfo
-	MbUpfInfoList *map[string]MbUpfInfo `json:"mbUpfInfoList,omitempty"`
-	TrustAfInfo   *TrustAfInfo          `json:"trustAfInfo,omitempty"`
-	NssaafInfo    *NssaafInfo           `json:"nssaafInfo,omitempty"`
-	HniList       []string              `json:"hniList,omitempty"`
-	IwmscInfo     *IwmscInfo            `json:"iwmscInfo,omitempty"`
-	MnpfInfo      *MnpfInfo             `json:"mnpfInfo,omitempty"`
-	SmsfInfo      *SmsfInfo             `json:"smsfInfo,omitempty"`
-	// A map (list of key-value pairs) where a (unique) valid JSON string serves as key of DcsfInfo
-	DcsfInfoList *map[string]DcsfInfo `json:"dcsfInfoList,omitempty"`
-	// A map (list of key-value pairs) where a (unique) valid JSON string serves as key of MrfInfo
-	MrfInfoList *map[string]MrfInfo `json:"mrfInfoList,omitempty"`
-	// A map (list of key-value pairs) where a (unique) valid JSON string serves as key of MrfpInfo
-	MrfpInfoList *map[string]MrfpInfo `json:"mrfpInfoList,omitempty"`
-	// A map (list of key-value pairs) where a (unique) valid JSON string serves as key of MfInfo
-	MfInfoList *map[string]MfInfo `json:"mfInfoList,omitempty"`
-	// A map (list of key-value pairs) where a (unique) valid JSON string serves as key of AdrfInfo
-	AdrfInfoList                    *map[string]AdrfInfo `json:"adrfInfoList,omitempty"`
-	SelectionConditions             *SelectionConditions `json:"selectionConditions,omitempty"`
-	CanaryRelease                   *bool                `json:"canaryRelease,omitempty"`
-	ExclusiveCanaryReleaseSelection *bool                `json:"exclusiveCanaryReleaseSelection,omitempty"`
-	SharedProfileDataId             *string              `json:"sharedProfileDataId,omitempty"`
-	// string with format 'date-time' as defined in OpenAPI.
-	ShutdownTime                  *time.Time `json:"shutdownTime,omitempty"`
-	SupportedRcfs                 []string   `json:"supportedRcfs,omitempty"`
-	CanaryPrecedenceOverPreferred *bool      `json:"canaryPrecedenceOverPreferred,omitempty"`
-	// A map (list of key-value pairs) where a (unique) valid JSON string serves as key of ImsasInfo
-	ImsasInfoList *map[string]ImsasInfo `json:"imsasInfoList,omitempty"`
+	NfInstanceId                            string                              `json:"nfInstanceId"`
+	NfInstanceName                          *string                             `json:"nfInstanceName,omitempty"`
+	NfType                                  NfType                              `json:"nfType"`
+	NfStatus                                NfStatus                            `json:"nfStatus"`
+	CollocatedNfInstances                   []CollocatedNfInstance              `json:"collocatedNfInstances,omitempty"`
+	HeartBeatTimer                          *int32                              `json:"heartBeatTimer,omitempty"`
+	PlmnList                                []PlmnId                            `json:"plmnList,omitempty"`
+	SnpnList                                []PlmnIdNid                         `json:"snpnList,omitempty"`
+	SNssais                                 []ExtSnssai                         `json:"sNssais,omitempty"`
+	PerPlmnSnssaiList                       []PlmnSnssai                        `json:"perPlmnSnssaiList,omitempty"`
+	NsiList                                 []string                            `json:"nsiList,omitempty"`
+	Fqdn                                    *string                             `json:"fqdn,omitempty"`
+	InterPlmnFqdn                           *string                             `json:"interPlmnFqdn,omitempty"`
+	Ipv4Addresses                           []string                            `json:"ipv4Addresses,omitempty"`
+	Ipv6Addresses                           []Ipv6Addr                          `json:"ipv6Addresses,omitempty"`
+	AllowedPlmns                            []PlmnId                            `json:"allowedPlmns,omitempty"`
+	AllowedSnpns                            []PlmnIdNid                         `json:"allowedSnpns,omitempty"`
+	AllowedNfTypes                          []NfType                            `json:"allowedNfTypes,omitempty"`
+	AllowedNfDomains                        []string                            `json:"allowedNfDomains,omitempty"`
+	AllowedNssais                           []ExtSnssai                         `json:"allowedNssais,omitempty"`
+	AllowedRuleSet                          *map[string]RuleSet                 `json:"allowedRuleSet,omitempty"`
+	Priority                                *int32                              `json:"priority,omitempty"`
+	Capacity                                *int32                              `json:"capacity,omitempty"`
+	Load                                    *int32                              `json:"load,omitempty"`
+	LoadTimeStamp                           *time.Time                          `json:"loadTimeStamp,omitempty"`
+	Locality                                *string                             `json:"locality,omitempty"`
+	ExtLocality                             *map[string]string                  `json:"extLocality,omitempty"`
+	UdrInfo                                 *UdrInfo                            `json:"udrInfo,omitempty"`
+	UdrInfoList                             *map[string]UdrInfo                 `json:"udrInfoList,omitempty"`
+	UdmInfo                                 *UdmInfo                            `json:"udmInfo,omitempty"`
+	UdmInfoList                             *map[string]UdmInfo                 `json:"udmInfoList,omitempty"`
+	AusfInfo                                *AusfInfo                           `json:"ausfInfo,omitempty"`
+	AusfInfoList                            *map[string]AusfInfo                `json:"ausfInfoList,omitempty"`
+	AmfInfo                                 *AmfInfo                            `json:"amfInfo,omitempty"`
+	AmfInfoList                             *map[string]AmfInfo                 `json:"amfInfoList,omitempty"`
+	SmfInfo                                 *SmfInfo                            `json:"smfInfo,omitempty"`
+	SmfInfoList                             *map[string]SmfInfo                 `json:"smfInfoList,omitempty"`
+	UpfInfo                                 *UpfInfo                            `json:"upfInfo,omitempty"`
+	UpfInfoList                             *map[string]UpfInfo                 `json:"upfInfoList,omitempty"`
+	PcfInfo                                 *PcfInfo                            `json:"pcfInfo,omitempty"`
+	PcfInfoList                             *map[string]PcfInfo                 `json:"pcfInfoList,omitempty"`
+	BsfInfo                                 *BsfInfo                            `json:"bsfInfo,omitempty"`
+	BsfInfoList                             *map[string]BsfInfo                 `json:"bsfInfoList,omitempty"`
+	ChfInfo                                 *ChfInfo                            `json:"chfInfo,omitempty"`
+	ChfInfoList                             *map[string]ChfInfo                 `json:"chfInfoList,omitempty"`
+	NefInfo                                 *NefInfo                            `json:"nefInfo,omitempty"`
+	NrfInfo                                 *NrfInfo                            `json:"nrfInfo,omitempty"`
+	UdsfInfo                                *UdsfInfo                           `json:"udsfInfo,omitempty"`
+	UdsfInfoList                            *map[string]UdsfInfo                `json:"udsfInfoList,omitempty"`
+	NwdafInfo                               *NwdafInfo                          `json:"nwdafInfo,omitempty"`
+	NwdafInfoList                           *map[string]NwdafInfo               `json:"nwdafInfoList,omitempty"`
+	PcscfInfoList                           *map[string]PcscfInfo               `json:"pcscfInfoList,omitempty"`
+	HssInfoList                             *map[string]HssInfo                 `json:"hssInfoList,omitempty"`
+	CustomInfo                              map[string]interface{}              `json:"customInfo,omitempty"`
+	RecoveryTime                            *time.Time                          `json:"recoveryTime,omitempty"`
+	NfServicePersistence                    *bool                               `json:"nfServicePersistence,omitempty"`
+	NfServices                              *[]NFService                        `json:"nfServices,omitempty"`
+	NfServiceList                           *map[string]NFService               `json:"nfServiceList,omitempty"`
+	NfProfileChangesSupportInd              *bool                               `json:"nfProfileChangesSupportInd,omitempty"`
+	NfProfilePartialUpdateChangesSupportInd *bool                               `json:"nfProfilePartialUpdateChangesSupportInd,omitempty"`
+	NfProfileChangesInd                     *bool                               `json:"nfProfileChangesInd,omitempty"`
+	DefaultNotificationSubscriptions        []DefaultNotificationSubscription   `json:"defaultNotificationSubscriptions,omitempty"`
+	LmfInfo                                 *LmfInfo                            `json:"lmfInfo,omitempty"`
+	GmlcInfo                                *GmlcInfo                           `json:"gmlcInfo,omitempty"`
+	NfSetIdList                             []string                            `json:"nfSetIdList,omitempty"`
+	ServingScope                            []string                            `json:"servingScope,omitempty"`
+	LcHSupportInd                           *bool                               `json:"lcHSupportInd,omitempty"`
+	OlcHSupportInd                          *bool                               `json:"olcHSupportInd,omitempty"`
+	NfSetRecoveryTimeList                   *map[string]time.Time               `json:"nfSetRecoveryTimeList,omitempty"`
+	ServiceSetRecoveryTimeList              *map[string]time.Time               `json:"serviceSetRecoveryTimeList,omitempty"`
+	ScpDomains                              []string                            `json:"scpDomains,omitempty"`
+	ScpInfo                                 *ScpInfo                            `json:"scpInfo,omitempty"`
+	SeppInfo                                *SeppInfo                           `json:"seppInfo,omitempty"`
+	VendorId                                *string                             `json:"vendorId,omitempty"`
+	SupportedVendorSpecificFeatures         *map[string][]VendorSpecificFeature `json:"supportedVendorSpecificFeatures,omitempty"`
+	AanfInfoList                            *map[string]AanfInfo                `json:"aanfInfoList,omitempty"`
+	Var5gDdnmfInfo                          *Model5GDdnmfInfo                   `json:"5gDdnmfInfo,omitempty"`
+	MfafInfo                                *MfafInfo                           `json:"mfafInfo,omitempty"`
+	EasdfInfoList                           *map[string]EasdfInfo               `json:"easdfInfoList,omitempty"`
+	DccfInfo                                *DccfInfo                           `json:"dccfInfo,omitempty"`
+	NsacfInfoList                           *map[string]NsacfInfo               `json:"nsacfInfoList,omitempty"`
+	MbSmfInfoList                           *map[string]MbSmfInfo               `json:"mbSmfInfoList,omitempty"`
+	TsctsfInfoList                          *map[string]TsctsfInfo              `json:"tsctsfInfoList,omitempty"`
+	MbUpfInfoList                           *map[string]MbUpfInfo               `json:"mbUpfInfoList,omitempty"`
+	TrustAfInfo                             *TrustAfInfo                        `json:"trustAfInfo,omitempty"`
+	NssaafInfo                              *NssaafInfo                         `json:"nssaafInfo,omitempty"`
+	HniList                                 []string                            `json:"hniList,omitempty"`
+	IwmscInfo                               *IwmscInfo                          `json:"iwmscInfo,omitempty"`
+	MnpfInfo                                *MnpfInfo                           `json:"mnpfInfo,omitempty"`
+	SmsfInfo                                *SmsfInfo                           `json:"smsfInfo,omitempty"`
+	DcsfInfoList                            *map[string]DcsfInfo                `json:"dcsfInfoList,omitempty"`
+	MrfInfoList                             *map[string]MrfInfo                 `json:"mrfInfoList,omitempty"`
+	MrfpInfoList                            *map[string]MrfpInfo                `json:"mrfpInfoList,omitempty"`
+	MfInfoList                              *map[string]MfInfo                  `json:"mfInfoList,omitempty"`
+	AdrfInfoList                            *map[string]AdrfInfo                `json:"adrfInfoList,omitempty"`
+	SelectionConditions                     *SelectionConditions                `json:"selectionConditions,omitempty"`
+	CanaryRelease                           *bool                               `json:"canaryRelease,omitempty"`
+	ExclusiveCanaryReleaseSelection         *bool                               `json:"exclusiveCanaryReleaseSelection,omitempty"`
+	SharedProfileDataId                     *string                             `json:"sharedProfileDataId,omitempty"`
+	ShutdownTime                            *time.Time                          `json:"shutdownTime,omitempty"`
+	SupportedRcfs                           []string                            `json:"supportedRcfs,omitempty"`
+	CanaryPrecedenceOverPreferred           *bool                               `json:"canaryPrecedenceOverPreferred,omitempty"`
+	ImsasInfoList                           *map[string]ImsasInfo               `json:"imsasInfoList,omitempty"`
 }
 
 type _NFProfile NFProfile
@@ -1971,10 +1932,10 @@ func (o *NFProfile) SetNfServicePersistence(v bool) {
 
 // GetNfServices returns the NfServices field value if set, zero value otherwise.
 // Deprecated
-func (o *NFProfile) GetNfServices() []NFService {
+func (o *NFProfile) GetNfServices() *[]NFService {
 	if o == nil || IsNil(o.NfServices) {
 		var ret []NFService
-		return ret
+		return &ret
 	}
 	return o.NfServices
 }
@@ -1982,7 +1943,7 @@ func (o *NFProfile) GetNfServices() []NFService {
 // GetNfServicesOk returns a tuple with the NfServices field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // Deprecated
-func (o *NFProfile) GetNfServicesOk() ([]NFService, bool) {
+func (o *NFProfile) GetNfServicesOk() (*[]NFService, bool) {
 	if o == nil || IsNil(o.NfServices) {
 		return nil, false
 	}
@@ -2001,7 +1962,7 @@ func (o *NFProfile) HasNfServices() bool {
 // SetNfServices gets a reference to the given []NFService and assigns it to the NfServices field.
 // Deprecated
 func (o *NFProfile) SetNfServices(v []NFService) {
-	o.NfServices = v
+	o.NfServices = &v
 }
 
 // GetNfServiceList returns the NfServiceList field value if set, zero value otherwise.

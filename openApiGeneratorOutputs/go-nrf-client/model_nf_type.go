@@ -15,13 +15,13 @@ import (
 	"fmt"
 )
 
-// NFType NF types known to NRF
-type NFType struct {
+// NfType NF types known to NRF
+type NfType struct {
 	string *string
 }
 
 // Unmarshal JSON data into any of the pointers in the struct
-func (dst *NFType) UnmarshalJSON(data []byte) error {
+func (dst *NfType) UnmarshalJSON(data []byte) error {
 	var err error
 	// try to unmarshal JSON data into string
 	err = json.Unmarshal(data, &dst.string);
@@ -36,11 +36,11 @@ func (dst *NFType) UnmarshalJSON(data []byte) error {
 		dst.string = nil
 	}
 
-	return fmt.Errorf("data failed to match schemas in anyOf(NFType)")
+	return fmt.Errorf("data failed to match schemas in anyOf(NfType)")
 }
 
 // Marshal data from the first non-nil pointers in the struct to JSON
-func (src *NFType) MarshalJSON() ([]byte, error) {
+func (src *NfType) MarshalJSON() ([]byte, error) {
 	if src.string != nil {
 		return json.Marshal(&src.string)
 	}
@@ -48,38 +48,38 @@ func (src *NFType) MarshalJSON() ([]byte, error) {
 	return nil, nil // no data in anyOf schemas
 }
 
-type NullableNFType struct {
-	value *NFType
+type NullableNfType struct {
+	value *NfType
 	isSet bool
 }
 
-func (v NullableNFType) Get() *NFType {
+func (v NullableNfType) Get() *NfType {
 	return v.value
 }
 
-func (v *NullableNFType) Set(val *NFType) {
+func (v *NullableNfType) Set(val *NfType) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableNFType) IsSet() bool {
+func (v NullableNfType) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableNFType) Unset() {
+func (v *NullableNfType) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableNFType(val *NFType) *NullableNFType {
-	return &NullableNFType{value: val, isSet: true}
+func NewNullableNfType(val *NfType) *NullableNfType {
+	return &NullableNfType{value: val, isSet: true}
 }
 
-func (v NullableNFType) MarshalJSON() ([]byte, error) {
+func (v NullableNfType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableNFType) UnmarshalJSON(src []byte) error {
+func (v *NullableNfType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

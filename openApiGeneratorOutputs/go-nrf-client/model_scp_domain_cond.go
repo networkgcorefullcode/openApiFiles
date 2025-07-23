@@ -22,7 +22,7 @@ var _ MappedNullable = &ScpDomainCond{}
 // ScpDomainCond Subscription to a set of NF or SCP or SEPP instances belonging to certain SCP domains 
 type ScpDomainCond struct {
 	ScpDomains []string `json:"scpDomains"`
-	NfTypeList []NFType `json:"nfTypeList,omitempty"`
+	NfTypeList []NfType `json:"nfTypeList,omitempty"`
 }
 
 type _ScpDomainCond ScpDomainCond
@@ -70,9 +70,9 @@ func (o *ScpDomainCond) SetScpDomains(v []string) {
 }
 
 // GetNfTypeList returns the NfTypeList field value if set, zero value otherwise.
-func (o *ScpDomainCond) GetNfTypeList() []NFType {
+func (o *ScpDomainCond) GetNfTypeList() []NfType {
 	if o == nil || IsNil(o.NfTypeList) {
-		var ret []NFType
+		var ret []NfType
 		return ret
 	}
 	return o.NfTypeList
@@ -80,7 +80,7 @@ func (o *ScpDomainCond) GetNfTypeList() []NFType {
 
 // GetNfTypeListOk returns a tuple with the NfTypeList field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ScpDomainCond) GetNfTypeListOk() ([]NFType, bool) {
+func (o *ScpDomainCond) GetNfTypeListOk() ([]NfType, bool) {
 	if o == nil || IsNil(o.NfTypeList) {
 		return nil, false
 	}
@@ -96,8 +96,8 @@ func (o *ScpDomainCond) HasNfTypeList() bool {
 	return false
 }
 
-// SetNfTypeList gets a reference to the given []NFType and assigns it to the NfTypeList field.
-func (o *ScpDomainCond) SetNfTypeList(v []NFType) {
+// SetNfTypeList gets a reference to the given []NfType and assigns it to the NfTypeList field.
+func (o *ScpDomainCond) SetNfTypeList(v []NfType) {
 	o.NfTypeList = v
 }
 

@@ -37,7 +37,7 @@ type NFService struct {
 	DefaultNotificationSubscriptions []DefaultNotificationSubscription `json:"defaultNotificationSubscriptions,omitempty"`
 	AllowedPlmns []PlmnId `json:"allowedPlmns,omitempty"`
 	AllowedSnpns []PlmnIdNid `json:"allowedSnpns,omitempty"`
-	AllowedNfTypes []NFType `json:"allowedNfTypes,omitempty"`
+	AllowedNfTypes []NfType `json:"allowedNfTypes,omitempty"`
 	AllowedNfDomains []string `json:"allowedNfDomains,omitempty"`
 	AllowedNssais []ExtSnssai `json:"allowedNssais,omitempty"`
 	// A map (list of key-value pairs) where NF Type serves as key
@@ -491,9 +491,9 @@ func (o *NFService) SetAllowedSnpns(v []PlmnIdNid) {
 }
 
 // GetAllowedNfTypes returns the AllowedNfTypes field value if set, zero value otherwise.
-func (o *NFService) GetAllowedNfTypes() []NFType {
+func (o *NFService) GetAllowedNfTypes() []NfType {
 	if o == nil || IsNil(o.AllowedNfTypes) {
-		var ret []NFType
+		var ret []NfType
 		return ret
 	}
 	return o.AllowedNfTypes
@@ -501,7 +501,7 @@ func (o *NFService) GetAllowedNfTypes() []NFType {
 
 // GetAllowedNfTypesOk returns a tuple with the AllowedNfTypes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *NFService) GetAllowedNfTypesOk() ([]NFType, bool) {
+func (o *NFService) GetAllowedNfTypesOk() ([]NfType, bool) {
 	if o == nil || IsNil(o.AllowedNfTypes) {
 		return nil, false
 	}
@@ -517,8 +517,8 @@ func (o *NFService) HasAllowedNfTypes() bool {
 	return false
 }
 
-// SetAllowedNfTypes gets a reference to the given []NFType and assigns it to the AllowedNfTypes field.
-func (o *NFService) SetAllowedNfTypes(v []NFType) {
+// SetAllowedNfTypes gets a reference to the given []NfType and assigns it to the AllowedNfTypes field.
+func (o *NFService) SetAllowedNfTypes(v []NfType) {
 	o.AllowedNfTypes = v
 }
 

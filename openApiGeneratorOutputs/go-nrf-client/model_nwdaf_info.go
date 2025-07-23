@@ -27,7 +27,7 @@ type NwdafInfo struct {
 	// indicating a time in seconds.
 	AnalyticsDelay *int32 `json:"analyticsDelay,omitempty"`
 	ServingNfSetIdList []string `json:"servingNfSetIdList,omitempty"`
-	ServingNfTypeList []NFType `json:"servingNfTypeList,omitempty"`
+	ServingNfTypeList []NfType `json:"servingNfTypeList,omitempty"`
 	MlAnalyticsList []MlAnalyticsInfo `json:"mlAnalyticsList,omitempty"`
 }
 
@@ -273,9 +273,9 @@ func (o *NwdafInfo) SetServingNfSetIdList(v []string) {
 }
 
 // GetServingNfTypeList returns the ServingNfTypeList field value if set, zero value otherwise.
-func (o *NwdafInfo) GetServingNfTypeList() []NFType {
+func (o *NwdafInfo) GetServingNfTypeList() []NfType {
 	if o == nil || IsNil(o.ServingNfTypeList) {
-		var ret []NFType
+		var ret []NfType
 		return ret
 	}
 	return o.ServingNfTypeList
@@ -283,7 +283,7 @@ func (o *NwdafInfo) GetServingNfTypeList() []NFType {
 
 // GetServingNfTypeListOk returns a tuple with the ServingNfTypeList field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *NwdafInfo) GetServingNfTypeListOk() ([]NFType, bool) {
+func (o *NwdafInfo) GetServingNfTypeListOk() ([]NfType, bool) {
 	if o == nil || IsNil(o.ServingNfTypeList) {
 		return nil, false
 	}
@@ -299,8 +299,8 @@ func (o *NwdafInfo) HasServingNfTypeList() bool {
 	return false
 }
 
-// SetServingNfTypeList gets a reference to the given []NFType and assigns it to the ServingNfTypeList field.
-func (o *NwdafInfo) SetServingNfTypeList(v []NFType) {
+// SetServingNfTypeList gets a reference to the given []NfType and assigns it to the ServingNfTypeList field.
+func (o *NwdafInfo) SetServingNfTypeList(v []NfType) {
 	o.ServingNfTypeList = v
 }
 

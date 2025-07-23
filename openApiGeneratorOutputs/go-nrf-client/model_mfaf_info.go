@@ -19,7 +19,7 @@ var _ MappedNullable = &MfafInfo{}
 
 // MfafInfo Information of a MFAF NF Instance
 type MfafInfo struct {
-	ServingNfTypeList []NFType `json:"servingNfTypeList,omitempty"`
+	ServingNfTypeList []NfType `json:"servingNfTypeList,omitempty"`
 	ServingNfSetIdList []string `json:"servingNfSetIdList,omitempty"`
 	TaiList []Tai `json:"taiList,omitempty"`
 	TaiRangeList []TaiRange `json:"taiRangeList,omitempty"`
@@ -43,9 +43,9 @@ func NewMfafInfoWithDefaults() *MfafInfo {
 }
 
 // GetServingNfTypeList returns the ServingNfTypeList field value if set, zero value otherwise.
-func (o *MfafInfo) GetServingNfTypeList() []NFType {
+func (o *MfafInfo) GetServingNfTypeList() []NfType {
 	if o == nil || IsNil(o.ServingNfTypeList) {
-		var ret []NFType
+		var ret []NfType
 		return ret
 	}
 	return o.ServingNfTypeList
@@ -53,7 +53,7 @@ func (o *MfafInfo) GetServingNfTypeList() []NFType {
 
 // GetServingNfTypeListOk returns a tuple with the ServingNfTypeList field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *MfafInfo) GetServingNfTypeListOk() ([]NFType, bool) {
+func (o *MfafInfo) GetServingNfTypeListOk() ([]NfType, bool) {
 	if o == nil || IsNil(o.ServingNfTypeList) {
 		return nil, false
 	}
@@ -69,8 +69,8 @@ func (o *MfafInfo) HasServingNfTypeList() bool {
 	return false
 }
 
-// SetServingNfTypeList gets a reference to the given []NFType and assigns it to the ServingNfTypeList field.
-func (o *MfafInfo) SetServingNfTypeList(v []NFType) {
+// SetServingNfTypeList gets a reference to the given []NfType and assigns it to the ServingNfTypeList field.
+func (o *MfafInfo) SetServingNfTypeList(v []NfType) {
 	o.ServingNfTypeList = v
 }
 

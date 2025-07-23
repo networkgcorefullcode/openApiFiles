@@ -26,7 +26,7 @@ type NwdafCond struct {
 	SnssaiList []Snssai `json:"snssaiList,omitempty"`
 	TaiList []Tai `json:"taiList,omitempty"`
 	TaiRangeList []TaiRange `json:"taiRangeList,omitempty"`
-	ServingNfTypeList []NFType `json:"servingNfTypeList,omitempty"`
+	ServingNfTypeList []NfType `json:"servingNfTypeList,omitempty"`
 	ServingNfSetIdList []string `json:"servingNfSetIdList,omitempty"`
 	MlAnalyticsList []MlAnalyticsInfo `json:"mlAnalyticsList,omitempty"`
 }
@@ -204,9 +204,9 @@ func (o *NwdafCond) SetTaiRangeList(v []TaiRange) {
 }
 
 // GetServingNfTypeList returns the ServingNfTypeList field value if set, zero value otherwise.
-func (o *NwdafCond) GetServingNfTypeList() []NFType {
+func (o *NwdafCond) GetServingNfTypeList() []NfType {
 	if o == nil || IsNil(o.ServingNfTypeList) {
-		var ret []NFType
+		var ret []NfType
 		return ret
 	}
 	return o.ServingNfTypeList
@@ -214,7 +214,7 @@ func (o *NwdafCond) GetServingNfTypeList() []NFType {
 
 // GetServingNfTypeListOk returns a tuple with the ServingNfTypeList field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *NwdafCond) GetServingNfTypeListOk() ([]NFType, bool) {
+func (o *NwdafCond) GetServingNfTypeListOk() ([]NfType, bool) {
 	if o == nil || IsNil(o.ServingNfTypeList) {
 		return nil, false
 	}
@@ -230,8 +230,8 @@ func (o *NwdafCond) HasServingNfTypeList() bool {
 	return false
 }
 
-// SetServingNfTypeList gets a reference to the given []NFType and assigns it to the ServingNfTypeList field.
-func (o *NwdafCond) SetServingNfTypeList(v []NFType) {
+// SetServingNfTypeList gets a reference to the given []NfType and assigns it to the ServingNfTypeList field.
+func (o *NwdafCond) SetServingNfTypeList(v []NfType) {
 	o.ServingNfTypeList = v
 }
 

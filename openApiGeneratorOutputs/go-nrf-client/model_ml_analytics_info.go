@@ -26,7 +26,7 @@ type MlAnalyticsInfo struct {
 	FlCapabilityType *FlCapabilityType `json:"flCapabilityType,omitempty"`
 	// indicating a time in seconds.
 	FlTimeInterval *int32 `json:"flTimeInterval,omitempty"`
-	NfTypeList []NFType `json:"nfTypeList,omitempty"`
+	NfTypeList []NfType `json:"nfTypeList,omitempty"`
 	NfSetIdList []string `json:"nfSetIdList,omitempty"`
 	VflCapabilityType *VflCapabilityType `json:"vflCapabilityType,omitempty"`
 }
@@ -241,9 +241,9 @@ func (o *MlAnalyticsInfo) SetFlTimeInterval(v int32) {
 }
 
 // GetNfTypeList returns the NfTypeList field value if set, zero value otherwise.
-func (o *MlAnalyticsInfo) GetNfTypeList() []NFType {
+func (o *MlAnalyticsInfo) GetNfTypeList() []NfType {
 	if o == nil || IsNil(o.NfTypeList) {
-		var ret []NFType
+		var ret []NfType
 		return ret
 	}
 	return o.NfTypeList
@@ -251,7 +251,7 @@ func (o *MlAnalyticsInfo) GetNfTypeList() []NFType {
 
 // GetNfTypeListOk returns a tuple with the NfTypeList field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *MlAnalyticsInfo) GetNfTypeListOk() ([]NFType, bool) {
+func (o *MlAnalyticsInfo) GetNfTypeListOk() ([]NfType, bool) {
 	if o == nil || IsNil(o.NfTypeList) {
 		return nil, false
 	}
@@ -267,8 +267,8 @@ func (o *MlAnalyticsInfo) HasNfTypeList() bool {
 	return false
 }
 
-// SetNfTypeList gets a reference to the given []NFType and assigns it to the NfTypeList field.
-func (o *MlAnalyticsInfo) SetNfTypeList(v []NFType) {
+// SetNfTypeList gets a reference to the given []NfType and assigns it to the NfTypeList field.
+func (o *MlAnalyticsInfo) SetNfTypeList(v []NfType) {
 	o.NfTypeList = v
 }
 

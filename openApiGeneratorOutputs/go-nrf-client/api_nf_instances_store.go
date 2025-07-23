@@ -25,14 +25,14 @@ type NFInstancesStoreAPIService service
 type ApiGetNFInstancesRequest struct {
 	ctx context.Context
 	ApiService *NFInstancesStoreAPIService
-	nfType *NFType
+	nfType *NfType
 	limit *int32
 	pageNumber *int32
 	pageSize *int32
 }
 
 // Type of NF
-func (r ApiGetNFInstancesRequest) NfType(nfType NFType) ApiGetNFInstancesRequest {
+func (r ApiGetNFInstancesRequest) NfType(nfType NfType) ApiGetNFInstancesRequest {
 	r.nfType = &nfType
 	return r
 }

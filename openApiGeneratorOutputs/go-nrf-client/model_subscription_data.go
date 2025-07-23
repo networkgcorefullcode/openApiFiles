@@ -35,7 +35,7 @@ type SubscriptionData struct {
 	// This represents the Network Identifier, which together with a PLMN ID is used to identify an SNPN (see 3GPP TS 23.003 and 3GPP TS 23.501 clause 5.30.2.1).  
 	Nid *string `json:"nid,omitempty"`
 	NotifCondition *NotifCondition `json:"notifCondition,omitempty"`
-	ReqNfType *NFType `json:"reqNfType,omitempty"`
+	ReqNfType *NfType `json:"reqNfType,omitempty"`
 	// Fully Qualified Domain Name
 	ReqNfFqdn *string `json:"reqNfFqdn,omitempty"`
 	ReqSnssais []ExtSnssai `json:"reqSnssais,omitempty"`
@@ -399,9 +399,9 @@ func (o *SubscriptionData) SetNotifCondition(v NotifCondition) {
 }
 
 // GetReqNfType returns the ReqNfType field value if set, zero value otherwise.
-func (o *SubscriptionData) GetReqNfType() NFType {
+func (o *SubscriptionData) GetReqNfType() NfType {
 	if o == nil || IsNil(o.ReqNfType) {
-		var ret NFType
+		var ret NfType
 		return ret
 	}
 	return *o.ReqNfType
@@ -409,7 +409,7 @@ func (o *SubscriptionData) GetReqNfType() NFType {
 
 // GetReqNfTypeOk returns a tuple with the ReqNfType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SubscriptionData) GetReqNfTypeOk() (*NFType, bool) {
+func (o *SubscriptionData) GetReqNfTypeOk() (*NfType, bool) {
 	if o == nil || IsNil(o.ReqNfType) {
 		return nil, false
 	}
@@ -425,8 +425,8 @@ func (o *SubscriptionData) HasReqNfType() bool {
 	return false
 }
 
-// SetReqNfType gets a reference to the given NFType and assigns it to the ReqNfType field.
-func (o *SubscriptionData) SetReqNfType(v NFType) {
+// SetReqNfType gets a reference to the given NfType and assigns it to the ReqNfType field.
+func (o *SubscriptionData) SetReqNfType(v NfType) {
 	o.ReqNfType = &v
 }
 
